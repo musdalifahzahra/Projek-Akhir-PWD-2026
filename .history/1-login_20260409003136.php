@@ -36,11 +36,12 @@ if ($SERVER["REQUEST_METHOD"] == "POST") {
             <label for="password">Password</label>
             <input type="text" name="password" id="password" placeholder="password">
             <div class="pesan_error">
-                <?php if ($error === true) { ?>
-                    <span>Ussername atau Password salah</span>
-                <?php } ?>
+                <?php if($error === true) {?>
+                    <span></span>
+                    <?php }?>
             </div>
             <button type="submit">Login</button>
+
         </form>
     </div>
 </body>
