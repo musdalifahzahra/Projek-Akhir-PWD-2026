@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <h1>Login</h1> <br>
+    
     <div class="form_login">
         <form action="2-dashboard.php" method="post">
             <label for="username">Username</label>
