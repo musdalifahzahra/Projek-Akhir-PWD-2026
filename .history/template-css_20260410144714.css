@@ -1,0 +1,27 @@
+:root {
+  --color-nav: #1e293b;
+  --color-bag-web: #f8fafc;
+  --color-card: #ffffff;
+  --color-tulisan-utama: #334155;
+  --color-pemasukan: #10b981;
+  --color-pengeluaran: #ef4444;
+}
+
+nav {
+  background-color: var(--color-nav);
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+nav ul{
+padding: 0px;
+margin: 0px;
+}
+nav li {
+    margin-right: 5px;
+    color: var();
+}
+
+body {
+  background-color: var(--color-bag-web);
+}

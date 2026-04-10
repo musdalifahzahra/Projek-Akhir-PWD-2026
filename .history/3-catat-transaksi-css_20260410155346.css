@@ -1,0 +1,10 @@
+wrap{
+    width: 100%;
+    padding: 100px;
+    height: 900px;
+    background-color: aqua;
+}
+
+card{
+    width: 50%;
+}

@@ -1,0 +1,29 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(-);
+  padding: 50px 150px;
+  gap: 20px;
+}
+
+
+.template {
+  padding: 20px;
+  background-color: var(--color-card);
+  border-radius: 13px;
+}
+
+.input-transaksi {
+  display: flex;
+  flex: 1;
+  /* padding: 20px; */
+}
+
+.transaksi-terbaru {
+  display: flex;
+  flex: 1;
+  /* padding: 20px; */
+}

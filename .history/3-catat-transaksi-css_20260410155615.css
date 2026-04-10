@@ -1,0 +1,12 @@
+.isi{
+    display: flex;
+    z-inde
+    width: 100%;
+    min-height: 100vh;
+    background-color: aqua;
+}
+
+card{
+    width: 50%;
+    background-color: aquamarine;
+}

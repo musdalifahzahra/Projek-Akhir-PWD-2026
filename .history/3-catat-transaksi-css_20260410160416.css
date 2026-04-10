@@ -1,0 +1,25 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  width: 100%;
+  min-height: 100vh;
+  background-color: aqua;
+  padding: 50px 150px;
+}
+
+card {
+  width: 50%;
+  background-color: green;
+  display: flex;
+    flex: 1;
+}
+
+.input-transaksi {
+   
+    background-color: aquamarine;
+}
+
+.transaksi-terbaru {
+    background-color: palegoldenrod;
+}
