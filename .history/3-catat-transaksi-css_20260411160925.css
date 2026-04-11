@@ -60,11 +60,7 @@ form .catat {
   height: auto;
   gap: 0px;
 }
-.wrap-transaksi{
-  display: flex;
-  gap: 10px;
-  flex-direction: column;
-}
+.wrap-
 .satu-transaksi {
   width: 100%;
   display: grid;

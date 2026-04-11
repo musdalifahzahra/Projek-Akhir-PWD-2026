@@ -5,7 +5,6 @@ require "0-koneksi.php";
 //INPUT FORM TRANSAKSI (INSERT)
 //cek submit uda di pencet blm
 $berhasil = false;
-$tanda_jenis = "+";
 if (isset($_POST["submit"])) {
     //ambil data dari elemen form
     $tanggal = $_POST["tanggal"];
@@ -14,8 +13,6 @@ if (isset($_POST["submit"])) {
     $jenis = $_POST["jenis"];
     $jumlah = $_POST["jumlah"];
     $catatan = $_POST["catatan"];
-
-
 
     //query isert data
     $insert = "INSERT INTO transaksi
@@ -27,6 +24,7 @@ if (isset($_POST["submit"])) {
     if (mysqli_affected_rows($conn) > 0) {
         $berhasil = true;
         header("Location: 3-catat-transaksi.php");
+
     }
 }
 
@@ -120,25 +118,39 @@ $select = mysqli_query($conn, "SELECT * FROM transaksi ORDER BY No DESC LIMIT 6"
         <!-- transaksi terbaru -->
         <div class="tampil-transaksi-terbaru template">
             <h5>Transaksi Terbaru</h5><br>
-            <div class="wrap-transaksi">
-                <?php while ($data = mysqli_fetch_array($select)) { ?>
-                    <div class="satu-transaksi">
-                        <div class="a">
-                            <p class="keterangan"><?= $data['Keterangan'] ?></p>
-                            <p class="tanggal-catatan"><?= $data['Tanggal'] . " | " . $data['Catatan'] ?></p>
-                        </div>
-                      
-                        <div class="b">
-
-                            <p class="jenis"><?= $data['Jenis'] ?></p>
-                            <p><?= $data['Jumlah'] ?></p>
-                            <button class="edit">Edit</button>
-                            <button class="hapus"> x </button>
-                        </div>
+            div.wrap
+            <?php while ($data = mysqli_fetch_array($select)) { ?>
+                <div class="satu-transaksi">
+                    <div class="a">
+                        <p class="keterangan"><?= $data['Keterangan'] ?></p>
+                        <p class="tanggal-catatan"><?= $data['Tanggal'] . " | " . $data['Catatan']?></p>
                     </div>
-                <?php }; ?>
-            </div>
+                    <div class="b">
+                        <p class="jenis"><?= $data['Jenis'] ?></p>
+                        <p><?= $data['Jumlah'] ?></p>
+                        <button class="edit">Edit</button>
+                        <button class="hapus"> x </button>
+                    </div>
+                </div>
+            <?php }; ?>
+
+    
         </div>
+        <!-- <table border="1">
+                <tr>
+                    <td>keterangan</td>
+                    <td rowspan="2">jenis</td>
+                    <td rowspan="2">jumlah</td>
+                    <td rowspan="2">edit</td>
+                    <td rowspan="2">hapus</td>
+                </tr>
+                <tr>
+                    <td>tanggal | catatan</td>
+                </tr>
+            </table> -->
+
+
     </div>
 </body>
+
 </html>

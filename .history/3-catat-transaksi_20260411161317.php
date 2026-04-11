@@ -5,7 +5,6 @@ require "0-koneksi.php";
 //INPUT FORM TRANSAKSI (INSERT)
 //cek submit uda di pencet blm
 $berhasil = false;
-$tanda_jenis = "+";
 if (isset($_POST["submit"])) {
     //ambil data dari elemen form
     $tanggal = $_POST["tanggal"];
@@ -15,7 +14,9 @@ if (isset($_POST["submit"])) {
     $jumlah = $_POST["jumlah"];
     $catatan = $_POST["catatan"];
 
-
+    if($jenis === "Pengeluaran"){
+        $
+    }
 
     //query isert data
     $insert = "INSERT INTO transaksi
@@ -127,9 +128,7 @@ $select = mysqli_query($conn, "SELECT * FROM transaksi ORDER BY No DESC LIMIT 6"
                             <p class="keterangan"><?= $data['Keterangan'] ?></p>
                             <p class="tanggal-catatan"><?= $data['Tanggal'] . " | " . $data['Catatan'] ?></p>
                         </div>
-                      
                         <div class="b">
-
                             <p class="jenis"><?= $data['Jenis'] ?></p>
                             <p><?= $data['Jumlah'] ?></p>
                             <button class="edit">Edit</button>
@@ -139,6 +138,21 @@ $select = mysqli_query($conn, "SELECT * FROM transaksi ORDER BY No DESC LIMIT 6"
                 <?php }; ?>
             </div>
         </div>
+        <!-- <table border="1">
+                <tr>
+                    <td>keterangan</td>
+                    <td rowspan="2">jenis</td>
+                    <td rowspan="2">jumlah</td>
+                    <td rowspan="2">edit</td>
+                    <td rowspan="2">hapus</td>
+                </tr>
+                <tr>
+                    <td>tanggal | catatan</td>
+                </tr>
+            </table> -->
+
+
     </div>
 </body>
+
 </html>

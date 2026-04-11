@@ -13,7 +13,6 @@
 }
 
 h5 {
-  font-size: var(--font-judul-card);
   font-weight: bold;
 }
 .template {
@@ -40,10 +39,6 @@ form .catat {
   margin: 0px;
   padding: 0px;
 }
-.form-label{
-  padding-left: 2px;
-  font-size: var(--font-text);
-}
 
 .form-control,
 .form-select {
@@ -52,58 +47,25 @@ form .catat {
 }
 
 /* TRANSAKSI TERBARU */
-.tampil-transaksi-terbaru {
-  margin: 0%;
+.transaksi-terbaru {
   width: 100%;
   display: flex;
   flex-direction: column;
   height: auto;
-  gap: 0px;
-}
-.wrap-transaksi{
-  display: flex;
-  gap: 10px;
-  flex-direction: column;
+  gap: 3px;
 }
 .satu-transaksi {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr auto auto auto auto;
-  border-bottom: 1px solid var(--color-belum-dipencet);
-  padding: 0px 10px 5px 10px;
+  border-bottom: 1px solid;
+  padding: 0px 10px;
 }
 .a {
 }
 
 .keterangan {
-font-size: large;
-font-size: var(--font-text);
-}
-.tanggal-catatan{
-  font-size:x-small;
-  font-size:var(--font-note);
-  color: var(--color-belum-dipencet);
-}
-.jenis{
-  font-size: x-small;
-  background-color: aqua;
-  border-radius: 25px;
-  padding: 4px 10px;
-}
-.edit{
-  font-size: x-small;
-  background-color: rgb(233, 255, 137);
-  border-radius: 25px;
-  padding: 4px 10px;
-  border: none;
 
-}
-.hapus{
-  background-color: rgb(214, 170, 255);
-  border-radius: 100%;
-  padding: 2px 7px;
-  font-size: x-small;
-  border: none;
 }
 .b {
   display: flex;

@@ -14,7 +14,12 @@ if (isset($_POST["submit"])) {
     $jenis = $_POST["jenis"];
     $jumlah = $_POST["jumlah"];
     $catatan = $_POST["catatan"];
-
+  <!-- <?php
+                        if ($jenis === "Pengeluaran") {
+                            $tanda_jenis = "-";
+                        } else if ($jenis === "Pemasukan") {
+                            $tanda_jenis = "+";
+                        } ?> -->
 
 
     //query isert data

@@ -40,10 +40,7 @@ form .catat {
   margin: 0px;
   padding: 0px;
 }
-.form-label{
-  padding-left: 2px;
-  font-size: var(--font-text);
-}
+
 
 .form-control,
 .form-select {
@@ -52,18 +49,12 @@ form .catat {
 }
 
 /* TRANSAKSI TERBARU */
-.tampil-transaksi-terbaru {
-  margin: 0%;
+.transaksi-terbaru {
   width: 100%;
   display: flex;
   flex-direction: column;
   height: auto;
-  gap: 0px;
-}
-.wrap-transaksi{
-  display: flex;
   gap: 10px;
-  flex-direction: column;
 }
 .satu-transaksi {
   width: 100%;

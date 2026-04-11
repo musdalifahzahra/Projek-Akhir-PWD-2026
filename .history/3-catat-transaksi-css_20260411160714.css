@@ -52,18 +52,13 @@ form .catat {
 }
 
 /* TRANSAKSI TERBARU */
-.tampil-transaksi-terbaru {
+.transaksi-terbaru {
   margin: 0%;
   width: 100%;
   display: flex;
   flex-direction: column;
   height: auto;
-  gap: 0px;
-}
-.wrap-transaksi{
-  display: flex;
-  gap: 10px;
-  flex-direction: column;
+  gap: 5px;
 }
 .satu-transaksi {
   width: 100%;

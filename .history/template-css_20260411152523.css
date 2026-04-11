@@ -13,10 +13,10 @@
   --h1: 32px; /* (judul halaman) */
   --h2: 24px; /* (judul section) */
   --h3: 20px; /* (sub section) */
-  --font-judul-card: 18px; /* (judul card) */
+  --h4: 18px; /* (judul card) */
   --h5: 16px; /* (label besar) */
-  --font-text: 14px; /* (teks biasa) */
-  --font-note: 12px; /* (catatan/hint) */
+  --p: 14px; /* (teks biasa) */
+  --small: 12px; /* (catatan/hint) */
 }
 
 body {

@@ -63,7 +63,6 @@ form .catat {
 .wrap-transaksi{
   display: flex;
   gap: 10px;
-  flex-direction: column;
 }
 .satu-transaksi {
   width: 100%;

@@ -8,7 +8,7 @@ $berhasil = false;
 $tanda_jenis = "+";
 if (isset($_POST["submit"])) {
     //ambil data dari elemen form
-    $tanggal = $_POST["tanggal"];
+    $_tanggal = $_POST["tanggal"];
     $keterangan = $_POST["keterangan"];
     $kategori = $_POST["kategori"];
     $jenis = $_POST["jenis"];
@@ -127,11 +127,16 @@ $select = mysqli_query($conn, "SELECT * FROM transaksi ORDER BY No DESC LIMIT 6"
                             <p class="keterangan"><?= $data['Keterangan'] ?></p>
                             <p class="tanggal-catatan"><?= $data['Tanggal'] . " | " . $data['Catatan'] ?></p>
                         </div>
-                      
+                        <?php
+                        if ($jenis === "Pengeluaran") {
+                            $tanda_jenis = "-";
+                        } else if ($jenis === "Pemasukan") {
+                            $tanda_jenis = "+";
+                        } ?>
                         <div class="b">
 
                             <p class="jenis"><?= $data['Jenis'] ?></p>
-                            <p><?= $data['Jumlah'] ?></p>
+                            <p><?= $tanda_jenis . $data['Jumlah'] ?></p>
                             <button class="edit">Edit</button>
                             <button class="hapus"> x </button>
                         </div>
@@ -139,6 +144,21 @@ $select = mysqli_query($conn, "SELECT * FROM transaksi ORDER BY No DESC LIMIT 6"
                 <?php }; ?>
             </div>
         </div>
+        <!-- <table border="1">
+                <tr>
+                    <td>keterangan</td>
+                    <td rowspan="2">jenis</td>
+                    <td rowspan="2">jumlah</td>
+                    <td rowspan="2">edit</td>
+                    <td rowspan="2">hapus</td>
+                </tr>
+                <tr>
+                    <td>tanggal | catatan</td>
+                </tr>
+            </table> -->
+
+
     </div>
 </body>
+
 </html>
