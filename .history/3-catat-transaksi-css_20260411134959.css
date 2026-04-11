@@ -1,0 +1,59 @@
+/* INPUT  FORM TRANSAKSI */
+.wrap {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-bag-web);
+  padding: 50px 20px;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+h5 {
+  font-weight: bold;
+}
+.template {
+  max-width: 800px;
+    border: 1.2px solid var(--color-border-card);
+background-color: var(--color-card);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(30, 41, 59, 0.05); 
+  padding: 30px 
+}
+
+.input-transaksi {
+  display: flex;
+  
+  /* padding: 20px; */
+}
+
+.transaksi-terbaru {
+  display: flex;
+  flex: 1;
+  /* padding: 20px; */
+}
+form .catat {
+  margin: 0px;
+  padding: 0px;
+}
+
+.form-control,
+.form-select {
+    background-color: var(--color-input);
+  border: 1px solid var(--color-border);
+  
+}
+
+/* TRANSAKSI TERBARU */
+.transaksi-terbaru
+.satu-transaksi{
+  width: 800px;
+  display: grid;
+  grid-template-columns: 1fr auto auto auto auto ;
+}
+.a{
+  background-color: rgb(37, 34, 28);
+}

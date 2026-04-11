@@ -1,0 +1,14 @@
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login{
+    padding: 100px 50px;
+    background-color: aqua;
+    /* width: 500px;
+    height: 500px; */
+}
