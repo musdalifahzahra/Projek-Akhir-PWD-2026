@@ -1,12 +1,11 @@
 <?php
+
 session_start();
 
 if (!isset($_SESSION["logged_in"])) {
     header("location: 1-login.php");
     exit();
 }
-
-require "0-koneksi.php";
 
 if (isset($_POST['simpan_profil'])) {
     $_SESSION["nama_toko"]      = trim($_POST["nama_toko"]);
@@ -15,34 +14,33 @@ if (isset($_POST['simpan_profil'])) {
     exit();
 }
 
+require "0-koneksi.php";
+
 $nama_toko      = $_SESSION["nama_toko"]      ?? "Toko Sembako Makmur";
-$deskripsi_toko = $_SESSION["deskripsi_toko"] ?? "Menyediakan kebutuhan sembako sehari-hari dengan harga terjangkau dan kualitas terpercaya.";
- 
+$deskripsi_toko = $_SESSION["deskripsi_toko"] ?? "Menyediakan kebutuhan sembako sehari-hari dengan harga terjangkau.";
+
 $bulan_ini = date("Y-m");
- 
-$q_income     = mysqli_query($conn,
-    "SELECT SUM(Jumlah) AS total FROM transaksi
-     WHERE Jenis='Pemasukan'
-     AND DATE_FORMAT(Tanggal,'%Y-%m')='$bulan_ini'"
-);
-$total_income = mysqli_fetch_assoc($q_income)['total'] ?? 0;
- 
-$q_expense     = mysqli_query($conn,
-    "SELECT SUM(Jumlah) AS total FROM transaksi
-     WHERE Jenis='Pengeluaran'
-     AND DATE_FORMAT(Tanggal,'%Y-%m')='$bulan_ini'"
-);
-$total_expense = mysqli_fetch_assoc($q_expense)['total'] ?? 0;
- 
+
+$total_income = mysqli_fetch_assoc(mysqli_query($conn,
+    "SELECT SUM(Jumlah) AS t FROM transaksi
+     WHERE Jenis='Pemasukan' AND DATE_FORMAT(Tanggal,'%Y-%m')='$bulan_ini'"
+))['t'] ?? 0;
+
+$total_expense = mysqli_fetch_assoc(mysqli_query($conn,
+    "SELECT SUM(Jumlah) AS t FROM transaksi
+     WHERE Jenis='Pengeluaran' AND DATE_FORMAT(Tanggal,'%Y-%m')='$bulan_ini'"
+))['t'] ?? 0;
+
 $laba_bersih = $total_income - $total_expense;
- 
-$q_count  = mysqli_query($conn, "SELECT COUNT(*) AS total FROM transaksi");
-$total_tx = mysqli_fetch_assoc($q_count)['total'] ?? 0;
-  
+
+$total_tx = mysqli_fetch_assoc(mysqli_query($conn,
+    "SELECT COUNT(*) AS t FROM transaksi"
+))['t'] ?? 0;
+
 $q_recent = mysqli_query($conn,
     "SELECT * FROM transaksi ORDER BY No DESC LIMIT 5"
 );
- 
+
 function formatRp($angka) {
     return "Rp " . number_format($angka, 0, ',', '.');
 }
@@ -79,6 +77,7 @@ function formatRp($angka) {
 
 <div class="wrap">
 
+    <!-- BANNER PROFIL -->
     <div class="profile-section">
         <div class="profile-logo">🏪</div>
         <div class="profile-info">
@@ -90,46 +89,43 @@ function formatRp($angka) {
             ✏️ Edit Profil
         </a>
     </div>
- 
+
+    <!-- 4 SUMMARY CARDS -->
     <div class="summary-grid">
 
         <div class="summary-card card-income">
             <div class="summary-label" style="color:#15803d;">Pemasukan Bulan Ini</div>
-            <div class="summary-value" style="color:#15803d;">
-                <?= formatRp($total_income) ?>
-            </div>
+            <div class="summary-value" style="color:#15803d;"><?= formatRp($total_income) ?></div>
         </div>
 
         <div class="summary-card card-expense">
             <div class="summary-label" style="color:#b91c1c;">Pengeluaran</div>
-            <div class="summary-value" style="color:#b91c1c;">
-                <?= formatRp($total_expense) ?>
-            </div>
+            <div class="summary-value" style="color:#b91c1c;"><?= formatRp($total_expense) ?></div>
         </div>
 
         <div class="summary-card card-profit">
             <div class="summary-label" style="color:#1e3a8a;">Laba Bersih</div>
             <div class="summary-value"
-                 style="color:<?= $laba_bersih >= 0 ? '#1d4ed8' : '#b91c1c' ?>;">
+                 style="color:<?= $laba_bersih >= 0 ? '#1d4ed8' : '#dc2626' ?>;">
                 <?= formatRp($laba_bersih) ?>
             </div>
         </div>
 
         <div class="summary-card card-count">
             <div class="summary-label" style="color:#92400e;">Total Transaksi</div>
-            <div class="summary-value" style="color:#92400e;">
-                <?= $total_tx ?>
-            </div>
+            <div class="summary-value" style="color:#92400e;"><?= $total_tx ?></div>
         </div>
 
     </div>
- 
+
+    <!-- TRANSAKSI TERBARU -->
     <div class="card-custom">
         <div class="section-title">📋 Transaksi Terbaru</div>
 
         <?php if (mysqli_num_rows($q_recent) === 0): ?>
-            <p style="color:#64748b;font-size:0.85rem;text-align:center;padding:20px;">
-                Belum ada transaksi. <a href="3-catat-transaksi.php">Catat sekarang →</a>
+            <p style="color:#64748b;font-size:14px;text-align:center;padding:24px 0;">
+                Belum ada transaksi.
+                <a href="3-catat-transaksi.php" style="color:#1d4ed8;font-weight:700;">Catat sekarang →</a>
             </p>
         <?php else: ?>
             <?php while ($row = mysqli_fetch_assoc($q_recent)): ?>
@@ -141,11 +137,9 @@ function formatRp($angka) {
                     <span class="badge-<?= $row['Jenis'] === 'Pemasukan' ? 'masuk' : 'keluar' ?>">
                         <?= $row['Jenis'] ?>
                     </span>
-                    <div class="tx-date">
-                        <?= date('d M Y', strtotime($row['Tanggal'])) ?>
-                    </div>
+                    <div class="tx-date"><?= date('d M Y', strtotime($row['Tanggal'])) ?></div>
                     <div class="<?= $row['Jenis'] === 'Pemasukan' ? 'amount-masuk' : 'amount-keluar' ?>">
-                        <?= $row['Jenis'] === 'Pemasukan' ? '+' : '-' ?><?= formatRp($row['Jumlah']) ?>
+                        <?= $row['Jenis'] === 'Pemasukan' ? '+' : '−' ?><?= formatRp($row['Jumlah']) ?>
                     </div>
                 </div>
             <?php endwhile; ?>
@@ -157,7 +151,8 @@ function formatRp($angka) {
     </div>
 
 </div>
- 
+
+<!-- MODAL EDIT PROFIL -->
 <div class="modal fade" id="modalProfil" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
