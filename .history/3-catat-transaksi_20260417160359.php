@@ -111,8 +111,6 @@ if (isset($_POST["submit"])) {
 
                         <div class="b">
                             <p><?= $data['Jumlah'] ?></p>
-
-                            
                             <!-- MODAL POP UP UBAH -->
                             <!-- Button modal ubah -->
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-ubah<?= $data['No'] ?>">

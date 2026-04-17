@@ -61,7 +61,6 @@ if (isset($_POST["submit-ubah"])) {
     global $conn;
     //persiapan ubah data
     // ambil data 
-    $id = $_POST["id"];
     $tanggal = $_POST["tanggal"];
     $keterangan = $_POST["keterangan"];
     $kategori = $_POST["kategori"];
@@ -69,15 +68,15 @@ if (isset($_POST["submit-ubah"])) {
     $jumlah = $_POST["jumlah"];
     $catatan = $_POST["catatan"];
 
-    $ubah = mysqli_query($conn, "UPDATE transaksi SET 
+    $ubah = mysqli_query($conn, 'UPDATE transaksi SET 
                             Tanggal = '$tanggal',
                             Keterangan = '$keterangan',
                             Kategori = '$kategori',
                             Jenis = '$jenis',
                             Jumlah = '$jumlah',
-                            Catatan = '$catatan'
-                            WHERE No = '$id'
-                            ");
+                            Catatan = '$catatan',
+                            WHERE No = $_POST["id"]
+                            ');
 
 
 

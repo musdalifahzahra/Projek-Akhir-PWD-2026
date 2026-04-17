@@ -76,7 +76,7 @@ if (isset($_POST["submit-ubah"])) {
                             Jenis = '$jenis',
                             Jumlah = '$jumlah',
                             Catatan = '$catatan'
-                            WHERE No = '$id'
+                            WHERE No = $_POST["id"]
                             ");
 
 

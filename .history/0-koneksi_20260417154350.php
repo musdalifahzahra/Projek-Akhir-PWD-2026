@@ -55,46 +55,4 @@ function hapus($id)
     return mysqli_affected_rows($conn);
 }
 
-//UNTUK KONDISI KETIKA MENG UBAH DATA
-// cek tombol ubah uda d pencet blm
-if (isset($_POST["submit-ubah"])) {
-    global $conn;
-    //persiapan ubah data
-    // ambil data 
-    $id = $_POST["id"];
-    $tanggal = $_POST["tanggal"];
-    $keterangan = $_POST["keterangan"];
-    $kategori = $_POST["kategori"];
-    $jenis = $_POST["jenis"];
-    $jumlah = $_POST["jumlah"];
-    $catatan = $_POST["catatan"];
-
-    $ubah = mysqli_query($conn, "UPDATE transaksi SET 
-                            Tanggal = '$tanggal',
-                            Keterangan = '$keterangan',
-                            Kategori = '$kategori',
-                            Jenis = '$jenis',
-                            Jumlah = '$jumlah',
-                            Catatan = '$catatan'
-                            WHERE No = '$id'
-                            ");
-
-
-
-    // cek data nerhasil di ubah apa ngga
-    if ($ubah) {
-        echo "
-        <script>
-        alert('Data berhasil di ubah');
-        document.location.href = '3-catat-transaksi.php';
-        </script>
-        ";
-    } else {
-        echo "
-        <script>
-        alert('Data gagal di ubah');
-        document.location.href = '3-catat-transaksi.php';
-        </script>
-        ";
-    }
-}
+//

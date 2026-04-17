@@ -58,26 +58,18 @@ function hapus($id)
 //UNTUK KONDISI KETIKA MENG UBAH DATA
 // cek tombol ubah uda d pencet blm
 if (isset($_POST["submit-ubah"])) {
-    global $conn;
+global $conn;
     //persiapan ubah data
-    // ambil data 
-    $id = $_POST["id"];
     $tanggal = $_POST["tanggal"];
-    $keterangan = $_POST["keterangan"];
-    $kategori = $_POST["kategori"];
-    $jenis = $_POST["jenis"];
-    $jumlah = $_POST["jumlah"];
-    $catatan = $_POST["catatan"];
-
-    $ubah = mysqli_query($conn, "UPDATE transaksi SET 
-                            Tanggal = '$tanggal',
-                            Keterangan = '$keterangan',
-                            Kategori = '$kategori',
-                            Jenis = '$jenis',
-                            Jumlah = '$jumlah',
-                            Catatan = '$catatan'
-                            WHERE No = '$id'
-                            ");
+                            $keterangan = $_POST["keterangan"];
+                            $kategori = $_POST["kategori"];
+                            $jenis = $_POST["jenis"];
+                            $jumlah = $_POST["jumlah"];
+                            $catatan = $_POST["catatan"]
+    $ubah = mysqli_query($conn, 'UPDATE transaksi SET 
+                            
+                            WHERE No = $_POST["id"]
+                            ' );
 
 
 

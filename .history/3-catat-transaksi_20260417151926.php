@@ -111,14 +111,25 @@ if (isset($_POST["submit"])) {
 
                         <div class="b">
                             <p><?= $data['Jumlah'] ?></p>
-
-                            
                             <!-- MODAL POP UP UBAH -->
                             <!-- Button modal ubah -->
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-ubah<?= $data['No'] ?>">
                                 Ubah
                             </button>
-                            <!-- tampilan pop up ubah -->
+                            
+
+                            <!-- <a href="0-ubah.php?id=<?= $data["No"] ?>"> Edit </a> -->
+                            <a href="0-hapus.php?id=<?= $data["No"] ?>" onclick="return confirm('Apakah anda ingin mengapus data tersebut');"> Hapus </a>
+                            <!-- <button class="edit">Edit</button>
+                            <button class="hapus"> x </button> -->
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+
+
+            <!-- modal pop up -->
+             <!-- tampilan pop up ubah -->
                             <div class="modal fade" id="modal-ubah<?= $data['No'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog template">
                                     <div class="modal-content">
@@ -129,26 +140,21 @@ if (isset($_POST["submit"])) {
                                         <div class="modal-body">
                                             <!-- input transaksi -->
                                             <div class="input-transaksi template">
-
-                                                <!-- kalo biasnya kirim datanya lewat a href GET, kalo ini pake form POST -->
-                                                <form class="row g-3" action="0-koneksi.php" method="POST">
-                                                    <!-- membawa id, id  yang sesuai dengan data yg mau di edit -->
-                                                    <input type="hidden" name="id" value="<?= $data['No'] ?>">
-
+                                                <form class="row g-3" method="POST">
                                                     <!-- tanggal -->
                                                     <div class="col-md-3">
                                                         <label for="tanggal" class="form-label">Tanggal</label>
-                                                        <input type="date" class="form-control" id="tanggal" name="tanggal" value="<?= $data['Tanggal'] ?>" required>
+                                                        <input type="date" class="form-control" id="tanggal" name="tanggal" required>
                                                     </div>
                                                     <!-- keterangan -->
                                                     <div class="col-md-3">
                                                         <label for="keterangan" class="form-label">Keterangan</label>
-                                                        <input type="text" class="form-control" id="keterangan" name="keterangan" value="<?= $data['Keterangan'] ?>" required>
+                                                        <input type="text" class="form-control" id="keterangan" name="keterangan" required>
                                                     </div>
                                                     <!-- kategori -->
                                                     <div class="col-md-3">
                                                         <label for="inputZip" class="form-label">Kategori</label>
-                                                        <select class="form-select" id="kategori" aria-label="Default select example" name="kategori" value="<?= $data['Kategori'] ?>" required>
+                                                        <select class="form-select" id="kategori" aria-label="Default select example" name="kategori" required>
                                                             <option value="Penjualan">Penjualan</option>
                                                             <option value="Belanja Stok">Belanja Stok</option>
                                                             <option value="Operasional">Operasional</option>
@@ -159,7 +165,7 @@ if (isset($_POST["submit"])) {
                                                     <!-- jenis -->
                                                     <div class="col-md-3">
                                                         <label for="jenis" class="form-label">Jenis</label>
-                                                        <select class="form-select" id="jenis" aria-label="Default select example" name="jenis" value="<?= $data['Jenis'] ?>" required>
+                                                        <select class="form-select" id="jenis" aria-label="Default select example" name="jenis" required>
                                                             <option value="Masuk">Pemasukan</option>
                                                             <option value="Keluar">Pengeluaran</option>
                                                         </select>
@@ -167,16 +173,16 @@ if (isset($_POST["submit"])) {
                                                     <!-- jumlah-->
                                                     <div class="col-md-3">
                                                         <label for="jumlah" class="form-label">Jumlah</label>
-                                                        <input type="number" class="form-control" id="jumlah" name="jumlah" value="<?= $data['Jumlah'] ?>" required>
+                                                        <input type="number" class="form-control" id="jumlah" name="jumlah" required>
                                                     </div>
                                                     <!-- catatan -->
                                                     <div class="col-md-7">
                                                         <label for="catatan" class="form-label">Catatan</label>
-                                                        <input type="text" class="form-control" id="catatan" name="catatan" value="<?= $data['Catatan'] ?>">
+                                                        <input type="text" class="form-control" id="catatan" name="catatan">
                                                     </div>
-                                                    <!-- submit (ubah) -->
+                                                    <!-- submit (+catat) -->
                                                     <div class="col-md-2 d-flex align-items-end justify-content-end">
-                                                        <button type="submit" class="btn btn-primary" id="catat" name="submit-ubah" required> Ubah </button>
+                                                        <button type="submit" class="btn btn-primary" id="catat" name="submit" required> +Catat </button>
                                                     </div>
                                                     <br>
                                                 </form>
@@ -189,15 +195,6 @@ if (isset($_POST["submit"])) {
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- <a href="0-ubah.php?id=<?= $data["No"] ?>"> Edit </a> -->
-                            <a href="0-hapus.php?id=<?= $data["No"] ?>" onclick="return confirm('Apakah anda ingin mengapus data tersebut');"> Hapus </a>
-                            <!-- <button class="edit">Edit</button>
-                            <button class="hapus"> x </button> -->
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            </div>
         </div>
     </div>
     <!-- masukin bootstrap js -->

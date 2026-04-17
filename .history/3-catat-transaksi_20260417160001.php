@@ -111,8 +111,6 @@ if (isset($_POST["submit"])) {
 
                         <div class="b">
                             <p><?= $data['Jumlah'] ?></p>
-
-                            
                             <!-- MODAL POP UP UBAH -->
                             <!-- Button modal ubah -->
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-ubah<?= $data['No'] ?>">
@@ -131,7 +129,7 @@ if (isset($_POST["submit"])) {
                                             <div class="input-transaksi template">
 
                                                 <!-- kalo biasnya kirim datanya lewat a href GET, kalo ini pake form POST -->
-                                                <form class="row g-3" action="0-koneksi.php" method="POST">
+                                                <form class="row g-3" action="0-ubah.php" method="POST">
                                                     <!-- membawa id, id  yang sesuai dengan data yg mau di edit -->
                                                     <input type="hidden" name="id" value="<?= $data['No'] ?>">
 

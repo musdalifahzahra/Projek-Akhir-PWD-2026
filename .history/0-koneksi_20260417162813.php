@@ -61,7 +61,7 @@ if (isset($_POST["submit-ubah"])) {
     global $conn;
     //persiapan ubah data
     // ambil data 
-    $id = $_POST["id"];
+    $id = $_POST["id"]
     $tanggal = $_POST["tanggal"];
     $keterangan = $_POST["keterangan"];
     $kategori = $_POST["kategori"];
@@ -76,7 +76,7 @@ if (isset($_POST["submit-ubah"])) {
                             Jenis = '$jenis',
                             Jumlah = '$jumlah',
                             Catatan = '$catatan'
-                            WHERE No = '$id'
+                            WHERE No = $_POST["id"]
                             ");
 
 
