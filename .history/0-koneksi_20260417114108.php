@@ -46,11 +46,9 @@ function nampilin_data($query)
 }
 
 //FUNGSI UNTUK HAPUS
-function hapus($id)
-{
-    global $conn;
+$id = $_GET["id"];
+function
 
-    mysqli_query($conn, "DELETE FROM transaksi WHERE No = $id");
-
-    return mysqli_affected_rows($conn);
+function (hapus($id) < 0){
+echo "Data gagal dihapus";
 }

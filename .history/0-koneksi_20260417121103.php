@@ -49,8 +49,6 @@ function nampilin_data($query)
 function hapus($id)
 {
     global $conn;
-
     mysqli_query($conn, "DELETE FROM transaksi WHERE No = $id");
-
     return mysqli_affected_rows($conn);
 }

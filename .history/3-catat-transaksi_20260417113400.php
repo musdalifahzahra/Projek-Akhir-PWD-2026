@@ -113,10 +113,10 @@ if (isset($_POST["submit"])) {
                             <p><?= $data['Jumlah'] ?></p>
                             <p class="jenis"><?= $data['Jenis'] ?></p>
 
-                            <a href=""> Edit </a>
-                            <a href="0-hapus.php?id=<?= $data["No"] ?>" onclick="return confirm('Apakah anda ingin mengapus data tersebut');"> Hapus </a>
-                            <!-- <button class="edit">Edit</button>
-                            <button class="hapus"> x </button> -->
+                            <a href=""></a>
+                            <a href=""> hapus </a>
+                            <button class="edit">Edit</button>
+                            <button class="hapus"> x </button>
                         </div>
                     </div>
                 <?php endforeach; ?>
