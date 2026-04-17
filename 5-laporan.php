@@ -1,14 +1,11 @@
 <?php
-// ================================================
-// 5-laporan.php — Riwayat Semua Transaksi
-// ================================================
+
 session_start();
 if (!isset($_SESSION["logged_in"])) { header("location: 1-login.php"); exit(); }
 require "0-koneksi.php";
 
 $nama_toko = $_SESSION["nama_toko"] ?? "Toko Sembako";
 
-// ===== HAPUS =====
 if (isset($_GET["hapus"])) {
     $no = intval($_GET["hapus"]);
     mysqli_query($conn, "DELETE FROM transaksi WHERE No=$no");
@@ -16,12 +13,10 @@ if (isset($_GET["hapus"])) {
     exit();
 }
 
-// ===== FILTER =====
 $f_jenis = $_GET["jenis"] ?? "";
 $f_kat   = $_GET["kat"]   ?? "";
 $f_bulan = $_GET["bulan"] ?? "";
 
-// Bangun WHERE clause dari filter
 $parts = [];
 if ($f_jenis) $parts[] = "Jenis='"    . mysqli_real_escape_string($conn,$f_jenis) . "'";
 if ($f_kat)   $parts[] = "Kategori='" . mysqli_real_escape_string($conn,$f_kat)   . "'";
