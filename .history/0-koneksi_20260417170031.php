@@ -27,7 +27,7 @@ function tambah_data($data_insert)
     mysqli_query($conn, $insert);
 
     //mengembalikan nilai, cek berhasil apa ngga. kalo (1) = berhasil, (-1)= tidak berhasil;
-    return mysqli_affected_rows($conn);
+    // return mysqli_affected_rows($conn);
 }
 
 // FUNGSI UNTUK BACA DATA DARI DATABASE, dipake bwt nampilin transaksi terbaru

@@ -62,13 +62,13 @@ function ubah($data)
     global $conn;
     //persiapan ubah data
     // ambil data 
-    $id = $data["id"];
-    $tanggal = $data["tanggal"];
-    $keterangan = $data["keterangan"];
-    $kategori = $data["kategori"];
-    $jenis = $data["jenis"];
-    $jumlah = $data["jumlah"];
-    $catatan = $data["catatan"];
+    $id = $["id"];
+    $tanggal = $["tanggal"];
+    $keterangan = $["keterangan"];
+    $kategori = $["kategori"];
+    $jenis = $["jenis"];
+    $jumlah = $["jumlah"];
+    $catatan = $["catatan"];
 
     $ubah = "UPDATE transaksi SET 
                     Tanggal = '$tanggal',

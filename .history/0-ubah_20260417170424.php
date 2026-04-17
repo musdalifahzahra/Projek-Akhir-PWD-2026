@@ -4,7 +4,7 @@ require_once "0-koneksi.php";
 function modal_ubah_data($data)
 {
 ?>
-    <!-- menampilkan pop up ubah data -->
+    // <!-- menampilkan pop up ubah data -->
     <div class="modal fade" id="modal-ubah<?= $data['No'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog template">
             <div class="modal-content">

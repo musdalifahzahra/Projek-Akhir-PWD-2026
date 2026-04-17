@@ -114,6 +114,7 @@ if (isset($_POST["submit"])) {
                             <!-- jumlah -->
                             <p><?= $data['Jumlah'] ?></p>
 
+
                             <!-- ubah -->
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-ubah<?= $data['No'] ?>">
                                 Ubah

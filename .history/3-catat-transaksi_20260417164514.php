@@ -1,7 +1,6 @@
 <?php
 //koneksi ke database
-require_once "0-koneksi.php";
-require_once "0-ubah.php";
+require "0-koneksi.php";
 
 //INPUT FORM TRANSAKSI (INSERT)
 //cek submit uda di pencet blm
@@ -114,15 +113,12 @@ if (isset($_POST["submit"])) {
                             <!-- jumlah -->
                             <p><?= $data['Jumlah'] ?></p>
 
+
                             <!-- ubah -->
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-ubah<?= $data['No'] ?>">
                                 Ubah
                             </button>
-
-                            <!-- panggil fungsi u/ mengubah data, modal akan muncul apabila user milih ubah -->
-                            <?php
-                            modal_ubah_data($data);
-                            ?>
+                            
 
                             <!-- hapus -->
                             <a href="0-hapus.php?id=<?= $data["No"] ?>" onclick="return confirm('Apakah anda ingin mengapus data tersebut');"> Hapus </a>

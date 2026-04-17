@@ -1,7 +1,7 @@
 <?php
 //koneksi ke database
 require_once "0-koneksi.php";
-require_once "0-ubah.php";
+require "0-ubah.php";
 
 //INPUT FORM TRANSAKSI (INSERT)
 //cek submit uda di pencet blm
@@ -113,6 +113,7 @@ if (isset($_POST["submit"])) {
                         <div class="b">
                             <!-- jumlah -->
                             <p><?= $data['Jumlah'] ?></p>
+
 
                             <!-- ubah -->
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-ubah<?= $data['No'] ?>">

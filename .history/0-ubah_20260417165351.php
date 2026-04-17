@@ -1,10 +1,10 @@
 <?php
-require_once "0-koneksi.php";
+require "0-koneksi.php";
 
 function modal_ubah_data($data)
 {
 ?>
-    <!-- menampilkan pop up ubah data -->
+    // <!-- tampilan pop up ubah -->
     <div class="modal fade" id="modal-ubah<?= $data['No'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog template">
             <div class="modal-content">
