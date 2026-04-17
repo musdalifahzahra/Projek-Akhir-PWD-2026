@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-if (!isset($_SESSION["logged_in"])) { header("location: 1-login.php"); exit(); }
+if (!isset($_SESSION["username"])) { header("location: 1-login.php"); exit(); }
 require "0-koneksi.php";
 
 $nama_toko = $_SESSION["nama_toko"] ?? "Toko Sembako";
