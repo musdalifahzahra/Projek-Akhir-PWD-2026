@@ -1,0 +1,31 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-bag-web);
+  padding: 50px 20px;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.wrap-rincian {
+  width: 100%;
+  max-width: 800px;
+  display: grid;
+  gap: 10px;
+
+}
+.rincian{
+    background-color: aquamarine;
+}
+.card {
+  width: 100%;
+  max-width: 800px;
+  border: 1.2px solid var(--color-border-card);
+  background-color: var(--color-card);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(30, 41, 59, 0.05);
+  padding: 30px;
+}

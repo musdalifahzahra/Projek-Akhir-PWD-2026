@@ -1,0 +1,15 @@
+<?php
+//koneksi ke database
+$conn = mysqli_connect("localhost", "root", "", "laporan_keuangan");
+
+// 1. baca data/ambil data
+mysqli_query($conn, "SELECT ");
+// 2. cari mana yang pendapatan
+// 2.1 pisahin pendapatan per kategorinya
+// 3. cari mana yang pengeluaran
+// 3.1 pisahin pengeluaran per kategorinya
+// 4. hitung laba bersih
+
+
+
+?>
