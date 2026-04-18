@@ -1,0 +1,134 @@
+/* 1-wrap */
+.wrap {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-bag-web);
+  padding: 50px 20px;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+h5 {
+  font-size: var(--font-judul-card);
+  font-weight: bold;
+}
+.template {
+  max-width: 800px;
+  border: 1.2px solid var(--color-border-card);
+  background-color: var(--color-card);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(30, 41, 59, 0.05);
+  padding: 30px;
+}
+
+/* 2-card input */
+.input-transaksi {
+  display: flex;
+}
+form .catat {
+  margin: 0px;
+  padding: 0px;
+}
+.form-label {
+  padding-left: 2px;
+  font-size: var(--font-text);
+}
+.form-control,
+.form-select {
+  background-color: var(--color-input);
+  border: 1px solid var(--color-border);
+}
+
+/* 3-card transaksi terbaru */
+.transaksi-terbaru {
+  display: flex;
+  flex: 1;
+}
+.tampil-transaksi-terbaru {
+  margin: 0%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  gap: 0px;
+}
+.wrap-transaksi {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+.satu-transaksi {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto auto auto auto;
+  border-bottom: 1px solid var(--color-belum-dipencet);
+  padding: 0px 10px 5px 10px;
+}
+.keterangan {
+  font-size: large;
+  font-size: var(--font-text);
+}
+.tanggal-catatan {
+  font-size: x-small;
+  font-size: var(--font-note);
+  color: var(--color-belum-dipencet);
+}
+.jenis {
+  font-size: x-small;
+  background-color: aqua;
+  border-radius: 25px;
+  padding: 4px 10px;
+}
+.edit {
+  font-size: x-small;
+  background-color: rgb(233, 255, 137);
+  border-radius: 25px;
+  padding: 4px 10px;
+  border: none;
+}
+.hapus {
+  background-color: rgb(214, 170, 255);
+  border-radius: 100%;
+  padding: 2px 7px;
+  font-size: x-small;
+  border: none;
+}
+.b {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+}
+p {
+  padding: 0px;
+  margin: 0px;
+}
+
+.jenis-masuk,
+.jenis-keluar {
+  border-radius: 15px;
+  padding: 3px 8px;
+  font-size: small;
+}
+.jenis-masuk {
+  /* color: #0A3622;
+
+  background-color: #D1E7DD;
+  border: 1px solid #C8E6C9; */
+  color: #E8F5E9;
+
+  background-color: #2E7D32;
+  border: 1px solid #C8E6C9;
+}
+.jenis-keluar {
+  /* color: #fff;
+  background-color: #B71C1C; */
+  /* Border: 1px solid #FFCDD2; */
+
+  color: #c62828;
+  background-color: #ffebee;
+  Border: 1px solid #FFCDD2;
+}
