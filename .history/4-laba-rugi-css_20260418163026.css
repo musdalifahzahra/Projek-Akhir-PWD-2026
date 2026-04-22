@@ -1,0 +1,93 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-bag-web);
+  padding: 50px 20px;
+  gap: 20px;
+  /* justify-content: center; */
+  align-items: center;
+}
+h5 {
+  font-size: var(--font-judul-card);
+  font-weight: bold;
+}
+.wrap-rincian {
+  width: 100%;
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.rincian {
+  border: 1.2px solid var(--color-border-card);
+  background-color: var(--color-card);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(30, 41, 59, 0.05);
+  padding: 30px;
+}
+.card {
+  width: 100%;
+  max-width: 800px;
+  border: 1.2px solid var(--color-border-card);
+  background-color: var(--color-card);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(30, 41, 59, 0.05);
+  padding: 30px;
+}
+
+.laporan-biaya{
+  background-color: blue;
+}
+
+.baris-laporan{
+  display: flex;
+  background-color: aquamarine;
+  justify-content: space-between;
+  font-size: var(--font-text);
+}
+.baris-laporan-footer{
+  display: flex;
+  justify-content: space-between;
+  background-color:rgb(196, 133, 255);
+}
+
+.baris-laporan-header{
+  padding: 10px 15px;
+  border-radius: 12px ;
+}
+.baris-laporan, .baris-laporan-footer{
+  padding: 1px 15px;
+}
+.laporan-pendapatan .baris-laporan-header{
+  background-color: var(--color-pemasukan);
+  color: var(--color-card);
+}
+.laporan-biaya .baris-laporan-header{
+  background-color: var(--color-pengeluaran);
+  color: var(--color-card);
+
+}
+.laporan-laba-bersih .baris-laporan-header{
+  background-color: var(--color-nav);
+  color: var(--color-card);
+  display: flex;
+  justify-content: space-between;
+}
+
+
+/* responsif */
+@media screen and (max-width: 554px) {
+  .rincian {
+    padding: 15px;
+  }
+}
+
+/* responsive HP */
+/* @media screen and (max-width: 480px) {
+  .wrap-rincian {
+    grid-template-columns: 100%;
+    gap: 15px;
+  }  */
