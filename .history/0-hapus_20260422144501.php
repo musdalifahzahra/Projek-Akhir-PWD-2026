@@ -1,5 +1,6 @@
 <?php
 require "0-koneksi.php";
+require ""
 
 if (!isset($_GET["id"])) {
     header("Location: 3-catat-transaksi.php");

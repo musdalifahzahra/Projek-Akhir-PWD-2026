@@ -1,6 +1,6 @@
 <?php
 require_once "0-koneksi.php";
-
+require "3-functions.php";
 function modal_ubah_data($data)
 {
 ?>
@@ -17,10 +17,9 @@ function modal_ubah_data($data)
                     <div class="input-transaksi template">
 
                         <!-- kalo biasnya kirim datanya lewat a href GET, kalo ini pake form POST -->
-                        <form class="row g-3" action="0-koneksi.php" method="POST">
+                        <form class="row g-3" action="3-functions.php" method="POST">
                             <!-- membawa id, id  yang sesuai dengan data yg mau di edit -->
                             <input type="hidden" name="id" value="<?= $data['No'] ?>">
-
                             <!-- tanggal -->
                             <div class="col-md-3">
                                 <label for="tanggal" class="form-label">Tanggal</label>
@@ -54,7 +53,7 @@ function modal_ubah_data($data)
                             <!-- jumlah-->
                             <div class="col-md-3">
                                 <label for="jumlah" class="form-label">Jumlah</label>
-                                <input type="number" class="form-control" id="jumlah" name="jumlah" value="<?= $data['Jumlah'] ?>" required>
+                                <input type="number" class="form-control" id="jumlah" name="jumlah" min="1" value="<?= $data['Jumlah'] ?>" required>
                             </div>
                             <!-- catatan -->
                             <div class="col-md-7">
@@ -69,13 +68,7 @@ function modal_ubah_data($data)
                         </form>
                     </div>
                 </div>
-                <!-- <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Understood</button>
-                                        </div> -->
             </div>
         </div>
     </div>
-
-
 <?php } ?>
