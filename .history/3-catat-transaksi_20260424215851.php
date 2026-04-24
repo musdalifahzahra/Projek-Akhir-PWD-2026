@@ -1,14 +1,10 @@
 <?php
-session_start();
+require_once "0-koneksi.php";
 require_once "3-ubah.php";
 require_once "3-functions.php";
 
-if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
-    header("location: 1-login.php");
-    exit();
-}
 //cek apakah data berhasil ditambahkan atau tidak
-if (isset($_POST["submit"])) {
+if (!isset($_POST["submit"])) {
     if (tambah_data($_POST) < 0) {
         echo "Data gagal ditambahkan";
     }

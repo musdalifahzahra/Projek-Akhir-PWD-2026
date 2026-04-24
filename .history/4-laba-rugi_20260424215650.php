@@ -1,11 +1,7 @@
-<?php
+<?php 
 session_start();
-if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
-    header("location: 1-login.php");
-    exit();
-}
 require "4-data-laba-rugi.php";
-
+if(!$_SESSION["login"])
 ?>
 
 <!DOCTYPE html>

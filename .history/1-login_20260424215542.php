@@ -10,7 +10,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($username === "admin" and $password === "admin") {
         $_SESSION["username"] = $_POST["username"];
         $_SESSION["password"] = $_POST["password"];
-        $_SESSION["login"] = true;
         header("location: 2-dashboard.php");
         exit();
     } else {

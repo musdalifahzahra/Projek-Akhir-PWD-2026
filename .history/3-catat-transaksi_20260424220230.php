@@ -1,5 +1,6 @@
 <?php
-session_start();
+ses
+require_once "0-koneksi.php";
 require_once "3-ubah.php";
 require_once "3-functions.php";
 

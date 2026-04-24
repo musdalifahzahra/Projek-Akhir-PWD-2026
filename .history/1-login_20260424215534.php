@@ -7,10 +7,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
 
     //cek informasi login
-    if ($username === "admin" and $password === "admin") {
+    if ($username === "admin" and $password === "a") {
         $_SESSION["username"] = $_POST["username"];
         $_SESSION["password"] = $_POST["password"];
-        $_SESSION["login"] = true;
         header("location: 2-dashboard.php");
         exit();
     } else {

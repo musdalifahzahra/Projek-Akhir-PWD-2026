@@ -1,6 +1,5 @@
 <?php
 session_start();
-$error = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
@@ -13,8 +12,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["login"] = true;
         header("location: 2-dashboard.php");
         exit();
-    } else {
-        $error = true;
     }
 }
 ?>
@@ -37,10 +34,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <form action="" method="post">
                 <!-- username -->
                 <label for="username">Username</label><br>
-                <input type="text" name="username" id="username" placeholder="username"><br><br>
+                <input type="text" name="username" id="username" placeholder="username" required><br><br>
                 <!-- password -->
                 <label for="password">Password</label><br>
-                <input type="text" name="password" id="password" placeholder="password">
+                <input type="text" name="password" id="password" placeholder="password" required>
                 <div class="pesan_error">
                     <?php if ($error === true) { ?>
                         <span>Ussername atau Password salah</span>
