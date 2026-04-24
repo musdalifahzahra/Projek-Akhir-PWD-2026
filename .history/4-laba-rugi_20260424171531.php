@@ -28,7 +28,7 @@
                 </ul>
             </div>
             <div class="icon-list" id="icon_list">
-                <span>Laba Rugi</span>
+                <span>catat transaksi</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
                 </svg>
@@ -36,7 +36,19 @@
         </div>
 
     </nav>
- 
+    <!-- <nav>
+        <div class="profile">
+            <span>sembako</span>
+        </div>
+        <div class="nav_list">
+            <ul>
+                <li><a href="2-dashboard.php">Dashboard</a></li>
+                <li><a href="3-catat-transaksi.php">Catat Transaksi</a></li>
+                <li><a href="4-laba-rugi.php" class="nav-active">Laba Rugi</a></li>
+                <li><a href="5-laporan.php">Riwayat Transaksi</a></li>
+            </ul>
+        </div>
+    </nav> -->
 
     <div class="wrap">
         <!-- atas -->
@@ -46,7 +58,7 @@
                 <span><?= "Rp." . $total_pendapatan; ?></span>
             </div>
             <div class="rincian total-biaya">
-                <h5>Total Biaya</h5>
+                <h5>Total Pengeluaran</h5>
                 <span><?= "Rp." . $total_biaya; ?></span>
             </div>
             <div class="rincian laba-bersih">

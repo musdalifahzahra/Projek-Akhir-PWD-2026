@@ -44,15 +44,15 @@ button:hover {
   font-weight: bold;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 481px) {
   .login {
     padding: 50px 30px;
   }
   input {
-    width: 300px;
+    width: 250px;
   }
   button {
-    width: 320px;
+    width: 270px;
   }
 }
 

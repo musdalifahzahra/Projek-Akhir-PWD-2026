@@ -36,7 +36,19 @@
         </div>
 
     </nav>
- 
+    <!-- <nav>
+        <div class="profile">
+            <span>sembako</span>
+        </div>
+        <div class="nav_list">
+            <ul>
+                <li><a href="2-dashboard.php">Dashboard</a></li>
+                <li><a href="3-catat-transaksi.php">Catat Transaksi</a></li>
+                <li><a href="4-laba-rugi.php" class="nav-active">Laba Rugi</a></li>
+                <li><a href="5-laporan.php">Riwayat Transaksi</a></li>
+            </ul>
+        </div>
+    </nav> -->
 
     <div class="wrap">
         <!-- atas -->
@@ -46,7 +58,7 @@
                 <span><?= "Rp." . $total_pendapatan; ?></span>
             </div>
             <div class="rincian total-biaya">
-                <h5>Total Biaya</h5>
+                <h5>Total Pengeluaran</h5>
                 <span><?= "Rp." . $total_biaya; ?></span>
             </div>
             <div class="rincian laba-bersih">

@@ -46,24 +46,27 @@ button:hover {
 
 @media screen and (max-width: 768px) {
   .login {
-    padding: 50px 30px;
+    padding: 60px 10px;
+    background-color: var(--color-card);
+    border-radius: 20px;
+  }
+  h1 {
+    text-align: center;
+    margin: 0px 0px 35px 0px;
+    color: var(--color-nav);
   }
   input {
+    background-color: var(--color-input);
     width: 300px;
+    padding-left: 10px;
+    height: 45px;
+    border: 1.5px solid var(--color-border);
+    border-radius: 10px;
   }
   button {
-    width: 320px;
-  }
+ 
+  width: 320px;
+  height: 45px;
+ 
 }
-
-@media screen and (max-width: 481px) {
-  .login {
-    padding: 50px 30px;
-  }
-  input {
-    width: 250px;
-  }
-  button {
-    width: 270px;
-  }
 }

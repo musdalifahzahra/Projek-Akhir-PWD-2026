@@ -46,7 +46,7 @@
                 <span><?= "Rp." . $total_pendapatan; ?></span>
             </div>
             <div class="rincian total-biaya">
-                <h5>Total Biaya</h5>
+                <h5>Total Pengeluaran</h5>
                 <span><?= "Rp." . $total_biaya; ?></span>
             </div>
             <div class="rincian laba-bersih">

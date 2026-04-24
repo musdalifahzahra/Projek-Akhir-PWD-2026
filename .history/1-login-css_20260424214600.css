@@ -45,25 +45,5 @@ button:hover {
 }
 
 @media screen and (max-width: 768px) {
-  .login {
-    padding: 50px 30px;
-  }
-  input {
-    width: 300px;
-  }
-  button {
-    width: 320px;
-  }
-}
-
-@media screen and (max-width: 481px) {
-  .login {
-    padding: 50px 30px;
-  }
-  input {
-    width: 250px;
-  }
-  button {
-    width: 270px;
-  }
+  
 }
