@@ -167,7 +167,7 @@ p {
   p.jumlah-keluar, p.jumlah-masuk{
     font-size: small;
   }
-   p.jenis-keluar, p.jenis-masuk{
+   /* p.jenis-keluar, p.jenis-masuk{
      font-size: 10px;
-   }
+   } */
 }

@@ -164,10 +164,7 @@ p {
   .wrap {
     padding: 20px 20px;
   }
-  p.jumlah-keluar, p.jumlah-masuk{
+  p.jumlah-keluar, p.jumlah-masuk, p.jenis-keluar, p.je{
     font-size: small;
   }
-   p.jenis-keluar, p.jenis-masuk{
-     font-size: 10px;
-   }
 }

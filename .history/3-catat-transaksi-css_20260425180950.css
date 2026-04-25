@@ -4,12 +4,12 @@
   flex-direction: column;
   z-index: 2;
   width: 100%;
-  min-height: auto;
+  min-height: 100vh;
   background-color: var(--color-bag-web);
   padding: 50px 20px;
   gap: 20px;
   align-items: center;
-  margin: 0px;
+  margin: ;
 }
 h5 {
   font-size: var(--font-judul-card);
@@ -153,21 +153,4 @@ p {
 }
 .jumlah-keluar {
   color: var(--color-pengeluaran);
-}
-/* responsif */
-@media screen and (max-width: 768px) {
-  .wrap {
-    padding: 30px 100px;
-  }
-}
-@media screen and (max-width: 554px) {
-  .wrap {
-    padding: 20px 20px;
-  }
-  p.jumlah-keluar, p.jumlah-masuk{
-    font-size: small;
-  }
-   p.jenis-keluar, p.jenis-masuk{
-     font-size: 10px;
-   }
 }

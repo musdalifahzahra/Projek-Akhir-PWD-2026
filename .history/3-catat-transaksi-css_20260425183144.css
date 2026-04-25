@@ -155,19 +155,8 @@ p {
   color: var(--color-pengeluaran);
 }
 /* responsif */
-@media screen and (max-width: 768px) {
-  .wrap {
-    padding: 30px 100px;
-  }
-}
 @media screen and (max-width: 554px) {
-  .wrap {
-    padding: 20px 20px;
+  .rincian {
+    padding: 15px;
   }
-  p.jumlah-keluar, p.jumlah-masuk{
-    font-size: small;
-  }
-   p.jenis-keluar, p.jenis-masuk{
-     font-size: 10px;
-   }
 }

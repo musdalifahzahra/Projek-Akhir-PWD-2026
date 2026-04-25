@@ -77,15 +77,7 @@ h5 {
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
 }
-/* responsif */
-@media screen and (max-width: 769px) {
-  .wrap {
-    padding: 30px 100px;
-  }
-  .rincian {
-    padding: 15px;
-  }
-}
+
 
 /* responsif */
 @media screen and (max-width: 554px) {

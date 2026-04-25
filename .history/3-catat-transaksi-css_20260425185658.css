@@ -168,6 +168,6 @@ p {
     font-size: small;
   }
    p.jenis-keluar, p.jenis-masuk{
-     font-size: 10px;
+     font-size: x-small;
    }
 }

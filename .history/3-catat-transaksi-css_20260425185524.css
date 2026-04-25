@@ -165,9 +165,6 @@ p {
     padding: 20px 20px;
   }
   p.jumlah-keluar, p.jumlah-masuk{
-    font-size: small;
+    font-size: ;
   }
-   p.jenis-keluar, p.jenis-masuk{
-     font-size: 10px;
-   }
 }

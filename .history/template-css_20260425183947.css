@@ -20,8 +20,11 @@
 
 body {
   font-family: "Roboto", sans-serif;
-
-  background-color: var(--color-bag-web);
+  
+    background-color: var(--color-bag-web);
+    min-height: 100vh;
+    ox-sizing: border-box;
+  
 }
 
 nav,
