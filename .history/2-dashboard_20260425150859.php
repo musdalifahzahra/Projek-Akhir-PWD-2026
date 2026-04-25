@@ -87,6 +87,7 @@ function formatRp($angka)
                 </svg>
             </div>
         </div>
+
     </nav>
 
     <div class="wrap">

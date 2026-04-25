@@ -53,6 +53,7 @@ if (isset($_POST["submit"])) {
                 </svg>
             </div>
         </div>
+
     </nav>
 
     <div class="wrap">

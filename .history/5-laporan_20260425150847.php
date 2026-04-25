@@ -84,6 +84,7 @@ function formatRp($a)
                 </svg>
             </div>
         </div>
+
     </nav>
     <!-- <nav>
     <div class="profile"><? //= htmlspecialchars(substr($nama_toko,0,16)) 
