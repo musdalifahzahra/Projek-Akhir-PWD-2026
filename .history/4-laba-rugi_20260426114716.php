@@ -34,7 +34,7 @@ require "4-data-laba-rugi.php";
                     <li><a href="2-dashboard.php">Dashboard</a></li>
                     <li><a href="3-catat-transaksi.php">Catat Transaksi</a></li>
                     <li><a href="4-laba-rugi.php" class="nav-active">Laba Rugi</a></li>
-                    <li><a href="5-riwayat-transaksi.php">Riwayat Transaksi</a></li>
+                    <li><a href="5-laporan.php">Riwayat Transaksi</a></li>
                 </ul>
             </div>
             <div class="icon-list" id="icon_list">

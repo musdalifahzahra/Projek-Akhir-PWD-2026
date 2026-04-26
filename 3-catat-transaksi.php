@@ -41,7 +41,7 @@ if (isset($_POST["submit"])) {
                     <li><a href="2-dashboard.php">Dashboard</a></li>
                     <li><a href="3-catat-transaksi.php" class="nav-active">Catat Transaksi</a></li>
                     <li><a href="4-laba-rugi.php">Laba Rugi</a></li>
-                    <li><a href="5-laporan.php">Riwayat Transaksi</a></li>
+                    <li><a href="5-riwayat-transaksi.php">Riwayat Transaksi</a></li>
                 </ul>
             </div>
 

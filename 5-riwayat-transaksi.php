@@ -56,7 +56,7 @@ function formatRp($a)
     <title>Riwayat Transaksi</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="template-css.css">
-    <link rel="stylesheet" href="5-laporan-css.css">
+    <link rel="stylesheet" href="5-riwayat-transaksi-css.css">
 </head>
 
 <body>
@@ -74,7 +74,7 @@ function formatRp($a)
                     <li><a href="2-dashboard.php">Dashboard</a></li>
                     <li><a href="3-catat-transaksi.php">Catat Transaksi</a></li>
                     <li><a href="4-laba-rugi.php">Laba Rugi</a></li>
-                    <li><a href="5-laporan.php" class="nav-active">Riwayat Transaksi</a></li>
+                    <li><a href="5-riwayat-transaksi.php" class="nav-active">Riwayat Transaksi</a></li>
                 </ul>
             </div>
             <div class="icon-list" id="icon_list">
@@ -85,18 +85,7 @@ function formatRp($a)
             </div>
         </div>
     </nav>
-    <!-- <nav>
-    <div class="profile"><? //= htmlspecialchars(substr($nama_toko,0,16)) 
-                            ?></div>
-    <div class="nav_list"><ul>
-        <li><a href="2-dashboard.php">Dashboard</a></li>
-        <li><a href="3-catat-transaksi.php">Catat Transaksi</a></li>
-        <li><a href="4-laba-rugi.php">Laba Rugi</a></li>
-        <li><a href="5-laporan.php" class="nav-active">Riwayat Transaksi</a></li>
-        <li><a href="6-logout.php">Logout</a></li>
-    </ul></div>
-</nav> -->
-
+  
     <div class="wrap">
         <h4 style="font-weight:900;color:#1e3a8a;margin-bottom:20px;">📜 Semua Transaksi</h4>
 

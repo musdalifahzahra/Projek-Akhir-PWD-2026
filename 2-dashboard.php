@@ -1,6 +1,8 @@
 <?php
-
 session_start();
+require_once "3-ubah.php";
+require_once "3-functions.php";
+$transaksi_terbaru = transaksi_terbaru();
 
 if (!isset($_SESSION["username"])) {
     header("location: 1-login.php");
@@ -60,6 +62,8 @@ function formatRp($angka)
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="template-css.css">
     <link rel="stylesheet" href="2-dashboard-css.css">
+    <link rel="stylesheet" href="3-catat-transaksi-css.css">
+
 </head>
 
 <body>
@@ -77,7 +81,7 @@ function formatRp($angka)
                     <li><a href="2-dashboard.php" class="nav-active">Dashboard</a></li>
                     <li><a href="3-catat-transaksi.php">Catat Transaksi</a></li>
                     <li><a href="4-laba-rugi.php">Laba Rugi</a></li>
-                    <li><a href="5-laporan.php">Riwayat Transaksi</a></li>
+                    <li><a href="5-riwayat-transaksi.php">Riwayat Transaksi</a></li>
                 </ul>
             </div>
             <div class="icon-list" id="icon_list">
@@ -90,9 +94,8 @@ function formatRp($angka)
     </nav>
 
     <div class="wrap">
-
         <!-- BANNER PROFIL -->
-        <div class="profile-section">
+        <div class="card profile-section">
             <div class="profile-logo">🏪</div>
             <div class="profile-info">
                 <h2><?= htmlspecialchars($nama_toko) ?></h2>
@@ -105,19 +108,18 @@ function formatRp($angka)
         </div>
 
         <!-- 4 SUMMARY CARDS -->
-        <div class="summary-grid">
-
-            <div class="summary-card card-income">
+        <div class="wrap-rincian summary-grid">
+            <div class=" summary-card card-income rincian">
                 <div class="summary-label" style="color:#15803d;">Pemasukan Bulan Ini</div>
                 <div class="summary-value" style="color:#15803d;"><?= formatRp($total_income) ?></div>
             </div>
 
-            <div class="summary-card card-expense">
+            <div class=" summary-card card-expense rincian">
                 <div class="summary-label" style="color:#b91c1c;">Pengeluaran</div>
                 <div class="summary-value" style="color:#b91c1c;"><?= formatRp($total_expense) ?></div>
             </div>
 
-            <div class="summary-card card-profit">
+            <div class=" summary-card card-profit rincian">
                 <div class="summary-label" style="color:#1e3a8a;">Laba Bersih</div>
                 <div class="summary-value"
                     style="color:<?= $laba_bersih >= 0 ? '#1d4ed8' : '#dc2626' ?>;">
@@ -125,42 +127,89 @@ function formatRp($angka)
                 </div>
             </div>
 
-            <div class="summary-card card-count">
+            <div class=" summary-card card-count rincian">
                 <div class="summary-label" style="color:#92400e;">Total Transaksi</div>
                 <div class="summary-value" style="color:#92400e;"><?= $total_tx ?></div>
             </div>
 
         </div>
 
-        <!-- TRANSAKSI TERBARU -->
-        <div class="card-custom">
-            <div class="section-title">📋 Transaksi Terbaru</div>
+        <div class="card card-custom">
+            <h5>Transaksi Terbaru</h5><br>
+            <!-- <div class="section-title">📋 Transaksi Terbaru</div> -->
+            <div class="wrap-transaksi">
+                <?php foreach ($transaksi_terbaru as $data) : ?>
+                    <div class="satu-transaksi">
 
-            <?php if (mysqli_num_rows($q_recent) === 0): ?>
+                        <div class="a">
+                            <p class="keterangan"><?= $data['Keterangan'] ?></p>
+                            <p class="tanggal-catatan"><?= $data['Tanggal'] . " | " . $data['Catatan'] ?></p>
+                        </div>
+
+                        <div class="b">
+                            <!-- jumlah --> <!-- jenis -->
+                            <?php if ($data['Jenis'] == "Masuk") { ?>
+                                <p class="jumlah-masuk"><?= "+" . $data['Jumlah'] ?></p>
+                                <p class="jenis-masuk"><?= $data['Jenis'] ?></p> <?php } else { ?>
+                                <p class="jumlah-keluar"><?= "-" . $data['Jumlah'] ?></p>
+                                <p class="jenis-keluar"><?= $data['Jenis'] ?></p><?php } ?>
+
+                            <!-- ubah -->
+                            <button type="button" class="edit btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-ubah<?= $data['No'] ?>">
+                                Edit
+                            </button>
+
+                            <!-- panggil fungsi u/ mengubah data, modal akan muncul apabila user Pilih ubah -->
+                            <?php
+                            modal_ubah_data($data);
+                            ?>
+
+                            <!-- hapus -->
+                            <a class="hapus" href="3-hapus.php?id=<?= $data["No"] ?>" onclick="return confirm('Apakah anda ingin mengapus data tersebut');"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                                </svg> </a>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <!-- <?php // if (mysqli_num_rows($q_recent) === 0): 
+                    ?>
                 <p style="color:#64748b;font-size:14px;text-align:center;padding:24px 0;">
                     Belum ada transaksi.
                     <a href="3-catat-transaksi.php" style="color:#1d4ed8;font-weight:700;">Catat sekarang →</a>
                 </p>
-            <?php else: ?>
-                <?php while ($row = mysqli_fetch_assoc($q_recent)): ?>
+            <?php // else: 
+            ?>
+                <?php // while ($row = mysqli_fetch_assoc($q_recent)): 
+                ?>
                     <div class="tx-row">
                         <div>
-                            <div class="tx-desc"><?= htmlspecialchars($row['Keterangan']) ?></div>
-                            <div class="tx-cat"><?= htmlspecialchars($row['Kategori']) ?></div>
+                            <div class="tx-desc"><? //= htmlspecialchars($row['Keterangan']) 
+                                                    ?></div>
+                            <div class="tx-cat"><? //= htmlspecialchars($row['Kategori']) 
+                                                ?></div>
                         </div>
-                        <span class="badge-<?= $row['Jenis'] === 'Pemasukan' ? 'masuk' : 'keluar' ?>">
-                            <?= $row['Jenis'] ?>
+                        <span class="badge-<? //= $row['Jenis'] === 'Pemasukan' ? 'masuk' : 'keluar' 
+                                            ?>">
+                            <? // $row['Jenis'] 
+                            ?>
                         </span>
-                        <div class="tx-date"><?= date('d M Y', strtotime($row['Tanggal'])) ?></div>
-                        <div class="<?= $row['Jenis'] === 'Pemasukan' ? 'amount-masuk' : 'amount-keluar' ?>">
-                            <?= $row['Jenis'] === 'Pemasukan' ? '+' : '−' ?><?= formatRp($row['Jumlah']) ?>
+                        <div class="tx-date"><? //= date('d M Y', strtotime($row['Tanggal'])) 
+                                                ?></div>
+                        <div class="<? //= $row['Jenis'] === 'Pemasukan' ? 'amount-masuk' : 'amount-keluar' 
+                                    ?>">
+                            <? //= $row['Jenis'] === 'Pemasukan' ? '+' : '−' 
+                            ?><? //= formatRp($row['Jumlah']) 
+                                ?>
                         </div>
                     </div>
-                <?php endwhile; ?>
-            <?php endif; ?>
+                <?php // endwhile; 
+                ?>
+            <?php // endif; 
+            ?> -->
 
             <div class="mt-3 text-end">
-                <a href="5-laporan.php" class="btn btn-primary btn-sm">Lihat Semua →</a>
+                <a href="5-laporan.php" class="lihat-semua btn btn-primary btn-sm">Lihat Semua →</a>
             </div>
         </div>
 
