@@ -89,7 +89,7 @@ function formatRp($a)
     </nav>
 
     <div class="wrap">
-        <h4 style="font-weight:900;color:#1e3a8a;margin-bottom:20px;">📜 Semua Transaksi</h4>
+        <!-- <h4 style="font-weight:900;color:#1e3a8a;margin-bottom:20px;">📜 Semua Transaksi</h4> -->
 
         <!-- ALERT -->
         <?php if (isset($_GET['hapus_ok'])): ?>
@@ -101,9 +101,9 @@ function formatRp($a)
 
         <!-- FORM FILTER -->
         <div class="card">
-            <form method="GET" action="">
+            <form method="GET" class="row 9-3" action="">
                 <div class="filter-wrap">
-                    <div>
+                    <div class="col-md-3">
                         <label>Jenis</label>
                         <select name="jenis">
                             <option value="">Semua Jenis</option>
@@ -111,7 +111,7 @@ function formatRp($a)
                             <option value="Pengeluaran" <?= $f_jenis === 'Pengeluaran' ? 'selected' : '' ?>>Pengeluaran</option>
                         </select>
                     </div>
-                    <div>
+                    <div class="col-md-3">
                         <label>Kategori</label>
                         <select name="kat">
                             <option value="">Semua Kategori</option>
@@ -120,12 +120,14 @@ function formatRp($a)
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <div>
+                    <div class="col-md-3">
                         <label>Bulan</label>
                         <input type="month" name="bulan" value="<?= htmlspecialchars($f_bulan) ?>">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-sm">🔍 Filter</button>
-                    <a href="5-laporan.php" class="btn btn-outline-secondary btn-sm">Reset</a>
+                    <div class="col-md-1"><button type="submit" class="btn btn-primary btn-sm">Filter</button></div>
+                    <div class="col-md-1"><a href="5-laporan.php" class="btn btn-outline-secondary btn-sm">Reset</a></div>
+
+
                 </div>
             </form>
         </div>
@@ -153,6 +155,7 @@ function formatRp($a)
 
         <!-- TABEL SEMUA TRANSAKSI -->
         <div class="table-wrap card">
+            <h5 style="margin-bottom: 10px;">Riwayat Transaksi</h5>
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -169,7 +172,7 @@ function formatRp($a)
                 <tbody>
                     <?php if (mysqli_num_rows($q_all) === 0): ?>
                         <tr>
-                            <td colspan="8" style="text-align:center;padding:32px;color:#94a3b8;">
+                            <td colspan="6" style="text-align:center;padding:32px;color:#94a3b8;">
                                 Tidak ada transaksi yang sesuai filter.
                             </td>
                         </tr>
@@ -178,7 +181,7 @@ function formatRp($a)
                             <tr>
                                 <!-- <td class="row-no"><?= $no++ ?></td> -->
                                 <td><?= date('d M Y', strtotime($row['Tanggal'])) ?></td>
-                                <td><b><?= htmlspecialchars($row['Keterangan']) ?></b></td>
+                                <td style="text-transform:capitalize"><?= htmlspecialchars($row['Keterangan']) ?></td>
                                 <td style="color:#64748b;">
                                     <div class="kategori"><?= htmlspecialchars($row['Kategori']) ?></div>
                                 </td>

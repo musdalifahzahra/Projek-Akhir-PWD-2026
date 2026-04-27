@@ -23,10 +23,10 @@ function tambah_data($data_insert)
 }
 
 // B. menampilkan data transaksi terbaru (READ)
-function transaksi_terbaru()
+function transaksi_terbaru($jumlah)
 {
     global $conn;
-    $transaksi_terbaru = mysqli_query($conn, "SELECT * FROM transaksi ORDER BY No DESC LIMIT 6");
+    $transaksi_terbaru = mysqli_query($conn, "SELECT * FROM transaksi ORDER BY No DESC LIMIT $jumlah");
     $rows = [];
     while ($row = mysqli_fetch_assoc($transaksi_terbaru)) {
         $rows[] = $row;

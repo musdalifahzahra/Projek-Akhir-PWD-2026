@@ -2,7 +2,7 @@
 session_start();
 require_once "3-ubah.php";
 require_once "3-functions.php";
-$transaksi_terbaru = transaksi_terbaru();
+$transaksi_terbaru = transaksi_terbaru(5);
 
 if (!isset($_SESSION["username"])) {
     header("location: 1-login.php");
@@ -135,7 +135,7 @@ function formatRp($angka)
         </div>
 
         <div class="card card-custom">
-            <h5>Transaksi Terbaru</h5><br>
+            <h5>Transaksi Terbaru</h5>
             <!-- <div class="section-title">📋 Transaksi Terbaru</div> -->
             <div class="wrap-transaksi">
                 <?php foreach ($transaksi_terbaru as $data) : ?>

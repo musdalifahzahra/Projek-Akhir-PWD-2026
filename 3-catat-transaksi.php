@@ -112,11 +112,11 @@ if (isset($_POST["submit"])) {
 
         <!-- MENAMPILKAN DAFTAR TRANSAKSI TERBARU -->
         <?php
-        $transaksi_terbaru = transaksi_terbaru();
+        $transaksi_terbaru = transaksi_terbaru(50);
         ?>
 
         <div class="tampil-transaksi-terbaru card">
-            <h5>Transaksi Terbaru</h5><br>
+            <h5>Transaksi Terbaru</h5>
             <div class="wrap-transaksi">
                 <?php foreach ($transaksi_terbaru as $data) : ?>
                     <div class="satu-transaksi">
