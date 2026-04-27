@@ -66,7 +66,7 @@ require "4-data-laba-rugi.php";
 
         <!-- bawah -->
         <div class="laporan-laba-rugi card">
-            <h5>Laporan Laba Rugi</h5>
+            <h5 style="margin-bottom: 20px;">Laporan Laba Rugi</h5>
             <div class="laporan-pendapatan">
                 <!-- PENDAPATAN -->
                 <div class="baris-laporan-header">

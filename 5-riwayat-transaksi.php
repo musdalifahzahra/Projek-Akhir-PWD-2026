@@ -57,6 +57,8 @@ function formatRp($a)
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="template-css.css">
     <link rel="stylesheet" href="5-riwayat-transaksi-css.css">
+    <link rel="stylesheet" href="3-catat-transaksi-css.css">
+
 </head>
 
 <body>
@@ -85,7 +87,7 @@ function formatRp($a)
             </div>
         </div>
     </nav>
-  
+
     <div class="wrap">
         <h4 style="font-weight:900;color:#1e3a8a;margin-bottom:20px;">📜 Semua Transaksi</h4>
 
@@ -98,65 +100,70 @@ function formatRp($a)
         <?php endif; ?>
 
         <!-- FORM FILTER -->
-        <form method="GET" action="">
-            <div class="filter-wrap">
-                <div>
-                    <label>Jenis</label>
-                    <select name="jenis">
-                        <option value="">Semua Jenis</option>
-                        <option value="Pemasukan" <?= $f_jenis === 'Pemasukan'  ? 'selected' : '' ?>>Pemasukan</option>
-                        <option value="Pengeluaran" <?= $f_jenis === 'Pengeluaran' ? 'selected' : '' ?>>Pengeluaran</option>
-                    </select>
+        <div class="card">
+            <form method="GET" action="">
+                <div class="filter-wrap">
+                    <div>
+                        <label>Jenis</label>
+                        <select name="jenis">
+                            <option value="">Semua Jenis</option>
+                            <option value="Pemasukan" <?= $f_jenis === 'Pemasukan'  ? 'selected' : '' ?>>Pemasukan</option>
+                            <option value="Pengeluaran" <?= $f_jenis === 'Pengeluaran' ? 'selected' : '' ?>>Pengeluaran</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Kategori</label>
+                        <select name="kat">
+                            <option value="">Semua Kategori</option>
+                            <?php foreach (['Penjualan', 'Belanja Stok', 'Operasional', 'Gaji', 'Modal', 'Lain-lain'] as $k): ?>
+                                <option value="<?= $k ?>" <?= $f_kat === $k ? 'selected' : '' ?>><?= $k ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Bulan</label>
+                        <input type="month" name="bulan" value="<?= htmlspecialchars($f_bulan) ?>">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sm">🔍 Filter</button>
+                    <a href="5-laporan.php" class="btn btn-outline-secondary btn-sm">Reset</a>
                 </div>
-                <div>
-                    <label>Kategori</label>
-                    <select name="kat">
-                        <option value="">Semua Kategori</option>
-                        <?php foreach (['Penjualan', 'Belanja Stok', 'Operasional', 'Gaji', 'Modal', 'Lain-lain'] as $k): ?>
-                            <option value="<?= $k ?>" <?= $f_kat === $k ? 'selected' : '' ?>><?= $k ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-                <div>
-                    <label>Bulan</label>
-                    <input type="month" name="bulan" value="<?= htmlspecialchars($f_bulan) ?>">
-                </div>
-                <button type="submit" class="btn btn-primary btn-sm">🔍 Filter</button>
-                <a href="5-laporan.php" class="btn btn-outline-secondary btn-sm">Reset</a>
-            </div>
-        </form>
-
-        <!-- SUMMARY MINI -->
+            </form>
+        </div>
+        <!-- SUMMARY MINI
         <div class="summary-row">
             <div class="summary-mini" style="background:#f0fdf4;color:#15803d;border-color:#bbf7d0;">
                 💰 Total Pemasukan &nbsp;
-                <span style="font-size:15px;"><?= formatRp($total_i) ?></span>
+                <span style="font-size:15px;"><? //= formatRp($total_i) 
+                                                ?></span>
             </div>
             <div class="summary-mini" style="background:#fff5f5;color:#b91c1c;border-color:#fecaca;">
                 📉 Total Pengeluaran &nbsp;
-                <span style="font-size:15px;"><?= formatRp($total_e) ?></span>
+                <span style="font-size:15px;"><? //= formatRp($total_e) 
+                                                ?></span>
             </div>
             <div class="summary-mini"
                 style="background:#eff6ff;border-color:#bfdbfe;
-                    color:<?= ($total_i - $total_e) >= 0 ? '#1d4ed8' : '#dc2626' ?>;">
+                    color:<? //= ($total_i - $total_e) >= 0 ? '#1d4ed8' : '#dc2626' 
+                            ?>;">
                 💵 Laba Bersih &nbsp;
-                <span style="font-size:15px;"><?= formatRp($total_i - $total_e) ?></span>
+                <span style="font-size:15px;"><? //= formatRp($total_i - $total_e) 
+                                                ?></span>
             </div>
-        </div>
+        </div> -->
 
         <!-- TABEL SEMUA TRANSAKSI -->
-        <div class="table-wrap">
+        <div class="table-wrap card">
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>#</th>
-                        <th>Tanggal</th>
-                        <th>Keterangan</th>
+                        <!-- <th>#</th> -->
+                        <th style="text-align: left;">Tanggal</th>
+                        <th style="text-align: left;">Keterangan</th>
                         <th>Kategori</th>
                         <th>Jenis</th>
-                        <th>Jumlah</th>
-                        <th>Catatan</th>
-                        <th>Aksi</th>
+                        <th style="text-align: right;">Jumlah</th>
+                        <th style="text-align: left;">Catatan</th>
+                        <!-- <th>Aksi</th> -->
                     </tr>
                 </thead>
                 <tbody>
@@ -169,29 +176,52 @@ function formatRp($a)
                         <?php else: $no = 1;
                         while ($row = mysqli_fetch_assoc($q_all)): ?>
                             <tr>
-                                <td class="row-no"><?= $no++ ?></td>
+                                <!-- <td class="row-no"><?= $no++ ?></td> -->
                                 <td><?= date('d M Y', strtotime($row['Tanggal'])) ?></td>
                                 <td><b><?= htmlspecialchars($row['Keterangan']) ?></b></td>
-                                <td style="color:#64748b;"><?= htmlspecialchars($row['Kategori']) ?></td>
-                                <td>
-                                    <span class="badge-<?= $row['Jenis'] === 'Pemasukan' ? 'masuk' : 'keluar' ?>">
-                                        <?= $row['Jenis'] ?>
-                                    </span>
+                                <td style="color:#64748b;">
+                                    <div class="kategori"><?= htmlspecialchars($row['Kategori']) ?></div>
                                 </td>
-                                <td style="font-weight:800;color:<?= $row['Jenis'] === 'Pemasukan' ? '#16a34a' : '#dc2626' ?>;">
-                                    <?= $row['Jenis'] === 'Pemasukan' ? '+' : '−' ?><?= formatRp($row['Jumlah']) ?>
+                                <td>
+                                    <?php if ($row['Jenis'] == "Masuk") { ?>
+                                        <p style="text-align: center;" class="jenis-masuk"><?= $row['Jenis'] ?></p>
+
+                                    <?php } else { ?>
+                                        <p style="text-align: center;" class="jenis-keluar"><?= $row['Jenis'] ?></p>
+                                    <?php } ?>
+                                </td>
+                                <!-- <td> -->
+                                <!-- <span class="badge-<//?= $row['Jenis'] === 'Masuk' ? 'masuk' : 'keluar' ?>">
+                                        <? //= $row['Jenis'] 
+                                        ?>
+                                    </span> -->
+                                <!-- </td> -->
+                                <td>
+                                    <?php if ($row['Jenis'] == "Masuk") { ?>
+                                        <p class="jumlah-masuk"><?= "+" . formatRp($row['Jumlah']) ?></p>
+
+                                    <?php } else { ?>
+                                        <p class="jumlah-keluar"><?= "-" . formatRp($row['Jumlah']) ?></p><?php } ?>
+
+                                    <!-- <td>style="font-weight:800;color:<? //= $row['Jenis'] === 'Masuk' ? '#16a34a' : '#dc2626' 
+                                                                            ?>;">
+                                    <? //= $row['Jenis'] === 'Masuk' ? '+' : '−' 
+                                    ?><? //= formatRp($row['Jumlah']) 
+                                        ?></td> -->
                                 </td>
                                 <td style="color:#94a3b8;font-size:12px;"><?= htmlspecialchars($row['Catatan']) ?></td>
-                                <td>
+                                <!-- <td>
                                     <div style="display:flex;gap:6px;">
-                                        <a href="3-edit-transaksi.php?id=<?= $row['No'] ?>"
+                                        <a href="3-edit-transaksi.php?id=<? //= $row['No'] 
+                                                                            ?>"
                                             class="btn btn-warning btn-sm">✏️</a>
                                         <button class="btn btn-danger btn-sm"
-                                            onclick="if(confirm('Hapus transaksi ini?')) window.location='5-laporan.php?hapus=<?= $row['No'] ?>'">
+                                            onclick="if(confirm('Hapus transaksi ini?')) window.location='5-laporan.php?hapus=<? //= $row['No'] 
+                                                                                                                                ?>'">
                                             🗑️
                                         </button>
                                     </div>
-                                </td>
+                                </td> -->
                             </tr>
                     <?php endwhile;
                     endif; ?>

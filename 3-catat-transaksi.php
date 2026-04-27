@@ -129,10 +129,13 @@ if (isset($_POST["submit"])) {
                         <div class="b">
                             <!-- jumlah --> <!-- jenis -->
                             <?php if ($data['Jenis'] == "Masuk") { ?>
+                                <p class="jenis-masuk"><?= $data['Jenis'] ?></p>
                                 <p class="jumlah-masuk"><?= "+" . $data['Jumlah'] ?></p>
-                                <p class="jenis-masuk"><?= $data['Jenis'] ?></p> <?php } else { ?>
-                                <p class="jumlah-keluar"><?= "-" . $data['Jumlah'] ?></p>
-                                <p class="jenis-keluar"><?= $data['Jenis'] ?></p><?php } ?>
+
+                            <?php } else { ?>
+                                <p class="jenis-keluar"><?= $data['Jenis'] ?></p>
+                                <p class="jumlah-keluar"><?= "-" . $data['Jumlah'] ?></p><?php } ?>
+
 
                             <!-- ubah -->
                             <button type="button" class="edit btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-ubah<?= $data['No'] ?>">

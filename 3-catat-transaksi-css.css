@@ -77,7 +77,6 @@ form .catat {
 }
 .wrap-transaksi {
   display: flex;
-  gap: 10px;
   flex-direction: column;
 }
 .satu-transaksi {
@@ -85,7 +84,10 @@ form .catat {
   display: grid;
   grid-template-columns: 1fr auto auto auto auto;
   border-bottom: 1px solid var(--color-belum-dipencet);
-  padding: 0px 10px 5px 10px;
+  padding: 10px 10px 5px 10px;
+}
+.satu-transaksi:hover{
+  background-color: var(--color-bag-web);
 }
 .keterangan {
   font-size: large;
@@ -133,10 +135,15 @@ p {
   margin: 0px;
 }
 .jenis-masuk,
-.jenis-keluar {
+.jenis-keluar, .kategori {
   border-radius: 15px;
   padding: 3px 8px;
   font-size: x-small;
+}
+.kategori{
+  text-align: center;
+  color: var(--color-kategori);
+  background-color: var(--color-kategori-bg);
 }
 .jenis-masuk {
   color: var(--color-pemasukan);
@@ -149,10 +156,12 @@ p {
   border: 1px solid #ffcdd2;
 }
 .jumlah-masuk {
-  color: var(--color-pemasukan);
+  color: var(--color-pemasukan-angka);
+  text-align: right;
 }
 .jumlah-keluar {
   color: var(--color-pengeluaran);
+  text-align: right;
 }
 /* responsif */
 @media screen and (max-width: 768px) {

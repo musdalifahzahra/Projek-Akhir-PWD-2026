@@ -6,11 +6,17 @@
   --color-kurson: #cbd5e1;
   --color-tulisan-utama: #334155;
   --color-pemasukan: #0a3622;
+  --color-pemasukan-angka: #059669;
+  /* --color-pemasukan-bg: #ecfdf5; */
   --color-pemasukan-bg: #d1e7dd;
+  /* --color-pengeluaran: #dc2626; */
+  /* --color-pengeluaran-bg: #fef2f2; */
   --color-pengeluaran: #b71c1c;
   --color-pengeluaran-bg: #ffcdd2;
+  --color-kategori: #14ded8;
+  --color-kategori-bg: #eff6ff;
   --color-border: #e2e8f0;
-  --color-border-card: #cbd5e1;
+  /* --color-border-card: #cbd5e1; */
   --color-input: #f8fafc;
 
   --font-judul-card: 18px; /* (judul card) */
