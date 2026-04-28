@@ -125,7 +125,7 @@ function formatRp($a)
                         <label>Bulan</label>
                         <input type="month" name="bulan" value="<?= htmlspecialchars($f_bulan) ?>">
                     </div>
-                    <div class="col-md-1"><button type="submit" class="btn btn-primary btn-sm">Filter</button></div>
+                    <div class="col-md-1"><button type="submit" class="btn btn-sm filter">Filter</button></div>
                     <div class="col-md-1"><a href="5-laporan.php" class="btn btn-outline-secondary btn-sm">Reset</a></div>
 
 

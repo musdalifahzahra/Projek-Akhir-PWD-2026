@@ -96,26 +96,79 @@ function formatRp($angka)
     </nav>
 
     <div class="wrap">
+        <div class="card-profile">
+            <div class="card-profile-header">
+                <div class="header-atas">
+                    <div>
+                        <p class="tema-web">Laporan Keuangan</p>
+                        <p class="nama-toko"><?= htmlspecialchars($nama_toko) ?></p>
+                    </div>
+                </div>
+                <div class="logo-toko">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="34" height="34">
+                        <path d="M3 9l1.5-5h15L21 9" stroke="#1e293b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M3 9h18v11a1 1 0 01-1 1H4a1 1 0 01-1-1V9z" stroke="#1e293b" stroke-width="1.5" stroke-linejoin="round" />
+                        <path d="M9 21v-6h6v6" stroke="#1e293b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M3 9c0 1.657 1.343 3 3 3s3-1.343 3-3" stroke="#1e293b" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M9 9c0 1.657 1.343 3 3 3s3-1.343 3-3" stroke="#1e293b" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M15 9c0 1.657 1.343 3 3 3s3-1.343 3-3" stroke="#1e293b" stroke-width="1.5" stroke-linecap="round" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="informasi-toko">
+                    <div class="satu-info"><span class="meta-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin-icon lucide-map-pin">
+                                <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg></span> Jl. Merdeka No. 12</div>
+                    <div class="satu-info"><span class="meta-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-days-icon lucide-calendar-days">
+                                <path d="M8 2v4" />
+                                <path d="M16 2v4" />
+                                <rect width="18" height="18" x="3" y="4" rx="2" />
+                                <path d="M3 10h18" />
+                                <path d="M8 14h.01" />
+                                <path d="M12 14h.01" />
+                                <path d="M16 14h.01" />
+                                <path d="M8 18h.01" />
+                                <path d="M12 18h.01" />
+                                <path d="M16 18h.01" />
+                            </svg></span> Berdiri sejak 2026</div>
+                </div>
+
+                <p class="desc"><?= htmlspecialchars($deskripsi_toko) ?></p>
+                <div class="actions">
+                    <a href="#" class="edit-profile-btn edit-profile"
+                            data-bs-toggle="modal" data-bs-target="#modalProfil">
+                            Edit Profil
+                        </a>
+                </div>
+            </div>
+        </div>
+
+
         <!-- BANNER PROFIL -->
-        <div class="card profile-section">
-            <!-- <div class="profile-logo"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-building-fill" viewBox="0 0 16 16">
+        <!-- <div class="card profile-section"> -->
+        <!-- <div class="profile-logo"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-building-fill" viewBox="0 0 16 16">
                     <path d="M3 0a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h3v-3.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V16h3a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1zm1 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5M4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM7.5 5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5m2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM4.5 8h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5m2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5" />
                 </svg></div> -->
-            <div class="profile-info">
+        <!-- <div class="profile-info">
                 <div class="nama-toko">
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wallet-minimal-icon lucide-wallet-minimal">
                         <path d="M17 14h.01" />
                         <path d="M7 7h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14" />
                     </svg>
-                    <h1> <?= htmlspecialchars($nama_toko) ?></h1>
+                    <h1> <? //= htmlspecialchars($nama_toko) 
+                            ?></h1>
                 </div>
-                <p><?= htmlspecialchars($deskripsi_toko) ?></p>
+                <p><? //= htmlspecialchars($deskripsi_toko) 
+                    ?></p>
             </div>
             <a href="#" class="edit-profile-btn"
                 data-bs-toggle="modal" data-bs-target="#modalProfil">
-                ✏️ Edit Profil
-            </a>
-        </div>
+                Edit Profil
+            </a> -->
+        <!-- </div> -->
 
         <!-- 4 SUMMARY CARDS -->
         <div class="wrap-rincian">
@@ -196,9 +249,9 @@ function formatRp($angka)
                         <div class="b">
                             <!-- jumlah --> <!-- jenis -->
                             <?php if ($data['Jenis'] == "Masuk") { ?>
-                                <p class="jumlah-masuk"><?= "+" . $data['Jumlah'] ?></p>
+                                <p class="jumlah-masuk"><?= "+Rp" . $data['Jumlah'] ?></p>
                                 <p class="jenis-masuk"><?= $data['Jenis'] ?></p> <?php } else { ?>
-                                <p class="jumlah-keluar"><?= "-" . $data['Jumlah'] ?></p>
+                                <p class="jumlah-keluar"><?= "-Rp" . $data['Jumlah'] ?></p>
                                 <p class="jenis-keluar"><?= $data['Jenis'] ?></p><?php } ?>
 
                             <!-- ubah -->
@@ -256,7 +309,7 @@ function formatRp($angka)
             ?> -->
 
             <div class="mt-3 text-end">
-                <a href="5-laporan.php" class="lihat-semua btn btn-primary btn-sm">Lihat Semua →</a>
+                <a href="5-riwayat-transaksi.php" class="lihat-semua btn btn-primary btn-sm">Lihat Semua →</a>
             </div>
         </div>
 
@@ -267,8 +320,8 @@ function formatRp($angka)
         <div class="modal-dialog">
             <div class="modal-content">
                 <form method="POST" action="">
-                    <div class="modal-header" style="background:#1e3a8a;color:white;">
-                        <h5 class="modal-title">✏️ Edit Profil Perusahaan</h5>
+                    <div class="modal-header" style="background-color: var(--color-nav);">
+                        <h5 class="modal-title" style="color: var(--color-card);">✏️ Edit Profil Perusahaan</h5>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-body">

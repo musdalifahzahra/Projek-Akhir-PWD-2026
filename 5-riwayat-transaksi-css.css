@@ -143,11 +143,17 @@
 .filter-wrap select:focus,
 .filter-wrap input[type="month"]:focus {
   outline: none;
-  border-color: #2563eb;
+  /* border-color: #2563eb; */
   background: #fff;
 }
 
-
+.filter{
+  color: var(--color-card);
+  background-color: var(--color-nav)!important;
+}
+.filter:hover{
+  background-color: var(--color-belum-dipencet)!important;
+}
 @media (max-width: 768px) {
   .table-wrap {
     overflow-x: auto;

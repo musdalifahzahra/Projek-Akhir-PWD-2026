@@ -19,8 +19,8 @@
 } */
 
 .profile-section {
-    background:var(--color-nav) !important;
-    color: var(--color-card);
+  background: var(--color-nav) !important;
+  color: var(--color-card);
 }
 
 /* .profile-section::before {
@@ -67,20 +67,22 @@
   justify-content: center;
   padding: 5px;
 } */
-.nama-toko{
+.nama-toko {
   display: flex;
   align-items: center;
-  gap: 5px;
-
+  gap: 10px;
 }
-.nama-toko svg{
-  opacity: 0.7;
+.nama-toko svg {
+  opacity: 0.8;
 }
 .profile-info {
-  position: relative;
+  /* position: relative; */
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-h1{
+h1 {
   margin: 0px;
 }
 .profile-info h2 {
@@ -98,7 +100,7 @@ h1{
   max-width: 480px;
 }
 
-.edit-profile-btn {
+/* .edit-profile-btn {
   margin-left: auto;
   background: rgba(255, 255, 255, 0.14);
   border: 1.5px solid rgba(255, 255, 255, 0.32);
@@ -119,7 +121,7 @@ h1{
   background: rgba(255, 255, 255, 0.25);
   color: white;
   text-decoration: none;
-}
+} */
 
 .summary-grid {
   display: grid;
@@ -291,5 +293,152 @@ h1{
 @media screen and (max-width: 554px) {
   .wrap-rincian {
     grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* ////////////////// */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.wrap-profile {
+  padding: 1.5rem;
+  font-family: "Segoe UI", sans-serif;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.card-profile {
+  width: 100%;
+  max-width: 800px;
+  border: 1.2px solid var(--color-border-card);
+  background-color: var(--color-card);
+  border-radius: 13px;
+  box-shadow: 0 10px 25px rgba(30, 41, 59, 0.05);
+}
+.card-profile-header {
+  background: var(--color-nav);
+  padding: 30px 30px 45px 30px;
+  position: relative;
+  border-top-left-radius: 13px !important;
+  border-top-right-radius: 13px !important;
+}
+
+.header-atas {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
+  border-top-left-radius: 13px;
+  border-top-right-radius: 13px;
+}
+
+.tema-web {
+  font-size: 11px;
+  color: var(--color-belum-dipencet);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.nama-toko {
+  font-size: clamp(16px, 4vw, 22px);
+  font-weight: 600;
+  color: #fff;
+}
+
+.logo-toko {
+  position: absolute;
+  bottom: -36px;
+  left: 1.5rem;
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.card-body {
+  padding: 56px 24px 28px;
+}
+
+.informasi-toko {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.satu-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--color-belum-dipencet);
+}
+
+.meta-icon {
+  font-size: 14px;
+  width: 20px;
+  text-align: center;
+}
+
+.desc {
+  font-size: 14px;
+  color: var(--color-tulisan-utama);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 0.5px solid #f0f0f0;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-profile {
+  flex: 1;
+  background: var(--color-nav);
+  color: var(--color-card);
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  text-decoration: none;
+}
+.edit-profile:hover{
+  background-color: var(--color-tulisan-utama);
+}
+
+
+
+
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .wrap {
+    padding: 1rem;
+  }
+
+  .card-body {
+    padding-top: 3rem;
+  }
+
+  .btn-main,
+  .btn-out {
+    font-size: 12px;
+    padding: 9px 10px;
   }
 }
