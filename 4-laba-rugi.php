@@ -23,9 +23,11 @@ require "4-data-laba-rugi.php";
 <body>
     <nav>
         <div class="profile">
-            <span><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-building-fill" viewBox="0 0 16 16">
-                    <path d="M3 0a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h3v-3.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V16h3a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1zm1 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5M4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM7.5 5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5m2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM4.5 8h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5m2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5" />
-                </svg> Sembako Makmur</span>
+            <svg style="color: var(--color-card);" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wallet-minimal-icon lucide-wallet-minimal">
+                <path d="M17 14h.01" />
+                <path d="M7 7h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14" />
+            </svg>
+            <span>Sembako Makmur</span>
         </div>
 
         <div class="nav-menu">
@@ -52,15 +54,15 @@ require "4-data-laba-rugi.php";
         <div class=" wrap-rincian">
             <div class="rincian total-pendapatan">
                 <h5>Total Pemasukan</h5>
-                <span><?= "Rp." . $total_pendapatan; ?></span>
+                <span><?= "Rp" . number_format($total_pendapatan, 0, ',', '.') ?></span>
             </div>
             <div class="rincian total-biaya">
                 <h5>Total Biaya</h5>
-                <span><?= "Rp." . $total_biaya; ?></span>
+                <span><?= "Rp" . number_format($total_biaya, 0, ',', '.') ?></span>
             </div>
             <div class="rincian laba-bersih">
                 <h5>Laba Bersih</h5>
-                <span><?= "Rp." . $total_laba_bersih; ?></span>
+                <span><?= "Rp" . number_format($total_laba_bersih, 0, ',', '.') ?></span>
             </div>
         </div>
 
@@ -76,41 +78,41 @@ require "4-data-laba-rugi.php";
                 <?php if ($pendapatan_penjualan > 0) { ?>
                     <div class="baris-laporan">
                         <span>Penjualan</span>
-                        <span><?= "Rp. " . $pendapatan_penjualan; ?></span>
+                        <span><?= "Rp" . number_format($pendapatan_penjualan, 0, ',', '.') ?></span>
                     </div>
                 <?php } ?>
 
                 <?php if ($pendapatan_belanja_stok > 0) { ?>
                     <div class="baris-laporan">
                         <span>Belanja Stok</span>
-                        <span><?= "Rp. " . $pendapatan_belanja_stok; ?></span>
+                        <span><?= "Rp" . number_format($pendapatan_belanja_stok, 0, ',', '.') ?></span>
                     </div>
                 <?php } ?>
 
                 <?php if ($pendapatan_operasional > 0) { ?>
                     <div class="baris-laporan">
                         <span>Operasional</span>
-                        <span><?= "Rp. " . $pendapatan_operasional; ?></span>
+                        <span><?= "Rp" . number_format($pendapatan_operasional, 0, ',', '.') ?></span>
                     </div>
                 <?php } ?>
 
                 <?php if ($pendapatan_gaji > 0) { ?>
                     <div class="baris-laporan">
                         <span>Gaji</span>
-                        <span><?= "Rp. " . $pendapatan_gaji; ?></span>
+                        <span><?= "Rp" . number_format($pendapatan_gaji, 0, ',', '.'); ?></span>
                     </div>
                 <?php } ?>
 
                 <?php if ($pendapatan_lain_lain > 0) { ?>
                     <div class="baris-laporan">
                         <span>Lain_lain</span>
-                        <span><?= "Rp. " . $pendapatan_lain_lain; ?></span>
+                        <span><?= "Rp" . number_format($pendapatan_lain_lain, 0, ',', '.') ?></span>
                     </div>
                 <?php } ?>
 
                 <div class="baris-laporan-footer">
                     <span>Total Pemasukan</span>
-                    <span><?= "Rp. " . $total_pendapatan ?></span>
+                    <span><?= "Rp" . number_format($total_pendapatan, 0, ',', '.') ?></span>
                 </div>
             </div>
             <br>
@@ -124,41 +126,41 @@ require "4-data-laba-rugi.php";
                 <?php if ($biaya_penjualan > 0) { ?>
                     <div class="baris-laporan">
                         <span>Penjualan</span>
-                        <span><?= "Rp. " . $biaya_penjualan; ?></span>
+                        <span><?= "Rp" . number_format($biaya_penjualan, 0, ',', '.') ?></span>
                     </div>
                 <?php } ?>
 
                 <?php if ($biaya_belanja_stok > 0) { ?>
                     <div class="baris-laporan">
                         <span>Belanja Stok</span>
-                        <span><?= "Rp. " . $biaya_belanja_stok; ?></span>
+                        <span><?= "Rp" . number_format($biaya_belanja_stok, 0, ',', '.') ?></span>
                     </div>
                 <?php } ?>
 
                 <?php if ($biaya_operasional > 0) { ?>
                     <div class="baris-laporan">
                         <span>Operasional</span>
-                        <span><?= "Rp. " . $biaya_operasional; ?></span>
+                        <span><?= "Rp" . number_format($biaya_operasional, 0, ',', '.') ?></span>
                     </div>
                 <?php } ?>
 
                 <?php if ($biaya_gaji > 0) { ?>
                     <div class="baris-laporan">
                         <span>Gaji</span>
-                        <span><?= "Rp. " . $biaya_gaji; ?></span>
+                        <span><?= "Rp" . number_format($biaya_gaji, 0, ',', '.') ?></span>
                     </div>
                 <?php } ?>
 
                 <?php if ($biaya_lain_lain > 0) { ?>
                     <div class="baris-laporan">
                         <span>Lain_lain</span>
-                        <span><?= "Rp. " . $biaya_lain_lain; ?></span>
+                        <span><?= "Rp" . number_format($biaya_lain_lain, 0, ',', '.') ?></span>
                     </div>
                 <?php } ?>
 
                 <div class="baris-laporan-footer">
                     <span>Total Pengeluaran</span>
-                    <span><?= "Rp. " . $total_biaya ?></span>
+                    <span><?= "Rp" . number_format($total_biaya, 0, ',', '.') ?></span>
                 </div>
 
 
@@ -169,7 +171,7 @@ require "4-data-laba-rugi.php";
             <div class="laporan-laba-bersih">
                 <div class="baris-laporan-header">
                     <span>LABA BERSIH</span>
-                    <span><?= "Rp. " . $total_laba_bersih; ?></span>
+                    <span><?= "Rp" . number_format($total_laba_bersih, 0, ',', '.') ?></span>
                 </div>
             </div>
         </div>

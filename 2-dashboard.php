@@ -19,20 +19,20 @@ if (isset($_POST['simpan_profil'])) {
 require "0-koneksi.php";
 
 $nama_toko      = $_SESSION["nama_toko"]      ?? "Toko Sembako Makmur";
-$deskripsi_toko = $_SESSION["deskripsi_toko"] ?? "Menyediakan kebutuhan sembako sehari-hari dengan harga terjangkau.";
+$deskripsi_toko = $_SESSION["deskripsi_toko"] ?? "Pusat kendali operasional Toko Sembako Makmur. Kelola transaksi pendapatan, pengeluaran, dan laporan laba rugi secara terpusat dan otomatis.";
 
 $bulan_ini = date("Y-m");
 
 $total_income = mysqli_fetch_assoc(mysqli_query(
     $conn,
     "SELECT SUM(Jumlah) AS t FROM transaksi
-     WHERE Jenis='Pemasukan' AND DATE_FORMAT(Tanggal,'%Y-%m')='$bulan_ini'"
+     WHERE Jenis='Masuk' AND DATE_FORMAT(Tanggal,'%Y-%m')='$bulan_ini'"
 ))['t'] ?? 0;
 
 $total_expense = mysqli_fetch_assoc(mysqli_query(
     $conn,
     "SELECT SUM(Jumlah) AS t FROM transaksi
-     WHERE Jenis='Pengeluaran' AND DATE_FORMAT(Tanggal,'%Y-%m')='$bulan_ini'"
+     WHERE Jenis='Keluar' AND DATE_FORMAT(Tanggal,'%Y-%m')='$bulan_ini'"
 ))['t'] ?? 0;
 
 $laba_bersih = $total_income - $total_expense;
@@ -70,9 +70,11 @@ function formatRp($angka)
 
     <nav>
         <div class="profile">
-            <span><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-building-fill" viewBox="0 0 16 16">
-                    <path d="M3 0a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h3v-3.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V16h3a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1zm1 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5M4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM7.5 5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5m2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM4.5 8h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5m2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5" />
-                </svg> Sembako Makmur</span>
+            <svg style="color: var(--color-card);" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wallet-minimal-icon lucide-wallet-minimal">
+                <path d="M17 14h.01" />
+                <path d="M7 7h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14" />
+            </svg>
+            <span>Sembako Makmur</span>
         </div>
 
         <div class="nav-menu">
@@ -96,9 +98,17 @@ function formatRp($angka)
     <div class="wrap">
         <!-- BANNER PROFIL -->
         <div class="card profile-section">
-            <div class="profile-logo">🏪</div>
+            <!-- <div class="profile-logo"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-building-fill" viewBox="0 0 16 16">
+                    <path d="M3 0a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h3v-3.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V16h3a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1zm1 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5M4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM7.5 5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5m2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM4.5 8h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5m2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5" />
+                </svg></div> -->
             <div class="profile-info">
-                <h2><?= htmlspecialchars($nama_toko) ?></h2>
+                <div class="nama-toko">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wallet-minimal-icon lucide-wallet-minimal">
+                        <path d="M17 14h.01" />
+                        <path d="M7 7h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14" />
+                    </svg>
+                    <h1> <?= htmlspecialchars($nama_toko) ?></h1>
+                </div>
                 <p><?= htmlspecialchars($deskripsi_toko) ?></p>
             </div>
             <a href="#" class="edit-profile-btn"
@@ -108,7 +118,40 @@ function formatRp($angka)
         </div>
 
         <!-- 4 SUMMARY CARDS -->
-        <div class="wrap-rincian summary-grid">
+        <div class="wrap-rincian">
+            <div class="rincian">
+                <h5>Pemasukan Bulan Ini</h5>
+                <span>
+                    <div class="summary-value" style="color:#15803d;"><?= formatRp($total_income) ?></div>
+                </span>
+            </div>
+            <div class="rincian">
+                <h5>Pengeluaran</h5>
+                <span>
+                    <div class="summary-value" style="color:#b91c1c;"><?= formatRp($total_expense) ?></div>
+                </span>
+            </div>
+            <div class="rincian">
+                <h5>Laba Bersih</h5>
+                <span>
+                    <div class="summary-value"
+                        style="color:<?= $laba_bersih >= 0 ? '#1d4ed8' : '#dc2626' ?>;">
+                        <?= formatRp($laba_bersih) ?>
+                    </div>
+                </span>
+            </div>
+            <div class="rincian">
+                <h5>Total Transaksi</h5>
+                <span>
+                    <div class="summary-value" style="color:#92400e;"><?= $total_tx
+                                                                        ?></div>
+                </span>
+            </div>
+
+
+        </div>
+
+        <!-- <div class="wrap-rincian summary-grid">
             <div class=" summary-card card-income rincian">
                 <div class="summary-label" style="color:#15803d;">Pemasukan Bulan Ini</div>
                 <div class="summary-value" style="color:#15803d;"><?= formatRp($total_income) ?></div>
@@ -116,23 +159,27 @@ function formatRp($angka)
 
             <div class=" summary-card card-expense rincian">
                 <div class="summary-label" style="color:#b91c1c;">Pengeluaran</div>
-                <div class="summary-value" style="color:#b91c1c;"><?= formatRp($total_expense) ?></div>
+                <div class="summary-value" style="color:#b91c1c;"><? //= formatRp($total_expense) 
+                                                                    ?></div>
             </div>
 
             <div class=" summary-card card-profit rincian">
                 <div class="summary-label" style="color:#1e3a8a;">Laba Bersih</div>
                 <div class="summary-value"
-                    style="color:<?= $laba_bersih >= 0 ? '#1d4ed8' : '#dc2626' ?>;">
-                    <?= formatRp($laba_bersih) ?>
+                    style="color:<? //= $laba_bersih >= 0 ? '#1d4ed8' : '#dc2626' 
+                                    ?>;">
+                    <? //= formatRp($laba_bersih) 
+                    ?>
                 </div>
             </div>
 
             <div class=" summary-card card-count rincian">
                 <div class="summary-label" style="color:#92400e;">Total Transaksi</div>
-                <div class="summary-value" style="color:#92400e;"><?= $total_tx ?></div>
+                <div class="summary-value" style="color:#92400e;"><? //= $total_tx 
+                                                                    ?></div>
             </div>
 
-        </div>
+        </div> -->
 
         <div class="card card-custom">
             <h5>Transaksi Terbaru</h5>

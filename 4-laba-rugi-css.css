@@ -23,7 +23,7 @@ h5 {
 .rincian {
   border: 1.2px solid var(--color-border-card);
   background-color: var(--color-card);
-  border-radius: 16px;
+  border-radius: 13px;
   box-shadow: 0 10px 25px rgba(30, 41, 59, 0.05);
   padding: 30px;
 }
@@ -32,7 +32,7 @@ h5 {
   max-width: 800px;
   border: 1.2px solid var(--color-border-card);
   background-color: var(--color-card);
-  border-radius: 16px;
+  border-radius: 13px;
   box-shadow: 0 10px 25px rgba(30, 41, 59, 0.05);
   padding: 30px;
 }

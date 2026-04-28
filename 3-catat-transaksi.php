@@ -29,10 +29,12 @@ if (isset($_POST["submit"])) {
 
 <body>
     <nav>
-        <div class="profile">
-            <span><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-building-fill" viewBox="0 0 16 16">
-                    <path d="M3 0a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h3v-3.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V16h3a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1zm1 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5M4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM7.5 5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5m2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM4.5 8h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5m2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5" />
-                </svg> Sembako Makmur</span>
+       <div class="profile">
+            <svg style="color: var(--color-card);" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wallet-minimal-icon lucide-wallet-minimal">
+                <path d="M17 14h.01" />
+                <path d="M7 7h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14" />
+            </svg>
+            <span>Sembako Makmur</span>
         </div>
 
         <div class="nav-menu">
@@ -130,12 +132,11 @@ if (isset($_POST["submit"])) {
                             <!-- jumlah --> <!-- jenis -->
                             <?php if ($data['Jenis'] == "Masuk") { ?>
                                 <p class="jenis-masuk"><?= $data['Jenis'] ?></p>
-                                <p class="jumlah-masuk"><?= "+" . $data['Jumlah'] ?></p>
+                                <p class="jumlah-masuk"><?= "+" . number_format($data['Jumlah'], 0, ',', '.') ?></p>
 
                             <?php } else { ?>
                                 <p class="jenis-keluar"><?= $data['Jenis'] ?></p>
-                                <p class="jumlah-keluar"><?= "-" . $data['Jumlah'] ?></p><?php } ?>
-
+                                <p class="jumlah-keluar"><?= "-" . number_format($data['Jumlah'], 0, ',', '.') ?></p><?php } ?>
 
                             <!-- ubah -->
                             <button type="button" class="edit btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-ubah<?= $data['No'] ?>">

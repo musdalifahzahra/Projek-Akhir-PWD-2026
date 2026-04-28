@@ -30,6 +30,11 @@ body {
   background-color: var(--color-bag-web);
 }
 
+.profile{
+  color: var(--color-card);
+  display: flex;
+  align-items: center;
+}
 nav,
 .nav-menu {
   background-color: var(--color-nav);
