@@ -179,13 +179,13 @@ function formatRp($angka)
                 </span>
             </div>
             <div class="rincian">
-                <h5>Pengeluaran</h5>
+                <h5>Pengeluaran Bulan Ini</h5>
                 <span>
                     <div class="summary-value" style="color:#b91c1c;"><?= formatRp($total_expense) ?></div>
                 </span>
             </div>
             <div class="rincian">
-                <h5>Laba Bersih</h5>
+                <h5>Laba Bersih Bulan Ini</h5>
                 <span>
                     <div class="summary-value"
                         style="color:<?= $laba_bersih >= 0 ? '#1d4ed8' : '#dc2626' ?>;">
@@ -194,7 +194,7 @@ function formatRp($angka)
                 </span>
             </div>
             <div class="rincian">
-                <h5>Total Transaksi</h5>
+                <h5>Total Transaksi Bulan Ini</h5>
                 <span>
                     <div class="summary-value" style="color:#92400e;"><?= $total_tx
                                                                         ?></div>
