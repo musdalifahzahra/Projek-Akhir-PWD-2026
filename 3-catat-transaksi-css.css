@@ -144,7 +144,7 @@ p {
 }
 .kategori {
   text-align: center;
-  color: var(--color-kategori);
+  color: var(--color-nav);
   background-color: var(--color-kategori-bg);
 }
 .jenis-masuk {
