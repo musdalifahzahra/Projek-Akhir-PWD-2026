@@ -52,7 +52,7 @@ function formatRp($a)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Riwayat Transaksi</title>
+    <title>Riwayat Transaksi - Laporan Keuangan Toko Sembako Makmur</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="template-css.css">
     <link rel="stylesheet" href="5-riwayat-transaksi-css.css">
@@ -116,7 +116,7 @@ function formatRp($a)
                         <label>Kategori</label>
                         <select name="kat">
                             <option value="">Semua Kategori</option>
-                            <?php foreach (['Penjualan', 'Belanja Stok', 'Operasional', 'Gaji', 'Modal', 'Lain-lain'] as $k): ?>
+                            <?php foreach (['Penjualan', 'Belanja Stok', 'Operasional', 'Gaji', 'Lain-lain'] as $k): ?>
                                 <option value="<?= $k ?>" <?= $f_kat === $k ? 'selected' : '' ?>><?= $k ?></option>
                             <?php endforeach; ?>
                         </select>
