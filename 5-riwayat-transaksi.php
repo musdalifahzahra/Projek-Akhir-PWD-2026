@@ -102,10 +102,12 @@ function formatRp($a)
 
         <!-- FORM FILTER -->
         <div class="card">
+            <h5 style="margin-bottom: 10px;">Riwayat Transaksi</h5>
+
             <form method="GET" class="row 9-3" action="">
                 <div class="filter-wrap">
                     <div class="col-md-3">
-                        <label>Jenis</label>
+                        <label class="form-label">Jenis</label>
                         <select name="jenis">
                             <option value="">Semua Jenis</option>
                             <option value="Masuk" <?= $f_jenis === 'Masuk'  ? 'selected' : '' ?>>Pemasukan</option>
@@ -113,7 +115,7 @@ function formatRp($a)
                         </select>
                     </div>
                     <div class="col-md-3">
-                        <label>Kategori</label>
+                        <label class="form-label">Kategori</label>
                         <select name="kat">
                             <option value="">Semua Kategori</option>
                             <?php foreach (['Penjualan', 'Belanja Stok', 'Operasional', 'Gaji', 'Lain-lain'] as $k): ?>
@@ -122,7 +124,7 @@ function formatRp($a)
                         </select>
                     </div>
                     <div class="col-md-3">
-                        <label>Bulan</label>
+                        <label class="form-label">Bulan</label>
                         <input type="month" name="bulan" value="<?= htmlspecialchars($f_bulan) ?>">
                     </div>
                     <div class="col-md-1"><button type="submit" class="btn btn-sm filter">Filter</button></div>
@@ -156,7 +158,6 @@ function formatRp($a)
 
         <!-- TABEL SEMUA TRANSAKSI -->
         <div class="table-wrap card">
-            <h5 style="margin-bottom: 10px;">Riwayat Transaksi</h5>
             <table class="table table-hover">
                 <thead>
                     <tr>

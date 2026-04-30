@@ -88,11 +88,14 @@ h5 {
 }
 
 /* responsif */
-@media screen and (max-width: 554px) {
+@media screen and (max-width: 612px) {
   .rincian {
     padding: 15px;
   }
   .wrap {
     padding: 20px 20px;
+  }
+  .rincian h5{
+    font-size: 14px;
   }
 }

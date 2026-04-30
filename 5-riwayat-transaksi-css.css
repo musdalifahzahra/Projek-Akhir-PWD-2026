@@ -123,11 +123,11 @@
   gap: 4px;
 }
 
-.filter-wrap label {
+/* .filter-wrap label {
   font-size: 12px;
   font-weight: 600;
   color: #64748b;
-}
+} */
 
 .filter-wrap select,
 .filter-wrap input[type="month"] {
@@ -147,12 +147,13 @@
   background: #fff;
 }
 
-.filter{
+.filter {
   color: var(--color-card);
-  background-color: var(--color-nav)!important;
+  background-color: var(--color-nav) !important;
 }
-.filter:hover{
-  background-color: var(--color-belum-dipencet)!important;
+.filter:hover {
+  background-color: var(--color-tulisan-utama) !important;
+  color: var(--color-card);
 }
 @media (max-width: 768px) {
   .table-wrap {

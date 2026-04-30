@@ -36,6 +36,7 @@ form .catat {
 .form-label {
   padding-left: 2px;
   font-size: var(--font-text);
+  margin: 0px;
 }
 .form-control,
 .form-select {

@@ -57,7 +57,7 @@ require "4-data-laba-rugi.php";
                 <span><?= "Rp" . number_format($total_pendapatan, 0, ',', '.') ?></span>
             </div>
             <div class="rincian total-biaya">
-                <h5>Total Biaya</h5>
+                <h5>Total Pengeluaran</h5>
                 <span><?= "Rp" . number_format($total_biaya, 0, ',', '.') ?></span>
             </div>
             <div class="rincian laba-bersih">
@@ -105,7 +105,7 @@ require "4-data-laba-rugi.php";
 
                 <?php if ($pendapatan_lain_lain > 0) { ?>
                     <div class="baris-laporan">
-                        <span>Lain_lain</span>
+                        <span>Lain-lain</span>
                         <span><?= "Rp" . number_format($pendapatan_lain_lain, 0, ',', '.') ?></span>
                     </div>
                 <?php } ?>
@@ -153,7 +153,7 @@ require "4-data-laba-rugi.php";
 
                 <?php if ($biaya_lain_lain > 0) { ?>
                     <div class="baris-laporan">
-                        <span>Lain_lain</span>
+                        <span>Lain-lain</span>
                         <span><?= "Rp" . number_format($biaya_lain_lain, 0, ',', '.') ?></span>
                     </div>
                 <?php } ?>
