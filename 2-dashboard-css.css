@@ -405,10 +405,11 @@ lihat-semua
 }
 
 .actions {
-  display: flex;
+  display: grid;
   gap: 10px;
-}
+  grid-template-columns: 6fr 1fr !important;
 
+}
 .edit-profile {
   flex: 1;
   background: transparent;
@@ -419,17 +420,13 @@ lihat-semua
   padding: 10px;
   font-size: 13px;
   font-weight: 500;
-  font-family: inherit;
   text-decoration: none;
+  min-width: min-content;
 }
 .edit-profile:hover{
   background-color: var(--color-bag-web);
   color: var(--color-tulisan-utama);
 }
-
-
-
-
 
 /* ── Responsive ── */
 @media (max-width: 480px) {

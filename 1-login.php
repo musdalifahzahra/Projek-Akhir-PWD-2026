@@ -25,6 +25,7 @@ if (isset($_POST["submit"])) {
             $_SESSION["username"] = $_POST["username"];
             $_SESSION["password"] = $_POST["password"];
             $_SESSION["login"] = true;
+            $_SESSION["username"] = $username;
             header("location: 2-dashboard.php");
             exit();
         } else {

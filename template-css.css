@@ -30,7 +30,7 @@ body {
   background-color: var(--color-bag-web);
 }
 
-.profile{
+.profile {
   color: var(--color-card);
   display: flex;
   align-items: center;
@@ -47,6 +47,18 @@ nav,
   z-index: 5;
   position: sticky;
   top: 0px;
+}
+.nav-kanan {
+  display: flex;
+  flex-direction: row !important;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 20px;
+}
+.nav-kanan > span {
+  gap: 4px;
+  display: flex;
+  align-items: center;
 }
 .nav-menu {
   padding: 0px;
@@ -83,7 +95,9 @@ nav a:hover {
 .icon-list {
   display: none;
 }
-
+.nav-profil-hidden {
+  display: none;
+}
 @media screen and (max-width: 768px) {
   nav {
     padding: 20px;
@@ -103,6 +117,23 @@ nav a:hover {
     justify-content: center;
     gap: 8px;
   }
+  .nav-profil-hidden {
+    display: block !important;
+  }
+  .nav-profil-hidden > span {
+    margin-top: 3px;
+    color: var(--color-tulisan-utama) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    gap: 3px;
+    border-top: 1px solid var(--color-belum-dipencet);
+  }
+  .nav-profil-hidden > span > svg {
+    margin: 0px;
+    padding: 0px;
+  }
   nav ul {
     align-items: center;
     flex-direction: column;
@@ -119,6 +150,9 @@ nav a:hover {
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
   }
   .nav-list.hidden {
+    display: none;
+  }
+  .nav-kanan > span {
     display: none;
   }
   nav a {

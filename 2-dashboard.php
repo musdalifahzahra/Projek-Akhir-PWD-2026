@@ -77,21 +77,37 @@ function formatRp($angka)
             <span>Sembako Makmur</span>
         </div>
 
-        <div class="nav-menu">
-            <div class="nav-list hidden" id="nav_list">
-                <ul>
-                    <li><a href="2-dashboard.php" class="nav-active">Dashboard</a></li>
-                    <li><a href="3-catat-transaksi.php">Catat Transaksi</a></li>
-                    <li><a href="4-laba-rugi.php">Laba Rugi</a></li>
-                    <li><a href="5-riwayat-transaksi.php">Riwayat Transaksi</a></li>
-                </ul>
+        <div class="nav-kanan">
+            <div class="nav-menu">
+                <div class="nav-list hidden" id="nav_list">
+                    <ul>
+                        <li><a href="2-dashboard.php" class="nav-active">Dashboard</a></li>
+                        <li><a href="3-catat-transaksi.php">Catat Transaksi</a></li>
+                        <li><a href="4-laba-rugi.php">Laba Rugi</a></li>
+                        <li><a href="5-riwayat-transaksi.php">Riwayat Transaksi</a></li>
+                        <li class="nav-profil-hidden">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                                </svg><?= $_SESSION["username"] ?>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="icon-list" id="icon_list">
+                    <span>Dashboard</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+                    </svg>
+                </div>
             </div>
-            <div class="icon-list" id="icon_list">
-                <span>Dashboard</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708" />
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
                 </svg>
-            </div>
+                <?= $_SESSION["username"] ?>
+            </span>
         </div>
     </nav>
 
@@ -133,16 +149,29 @@ function formatRp($angka)
                                 <path d="M8 18h.01" />
                                 <path d="M12 18h.01" />
                                 <path d="M16 18h.01" />
-                            </svg></span> Berdiri sejak 2026</div>
+                            </svg></span> Berdiri sejak 2026
+                    </div>
+                    <div class="satu-info">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-round-icon lucide-user-round">
+                                <circle cx="12" cy="8" r="5" />
+                                <path d="M20 21a8 8 0 0 0-16 0" />
+                            </svg>
+                        </span><?=$_SESSION["username"] ?>
+                    </div>
                 </div>
 
                 <p class="desc"><?= htmlspecialchars($deskripsi_toko) ?></p>
                 <div class="actions">
-                    <a href="#" class="edit-profile-btn edit-profile"
-                            data-bs-toggle="modal" data-bs-target="#modalProfil">
-                            Edit Profil
-                        </a>
+                    <a href="#" class=" edit-profile"
+                        data-bs-toggle="modal" data-bs-target="#modalProfil">
+                        Edit Profil
+                    </a>
+                    <a href="1-logout.php" class=" edit-profile">
+                        Logout
+                    </a>
                 </div>
+
             </div>
         </div>
 
@@ -321,7 +350,7 @@ function formatRp($angka)
             <div class="modal-content">
                 <form method="POST" action="">
                     <div class="modal-header" style="background-color: var(--color-nav);">
-                        <h5 class="modal-title" style="color: var(--color-card);">✏️ Edit Profil Perusahaan</h5>
+                        <h5 class="modal-title" style="color: var(--color-card);">Edit Profil Perusahaan</h5>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-body">
@@ -338,7 +367,7 @@ function formatRp($angka)
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button type="submit" name="simpan_profil" class="btn btn-primary">💾 Simpan</button>
+                        <button type="submit" name="simpan_profil" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
             </div>
