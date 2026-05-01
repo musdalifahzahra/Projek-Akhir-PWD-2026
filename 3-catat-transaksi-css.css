@@ -26,6 +26,34 @@ h5 {
 }
 
 /* 2-card input */
+/* nav pilih jenis */
+.judul-nav-jenis {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.nav-jenis {
+  background: var(--color-bag-web);
+  padding: 4px;
+  border-radius: 10px;
+}
+.nav-jenis .nav-link {
+  border-radius: 8px;
+  line-height: 8px;
+  color: var(--color-belum-dipencet);
+  font-size: 14px;
+}
+.nav-link.nav-masuk.active {
+  background-color: var(--color-pemasukan-angka);
+  color: var(--color-card);
+}
+.nav-link.nav-keluar.active {
+  background-color: var(--color-pengeluaran);
+  color: var(--color-card);
+}
+
+/*form lengkap input data */
 .input-transaksi {
   display: flex;
 }
@@ -86,7 +114,7 @@ form .catat {
   grid-template-columns: 1fr auto auto auto auto;
   border-bottom: 1px solid var(--color-bag-web);
   padding: 10px 10px 5px 10px;
-  text-transform:capitalize;
+  text-transform: capitalize;
 }
 .satu-transaksi:hover {
   background-color: var(--color-bag-web);
@@ -171,11 +199,18 @@ p {
   .wrap {
     padding: 30px 100px;
   }
+  .judul-nav-jenis {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
 }
 @media screen and (max-width: 554px) {
   .wrap {
     padding: 20px 20px;
   }
+
   p.jumlah-keluar,
   p.jumlah-masuk {
     font-size: small;

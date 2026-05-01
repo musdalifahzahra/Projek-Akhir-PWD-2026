@@ -7,6 +7,14 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
     header("location: 1-login.php");
     exit();
 }
+
+// pemilihan jenis transaksi
+if (isset($_GET["nav_jenis"])) {
+    $nav_jenis = $_GET["nav_jenis"];
+} else {
+    $nav_jenis = "Masuk";
+}
+
 //cek apakah data berhasil ditambahkan atau tidak
 if (isset($_POST["submit"])) {
     if (tambah_data($_POST) < 0) {
@@ -29,7 +37,7 @@ if (isset($_POST["submit"])) {
 
 <body>
     <nav>
-       <div class="profile">
+        <div class="profile">
             <svg style="color: var(--color-card);" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wallet-minimal-icon lucide-wallet-minimal">
                 <path d="M17 14h.01" />
                 <path d="M7 7h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14" />
@@ -60,46 +68,76 @@ if (isset($_POST["submit"])) {
     <div class="wrap">
         <!-- PENGISIAN FORM TRANSAKSI -->
         <div class="input-transaksi card">
+            <!-- nav pilih jenis transaksi -->
+            <div class="judul-nav-jenis">
+                <h5>Catat Transaksi Baru</h5>
+                <ul class="nav nav-pills nav-jenis">
+                    <li class="nav-item">
+                        <a class="nav-masuk nav-link <?php if ($nav_jenis == "Masuk") {
+                                                            echo "active";
+                                                        } ?>"
+                            href="?nav_jenis=Masuk">
+                            Pemasukan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-keluar nav-link <?php if ($nav_jenis == "Keluar") {
+                                                            echo "active";
+                                                        } ?>"
+                            href="?nav_jenis=Keluar">
+                            Pengeluaran</a>
+                    </li>
+                </ul>
+            </div>
             <form class="row g-3" method="POST">
-                <h5>Catat Transaksi Baru</h5><br>
                 <!-- tanggal -->
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <label for="tanggal" class="form-label">Tanggal</label>
                     <input type="date" class="form-control" id="tanggal" name="tanggal" required>
                 </div>
                 <!-- keterangan -->
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <label for="keterangan" class="form-label">Keterangan</label>
                     <input type="text" class="form-control" id="keterangan" name="keterangan" required>
                 </div>
+
+                <!-- jenis -->
+                <input type="hidden" class="form-control" id="keterangan" name="keterangan"
+                    value="<?php if ($nav_jenis == "Masuk") {
+                                echo "Pemasukan";
+                            } else {
+                                echo "Pengeluaran";
+                            } ?>"
+                    required>
+
+
                 <!-- kategori -->
-                <div class="col-md-3">
+                <?php
+                $kategori = [];
+                if ($nav_jenis == "Masuk") {
+                    $kategori = ["Penjualan Pagi", "Penjualan Siang", "Penjualan Malam", "Lain-lain"];
+                } else {
+                    $kategori = ["Belanja Stok", "Operasional", "Gaji", "Lain-lain"];
+                }
+                ?>
+                <div class="col-md-4">
                     <label for="inputZip" class="form-label">Kategori</label>
                     <select class="form-select" id="kategori" aria-label="Default select example" name="kategori" required>
                         <option value="" selected disabled>Pilih Kategori</option>
-                        <option value="Penjualan">Penjualan</option>
-                        <option value="Belanja Stok">Belanja Stok</option>
-                        <option value="Operasional">Operasional</option>
-                        <option value="Gaji">Gaji</option>
-                        <option value="Lain-lain">Lain-lain</option>
+                        <?php
+                        foreach ($kategori as $row):
+                        ?>
+                            <option value="<?= $row ?>"><?= $row ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
-                <!-- jenis -->
-                <div class="col-md-3">
-                    <label for="jenis" class="form-label">Jenis</label>
-                    <select class="form-select" id="jenis" aria-label="Default select example" name="jenis" required>
-                        <option value="" selected disabled>Pilih Jenis</option>
-                        <option value="Masuk">Pemasukan</option>
-                        <option value="Keluar">Pengeluaran</option>
-                    </select>
-                </div>
+
                 <!-- jumlah-->
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <label for="jumlah" class="form-label">Jumlah</label>
                     <input type="number" class="form-control" id="jumlah" name="jumlah" min="1" required>
                 </div>
                 <!-- catatan -->
-                <div class="col-md-7">
+                <div class="col-md-6">
                     <label for="catatan" class="form-label">Catatan</label>
                     <input type="text" class="form-control" id="catatan" name="catatan">
                 </div>
