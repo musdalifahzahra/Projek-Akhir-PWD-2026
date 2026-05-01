@@ -1,21 +1,36 @@
 <?php
+require "0-koneksi.php";
 session_start();
 $error = false;
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+function transaksi_terbaru()
+{
+    global $conn;
+    $data = mysqli_query($conn, "SELECT * FROM users");
+    $rows = [];
+    while ($row = mysqli_fetch_assoc($data)) {
+        $rows[] = $row;
+    }
+    return $rows;
+}
+
+if (isset($_POST["submit"])) {
+
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    //cek informasi login
-    if ($username === "admin" and $password === "admin") {
-        $_SESSION["username"] = $_POST["username"];
-        $_SESSION["password"] = $_POST["password"];
-        $_SESSION["login"] = true;
-        header("location: 2-dashboard.php");
-        exit();
-    } else {
-        $error = true;
-    }
+    $users = transaksi_terbaru();
+    foreach ($users  as $user):
+        if ($username === $user["username"] and $password === $user["password"]) {
+            $_SESSION["username"] = $_POST["username"];
+            $_SESSION["password"] = $_POST["password"];
+            $_SESSION["login"] = true;
+            header("location: 2-dashboard.php");
+            exit();
+        } else {
+            $error = true;
+        }
+    endforeach;
 }
 ?>
 
@@ -46,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <span>Ussername atau Password salah</span>
                     <?php } ?>
                 </div>
-                <button type="submit">Login</button>
+                <button type="submit" name="submit">Login</button>
             </form>
         </div>
     </div>

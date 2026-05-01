@@ -83,19 +83,20 @@ h5 {
     padding: 30px 100px;
   }
   .rincian {
-    padding: 15px;
+    padding: 15px 30px;
   }
+  .wrap-rincian {
+  grid-template-columns: repeat(1, 1fr);
+}
 }
 
 /* responsif */
 @media screen and (max-width: 612px) {
-  .rincian {
-    padding: 15px;
-  }
+  
   .wrap {
     padding: 20px 20px;
   }
-  .rincian h5{
+  /* .rincian h5{
     font-size: 14px;
-  }
+  } */
 }
