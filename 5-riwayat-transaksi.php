@@ -162,11 +162,11 @@ function formatRp($a)
                 <thead>
                     <tr>
                         <!-- <th>#</th> -->
-                        <th style="text-align: left;">Tanggal</th>
+                        <th style="text-align: left; min-width: 120px;">Tanggal</th>
                         <th style="text-align: left;">Keterangan</th>
-                        <th>Kategori</th>
+                        <th style=" min-width: 130px;">Kategori</th>
                         <th>Jenis</th>
-                        <th style="text-align: right;">Jumlah</th>
+                        <th style="text-align: right; min-width: 120px;">Jumlah</th>
                         <th style="text-align: left;">Catatan</th>
                         <!-- <th>Aksi</th> -->
                     </tr>

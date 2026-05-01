@@ -13,10 +13,9 @@ while ($row = mysqli_fetch_assoc($data_transaksi)) {
 // pemasukan/pendapatan
 $pendapatan = [];
 $total_pendapatan = 0;
-$pendapatan_penjualan = 0;
-$pendapatan_belanja_stok = 0;
-$pendapatan_operasional = 0;
-$pendapatan_gaji = 0;
+$pendapatan_pagi = 0;
+$pendapatan_siang = 0;
+$pendapatan_malam = 0;
 $pendapatan_lain_lain = 0;
 
 // pengeluaran/biaya
@@ -35,14 +34,12 @@ foreach ($rows as $data) {
     if ($data["Jenis"] == "Masuk") {
         $pendapatan[] = $data;
         $total_pendapatan += $data["Jumlah"];
-        if ($data["Kategori"] == "Belanja Stok") {
-            $pendapatan_belanja_stok += $data["Jumlah"];
-        } else if ($data["Kategori"] == "Operasional") {
-            $pendapatan_operasional += $data["Jumlah"];
-        } else if ($data["Kategori"] == "Penjualan") {
-            $pendapatan_penjualan += $data["Jumlah"];
-        } else if ($data["Kategori"] == "Gaji") {
-            $pendapatan_gaji += $data["Jumlah"];
+        if ($data["Kategori"] == "Penjualan Pagi") {
+            $pendapatan_pagi += $data["Jumlah"];
+        } else if ($data["Kategori"] == "Penjualan Siang") {
+            $pendapatan_siang += $data["Jumlah"];
+        } else if ($data["Kategori"] == "Penjualan Malam") {
+            $pendapatan_malam += $data["Jumlah"];
         } else if ($data["Kategori"] == "Lain-lain") {
             $pendapatan_lain_lain += $data["Jumlah"];
         }

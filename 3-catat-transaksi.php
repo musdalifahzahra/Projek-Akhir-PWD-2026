@@ -88,6 +88,7 @@ if (isset($_POST["submit"])) {
                     </li>
                 </ul>
             </div>
+
             <form class="row g-3" method="POST">
                 <!-- tanggal -->
                 <div class="col-md-4">
@@ -101,11 +102,11 @@ if (isset($_POST["submit"])) {
                 </div>
 
                 <!-- jenis -->
-                <input type="hidden" class="form-control" id="keterangan" name="keterangan"
+                <input type="hidden" class="form-control" id="keterangan" name="jenis"
                     value="<?php if ($nav_jenis == "Masuk") {
-                                echo "Pemasukan";
+                                echo "Masuk";
                             } else {
-                                echo "Pengeluaran";
+                                echo "Keluar";
                             } ?>"
                     required>
 

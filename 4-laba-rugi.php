@@ -75,31 +75,24 @@ require "4-data-laba-rugi.php";
                     <span>PEMASUKAN</span>
                 </div>
 
-                <?php if ($pendapatan_penjualan > 0) { ?>
+                <?php if ($pendapatan_pagi > 0) { ?>
                     <div class="baris-laporan">
-                        <span>Penjualan</span>
-                        <span><?= "Rp" . number_format($pendapatan_penjualan, 0, ',', '.') ?></span>
+                        <span>Penjualan Pagi</span>
+                        <span><?= "Rp" . number_format($pendapatan_pagi, 0, ',', '.') ?></span>
                     </div>
                 <?php } ?>
 
-                <?php if ($pendapatan_belanja_stok > 0) { ?>
+                <?php if ($pendapatan_siang > 0) { ?>
                     <div class="baris-laporan">
-                        <span>Belanja Stok</span>
-                        <span><?= "Rp" . number_format($pendapatan_belanja_stok, 0, ',', '.') ?></span>
+                        <span>Penjualan Siang</span>
+                        <span><?= "Rp" . number_format($pendapatan_siang, 0, ',', '.') ?></span>
                     </div>
                 <?php } ?>
 
-                <?php if ($pendapatan_operasional > 0) { ?>
+                <?php if ($pendapatan_malam > 0) { ?>
                     <div class="baris-laporan">
-                        <span>Operasional</span>
-                        <span><?= "Rp" . number_format($pendapatan_operasional, 0, ',', '.') ?></span>
-                    </div>
-                <?php } ?>
-
-                <?php if ($pendapatan_gaji > 0) { ?>
-                    <div class="baris-laporan">
-                        <span>Gaji</span>
-                        <span><?= "Rp" . number_format($pendapatan_gaji, 0, ',', '.'); ?></span>
+                        <span>Penjualan Malam</span>
+                        <span><?= "Rp" . number_format($pendapatan_malam, 0, ',', '.') ?></span>
                     </div>
                 <?php } ?>
 
