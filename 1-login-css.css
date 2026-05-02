@@ -37,11 +37,11 @@ button {
   height: 45px;
   border-radius: 10px;
   background-color: var(--color-nav);
-  color: aliceblue;
+  color: var(--color-card);
   border: 2px solid var(--color-nav);
 }
 button:hover {
-  font-weight: bold;
+  background-color: var(--color-tulisan-utama);
 }
 
 @media screen and (max-width: 768px) {

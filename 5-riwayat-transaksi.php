@@ -134,7 +134,7 @@ function formatRp($a)
                         <label class="form-label">Kategori</label>
                         <select name="kat">
                             <option value="">Semua Kategori</option>
-                            <?php foreach (['Penjualan', 'Belanja Stok', 'Operasional', 'Gaji', 'Lain-lain'] as $k): ?>
+                            <?php foreach (['Penjualan Pagi', 'Penjualan Siang', 'Penjualan Malam', 'Belanja Stok', 'Operasional', 'Gaji', 'Lain-lain'] as $k): ?>
                                 <option value="<?= $k ?>" <?= $f_kat === $k ? 'selected' : '' ?>><?= $k ?></option>
                             <?php endforeach; ?>
                         </select>
@@ -144,7 +144,7 @@ function formatRp($a)
                         <input type="month" name="bulan" value="<?= htmlspecialchars($f_bulan) ?>">
                     </div>
                     <div class="col-md-1"><button type="submit" class="btn btn-sm filter">Filter</button></div>
-                    <div class="col-md-1"><a href="5-laporan.php" class="btn btn-outline-secondary btn-sm">Reset</a></div>
+                    <div class="col-md-1"><a href="5-riwayat-transaksi.php" class="btn btn-outline-secondary btn-sm">Reset</a></div>
 
 
                 </div>
