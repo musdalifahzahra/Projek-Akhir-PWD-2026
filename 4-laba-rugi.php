@@ -6,6 +6,10 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
 }
 require "4-data-laba-rugi.php";
 
+if (isset($_GET["filter_periode"])) {
+    $tanggal_awal = $_GET["tanggal_awal"];
+    $tanggal_akhir = $_GET["tanggal_akhir"];
+}
 ?>
 
 <!DOCTYPE html>
@@ -63,8 +67,25 @@ require "4-data-laba-rugi.php";
         </div>
     </nav>
 
-
     <div class="wrap">
+        <form action="" method="GET" class="filter-periode" style=" margin: 0px">
+            <div class="row g-3 align-items-end">
+                <h5>Filter Periode</h5>
+                <div class="col-md-4">
+                    <label for="tanggal" class="form-label">Tanggal Awal</label>
+                    <input type="date" class="form-control" name="tanggal_awal" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="tanggal" class="form-label akhir">Tanggal Akhir</label>
+                    <input type="date" class="form-control" name="tanggal_akhir" required>
+                </div>
+                <div class="col-md-4 d-flex gap-2">
+                    <button type="submit" name="filter_periode" class="btn btn-primary w-50"> Terapkan </button>
+                    <button type="reset" class="btn btn-primary w-50"><a href="4-laba-rugi.php" style="text-decoration: none; color:var(--color-card)">Reset</a></button>
+                </div>
+            </div>
+        </form>
+
         <!-- atas -->
         <div class=" wrap-rincian">
             <div class="rincian total-pendapatan">
@@ -83,11 +104,15 @@ require "4-data-laba-rugi.php";
 
         <!-- bawah -->
         <div class="laporan-laba-rugi card">
-            <h5 style="margin-bottom: 20px;">Laporan Laba Rugi</h5>
+            <h5 style="margin-bottom: 2px;">Laporan Laba Rugi</h5>
+            <?php if (isset($_GET["filter_periode"])) { ?>
+                <span class="form-label">Periode: <?= date('d F Y', strtotime($tanggal_awal)); ?> -
+                    <?= date('d F Y', strtotime($tanggal_akhir)); ?></span>
+            <?php } ?>
             <div class="laporan-pendapatan">
                 <!-- PENDAPATAN -->
-                <div class="baris-laporan-header">
-                    <span>PEMASUKAN</span>
+                <div class="baris-laporan-header" style="margin-top: 13px;">
+                    <span >PEMASUKAN</span>
                 </div>
 
                 <?php if ($pendapatan_pagi > 0) { ?>

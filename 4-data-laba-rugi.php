@@ -1,9 +1,18 @@
 <?php
 require "0-koneksi.php";
+// header("location: 4-laba-rugi.php");
 
 global $conn;
-// 1. mengambil semua data dari tabel transaksi
-$data_transaksi = mysqli_query($conn, "SELECT * FROM transaksi");
+if (isset($_GET["filter_periode"])) {
+    $tanggal_awal = $_GET["tanggal_awal"];
+    $tanggal_akhir = $_GET["tanggal_akhir"];
+
+    // 1. mengambil data dari tabel transaksi
+    $data_transaksi = mysqli_query($conn, "SELECT * FROM transaksi WHERE Tanggal BETWEEN '$tanggal_awal' AND '$tanggal_akhir'");
+} else {
+    $data_transaksi = mysqli_query($conn, "SELECT * FROM transaksi");
+}
+
 $rows = [];
 while ($row = mysqli_fetch_assoc($data_transaksi)) {
     $rows[] = $row;
