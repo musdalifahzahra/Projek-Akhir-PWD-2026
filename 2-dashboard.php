@@ -157,7 +157,7 @@ function formatRp($angka)
                                 <circle cx="12" cy="8" r="5" />
                                 <path d="M20 21a8 8 0 0 0-16 0" />
                             </svg>
-                        </span><?=$_SESSION["username"] ?>
+                        </span><?= $_SESSION["username"] ?>
                     </div>
                 </div>
 
@@ -171,33 +171,8 @@ function formatRp($angka)
                         Logout
                     </a>
                 </div>
-
             </div>
         </div>
-
-
-        <!-- BANNER PROFIL -->
-        <!-- <div class="card profile-section"> -->
-        <!-- <div class="profile-logo"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-building-fill" viewBox="0 0 16 16">
-                    <path d="M3 0a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h3v-3.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V16h3a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1zm1 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5M4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM7.5 5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5m2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM4.5 8h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5m2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5" />
-                </svg></div> -->
-        <!-- <div class="profile-info">
-                <div class="nama-toko">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wallet-minimal-icon lucide-wallet-minimal">
-                        <path d="M17 14h.01" />
-                        <path d="M7 7h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14" />
-                    </svg>
-                    <h1> <? //= htmlspecialchars($nama_toko) 
-                            ?></h1>
-                </div>
-                <p><? //= htmlspecialchars($deskripsi_toko) 
-                    ?></p>
-            </div>
-            <a href="#" class="edit-profile-btn"
-                data-bs-toggle="modal" data-bs-target="#modalProfil">
-                Edit Profil
-            </a> -->
-        <!-- </div> -->
 
         <!-- 4 SUMMARY CARDS -->
         <div class="wrap-rincian">
@@ -223,49 +198,16 @@ function formatRp($angka)
                 </span>
             </div>
             <div class="rincian">
-                <h5>Total Transaksi Bulan Ini</h5>
+                <h5>Total Transaksi</h5>
                 <span>
-                    <div class="summary-value" style="color:#92400e;"><?= $total_tx
-                                                                        ?></div>
+                    <div class="summary-value" style="color:#92400e;">
+                        <?= $total_tx ?></div>
                 </span>
             </div>
-
-
         </div>
-
-        <!-- <div class="wrap-rincian summary-grid">
-            <div class=" summary-card card-income rincian">
-                <div class="summary-label" style="color:#15803d;">Pemasukan Bulan Ini</div>
-                <div class="summary-value" style="color:#15803d;"><?= formatRp($total_income) ?></div>
-            </div>
-
-            <div class=" summary-card card-expense rincian">
-                <div class="summary-label" style="color:#b91c1c;">Pengeluaran</div>
-                <div class="summary-value" style="color:#b91c1c;"><? //= formatRp($total_expense) 
-                                                                    ?></div>
-            </div>
-
-            <div class=" summary-card card-profit rincian">
-                <div class="summary-label" style="color:#1e3a8a;">Laba Bersih</div>
-                <div class="summary-value"
-                    style="color:<? //= $laba_bersih >= 0 ? '#1d4ed8' : '#dc2626' 
-                                    ?>;">
-                    <? //= formatRp($laba_bersih) 
-                    ?>
-                </div>
-            </div>
-
-            <div class=" summary-card card-count rincian">
-                <div class="summary-label" style="color:#92400e;">Total Transaksi</div>
-                <div class="summary-value" style="color:#92400e;"><? //= $total_tx 
-                                                                    ?></div>
-            </div>
-
-        </div> -->
 
         <div class="card card-custom">
             <h5>Transaksi Terbaru</h5>
-            <!-- <div class="section-title">📋 Transaksi Terbaru</div> -->
             <div class="wrap-transaksi">
                 <?php foreach ($transaksi_terbaru as $data) : ?>
                     <div class="satu-transaksi">
@@ -301,47 +243,10 @@ function formatRp($angka)
                     </div>
                 <?php endforeach; ?>
             </div>
-            <!-- <?php // if (mysqli_num_rows($q_recent) === 0): 
-                    ?>
-                <p style="color:#64748b;font-size:14px;text-align:center;padding:24px 0;">
-                    Belum ada transaksi.
-                    <a href="3-catat-transaksi.php" style="color:#1d4ed8;font-weight:700;">Catat sekarang →</a>
-                </p>
-            <?php // else: 
-            ?>
-                <?php // while ($row = mysqli_fetch_assoc($q_recent)): 
-                ?>
-                    <div class="tx-row">
-                        <div>
-                            <div class="tx-desc"><? //= htmlspecialchars($row['Keterangan']) 
-                                                    ?></div>
-                            <div class="tx-cat"><? //= htmlspecialchars($row['Kategori']) 
-                                                ?></div>
-                        </div>
-                        <span class="badge-<? //= $row['Jenis'] === 'Pemasukan' ? 'masuk' : 'keluar' 
-                                            ?>">
-                            <? // $row['Jenis'] 
-                            ?>
-                        </span>
-                        <div class="tx-date"><? //= date('d M Y', strtotime($row['Tanggal'])) 
-                                                ?></div>
-                        <div class="<? //= $row['Jenis'] === 'Pemasukan' ? 'amount-masuk' : 'amount-keluar' 
-                                    ?>">
-                            <? //= $row['Jenis'] === 'Pemasukan' ? '+' : '−' 
-                            ?><? //= formatRp($row['Jumlah']) 
-                                ?>
-                        </div>
-                    </div>
-                <?php // endwhile; 
-                ?>
-            <?php // endif; 
-            ?> -->
-
             <div class="mt-3 text-end">
                 <a href="5-riwayat-transaksi.php" class="lihat-semua btn btn-primary btn-sm">Lihat Semua →</a>
             </div>
         </div>
-
     </div>
 
     <!-- MODAL EDIT PROFIL -->

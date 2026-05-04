@@ -22,7 +22,7 @@ h5 {
   box-shadow: 0 10px 25px rgba(30, 41, 59, 0.05);
   padding: 30px;
 }
-.col-md-4{
+.col-md-4 {
   margin: 0px;
 }
 .form-label {
@@ -35,8 +35,17 @@ h5 {
   padding: 7px 25px;
   border: 1px solid var(--color-nav);
 }
+.btn.btn-primary.reset {
+  background-color: transparent;
+  border: 1px solid var(--color-nav);
+}
 .btn.btn-primary:hover {
   background-color: var(--color-tulisan-utama);
+  border: 1px solid var(--color-nav);
+  color: var(--color-input);
+}
+.btn.btn-primary.reset:hover {
+  background-color: var(--color-bag-web);
   border: 1px solid var(--color-nav);
   color: var(--color-input);
 }
@@ -115,6 +124,9 @@ h5 {
   .wrap-rincian {
     grid-template-columns: repeat(1, 1fr);
   }
+  .form-label.akhir {
+    margin-top: 10px;
+  }
 }
 
 /* responsif */
@@ -122,13 +134,8 @@ h5 {
   .wrap {
     padding: 20px 20px;
   }
-   .form-label.akhir{
-    margin-top: 10px;
-   }
-  .btn.btn-primary{
+
+  .btn.btn-primary {
     margin-top: 15px;
   }
-  /* .rincian h5{
-    font-size: 14px;
-  } */
 }

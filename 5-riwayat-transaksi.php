@@ -61,7 +61,6 @@ function formatRp($a)
 </head>
 
 <body>
-
     <nav>
         <div class="profile">
             <svg style="color: var(--color-card);" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wallet-minimal-icon lucide-wallet-minimal">
@@ -106,16 +105,6 @@ function formatRp($a)
     </nav>
 
     <div class="wrap">
-        <!-- <h4 style="font-weight:900;color:#1e3a8a;margin-bottom:20px;">📜 Semua Transaksi</h4> -->
-
-        <!-- ALERT -->
-        <?php if (isset($_GET['hapus_ok'])): ?>
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                🗑️ Transaksi berhasil dihapus!
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            </div>
-        <?php endif; ?>
-
         <!-- FORM FILTER -->
         <div class="card">
             <h5 style="margin-bottom: 10px;">Riwayat Transaksi</h5>
@@ -145,46 +134,21 @@ function formatRp($a)
                     </div>
                     <div class="col-md-1"><button type="submit" class="btn btn-sm filter">Filter</button></div>
                     <div class="col-md-1"><a href="5-riwayat-transaksi.php" class="btn btn-outline-secondary btn-sm">Reset</a></div>
-
-
                 </div>
             </form>
         </div>
-        <!-- SUMMARY MINI
-        <div class="summary-row">
-            <div class="summary-mini" style="background:#f0fdf4;color:#15803d;border-color:#bbf7d0;">
-                💰 Total Pemasukan &nbsp;
-                <span style="font-size:15px;"><? //= formatRp($total_i) 
-                                                ?></span>
-            </div>
-            <div class="summary-mini" style="background:#fff5f5;color:#b91c1c;border-color:#fecaca;">
-                📉 Total Pengeluaran &nbsp;
-                <span style="font-size:15px;"><? //= formatRp($total_e) 
-                                                ?></span>
-            </div>
-            <div class="summary-mini"
-                style="background:#eff6ff;border-color:#bfdbfe;
-                    color:<? //= ($total_i - $total_e) >= 0 ? '#1d4ed8' : '#dc2626' 
-                            ?>;">
-                💵 Laba Bersih &nbsp;
-                <span style="font-size:15px;"><? //= formatRp($total_i - $total_e) 
-                                                ?></span>
-            </div>
-        </div> -->
 
         <!-- TABEL SEMUA TRANSAKSI -->
         <div class="table-wrap card">
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <!-- <th>#</th> -->
                         <th style="text-align: left; min-width: 120px;">Tanggal</th>
                         <th style="text-align: left;">Keterangan</th>
                         <th style=" min-width: 130px;">Kategori</th>
                         <th>Jenis</th>
                         <th style="text-align: right; min-width: 120px;">Jumlah</th>
                         <th style="text-align: left;">Catatan</th>
-                        <!-- <th>Aksi</th> -->
                     </tr>
                 </thead>
                 <tbody>
@@ -197,7 +161,6 @@ function formatRp($a)
                         <?php else: $no = 1;
                         while ($row = mysqli_fetch_assoc($q_all)): ?>
                             <tr>
-                                <!-- <td class="row-no"><?= $no++ ?></td> -->
                                 <td><?= date('d M Y', strtotime($row['Tanggal'])) ?></td>
                                 <td style="text-transform:capitalize"><?= htmlspecialchars($row['Keterangan']) ?></td>
                                 <td style="color:#64748b;">
@@ -211,45 +174,20 @@ function formatRp($a)
                                         <p style="text-align: center;" class="jenis-keluar"><?= $row['Jenis'] ?></p>
                                     <?php } ?>
                                 </td>
-                                <!-- <td> -->
-                                <!-- <span class="badge-<//?= $row['Jenis'] === 'Masuk' ? 'masuk' : 'keluar' ?>">
-                                        <? //= $row['Jenis'] 
-                                        ?>
-                                    </span> -->
-                                <!-- </td> -->
                                 <td>
                                     <?php if ($row['Jenis'] == "Masuk") { ?>
                                         <p class="jumlah-masuk"><?= "+" . formatRp($row['Jumlah']) ?></p>
 
                                     <?php } else { ?>
                                         <p class="jumlah-keluar"><?= "-" . formatRp($row['Jumlah']) ?></p><?php } ?>
-
-                                    <!-- <td>style="font-weight:800;color:<? //= $row['Jenis'] === 'Masuk' ? '#16a34a' : '#dc2626' 
-                                                                            ?>;">
-                                    <? //= $row['Jenis'] === 'Masuk' ? '+' : '−' 
-                                    ?><? //= formatRp($row['Jumlah']) 
-                                        ?></td> -->
                                 </td>
                                 <td style="color:#94a3b8;font-size:12px;"><?= htmlspecialchars($row['Catatan']) ?></td>
-                                <!-- <td>
-                                    <div style="display:flex;gap:6px;">
-                                        <a href="3-edit-transaksi.php?id=<? //= $row['No'] 
-                                                                            ?>"
-                                            class="btn btn-warning btn-sm">✏️</a>
-                                        <button class="btn btn-danger btn-sm"
-                                            onclick="if(confirm('Hapus transaksi ini?')) window.location='5-laporan.php?hapus=<? //= $row['No'] 
-                                                                                                                                ?>'">
-                                            🗑️
-                                        </button>
-                                    </div>
-                                </td> -->
                             </tr>
                     <?php endwhile;
                     endif; ?>
                 </tbody>
             </table>
         </div>
-
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>

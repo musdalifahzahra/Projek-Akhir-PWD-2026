@@ -9,7 +9,7 @@ require "4-data-laba-rugi.php";
 if (isset($_GET["filter_periode"])) {
     $tanggal_awal = $_GET["tanggal_awal"];
     $tanggal_akhir = $_GET["tanggal_akhir"];
-}
+} 
 ?>
 
 <!DOCTYPE html>
@@ -73,15 +73,15 @@ if (isset($_GET["filter_periode"])) {
                 <h5>Filter Periode</h5>
                 <div class="col-md-4">
                     <label for="tanggal" class="form-label">Tanggal Awal</label>
-                    <input type="date" class="form-control" name="tanggal_awal" required>
+                    <input type="date" class="form-control" name="tanggal_awal" value="<?= (isset($_GET["filter_periode"])) ? $tanggal_awal : "" ?>" required>
                 </div>
                 <div class="col-md-4">
                     <label for="tanggal" class="form-label akhir">Tanggal Akhir</label>
-                    <input type="date" class="form-control" name="tanggal_akhir" required>
+                    <input type="date" class="form-control" name="tanggal_akhir" value="<?= (isset($_GET["filter_periode"])) ? $tanggal_akhir : "" ?>" required>
                 </div>
                 <div class="col-md-4 d-flex gap-2">
                     <button type="submit" name="filter_periode" class="btn btn-primary w-50"> Terapkan </button>
-                    <button type="reset" class="btn btn-primary w-50"><a href="4-laba-rugi.php" style="text-decoration: none; color:var(--color-card)">Reset</a></button>
+                    <button type="reset" class="btn btn-primary reset w-50"><a href="4-laba-rugi.php" style="text-decoration: none; color:var(--color-nav)">Reset</a></button>
                 </div>
             </div>
         </form>

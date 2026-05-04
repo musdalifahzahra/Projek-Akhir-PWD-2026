@@ -68,15 +68,11 @@ function ubah($data)
     return mysqli_affected_rows($conn);
 }
 
-// cek data berhasil diubah atau tidak
+// panggil fungsi ubah dan cek data berhasil diubah atau tidak
 if (isset($_POST["submit-ubah"])) {
     if (ubah($_POST) > 0) {
-        echo "
-        <script>
-        alert('Data berhasil di ubah');
-        document.location.href = '3-catat-transaksi.php';
-        </script>
-        ";
+        header("location: 3-catat-transaksi.php");
+        exit();
     } else {
         echo "
         <script>

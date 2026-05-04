@@ -1,7 +1,6 @@
 <?php
 require_once "0-koneksi.php";
 require "3-functions.php";
-// $data, parameter yang menerima 1 baris data transaksi yg akan diubah
 function modal_ubah_data($data)
 {
 ?>
@@ -31,36 +30,26 @@ function modal_ubah_data($data)
                                 <label for="keterangan" class="form-label">Keterangan</label>
                                 <input type="text" class="form-control" id="keterangan" name="keterangan" value="<?= $data['Keterangan'] ?>" required>
                             </div>
+                            <!-- kategori -->
+                            <div class="col-md-3">
+                                <label for="inputZip" class="form-label">Kategori</label>
+                                <select class="form-select" id="kategori" aria-label="Default select example" name="kategori" required>
+                                    <option value="" selected disabled>Pilih Kategori</option>
+                                    <option value="Penjualan" <?= ($data['Kategori'] == "Penjualan") ? 'selected' : '' ?>>Penjualan</option>
+                                    <option value="Belanja Stok" <?= ($data['Kategori'] == "Belanja Stok") ? 'selected' : '' ?>>Belanja Stok</option>
+                                    <option value="Operasional" <?= ($data['Kategori'] == "Operasional") ? 'selected' : '' ?>>Operasional</option>
+                                    <option value="Gaji" <?= ($data['Kategori'] == "Gaji") ? 'selected' : '' ?>>Gaji</option>
+                                    <option value="Lain-lain" <?= ($data['Kategori'] == "Lain-lain") ? 'selected' : '' ?>>Lain-lain</option>
+                                </select>
+                            </div>
                             <!-- jenis -->
                             <div class="col-md-3">
                                 <label for="jenis" class="form-label">Jenis</label>
                                 <select class="form-select" id="jenis" aria-label="Default select example" name="jenis" value="<?= $data['Jenis'] ?>" required>
-                                    <option value="<?= $data["Jenis"] ?>" selected>
-                                        <?= ($data['Jenis'] == "Masuk" ? "Pemasukan" : "Pengeluaran") ?>
-                                    </option>
+                                    <option value="Masuk" <?= ($data['Jenis'] == "Masuk") ? 'selected' : '' ?>>Pemasukan</option>
+                                    <option value="Keluar" <?= ($data['Jenis'] == "Keluar") ? 'selected' : '' ?>>Pengeluaran</option>
                                 </select>
                             </div>
-
-                            <!-- kategori -->
-                            <?php
-                            $kategori = [];
-                            if ($data["Jenis"] == "Masuk") {
-                                $kategori = ["Penjualan Pagi", "Penjualan Siang", "Penjualan Malam", "Lain-lain"];
-                            } else {
-                                $kategori = ["Belanja Stok", "Operasional", "Gaji", "Lain-lain"];
-                            }
-                            ?>
-                            <div class="col-md-3">
-                                <label for="inputZip" class="form-label">Kategori</label>
-                                <select class="form-select" id="kategori" aria-label="Default select example" name="kategori" required>
-                                    <?php
-                                    foreach ($kategori as $row):
-                                    ?>
-                                        <option value="<?= $row ?>" <?= ($data['Kategori'] == $row ? 'selected' : '') ?>><?= $row ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-
                             <!-- jumlah-->
                             <div class="col-md-3">
                                 <label for="jumlah" class="form-label">Jumlah</label>
