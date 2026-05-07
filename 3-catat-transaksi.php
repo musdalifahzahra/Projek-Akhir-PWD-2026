@@ -169,7 +169,7 @@ if (isset($_POST["submit"])) {
 
         <!-- MENAMPILKAN DAFTAR TRANSAKSI TERBARU -->
         <?php
-        $transaksi_terbaru = transaksi_terbaru(50);
+        $transaksi_terbaru = read("SELECT * FROM transaksi ORDER BY No DESC LIMIT 50");
         ?>
 
         <div class="tampil-transaksi-terbaru card">

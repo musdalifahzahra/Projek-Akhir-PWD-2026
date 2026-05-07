@@ -3,7 +3,7 @@ require "0-koneksi.php";
 require "3-functions.php";
 
 if (!isset($_GET["id"])) {
-    header("Location: 3-catat-transaksi.php");
+    header("Location: 6-pengguna.php");
     exit;
 }
 
@@ -13,11 +13,11 @@ $query = "DELETE FROM transaksi WHERE No = $id";
 if (hapus($query) > 0) {
     echo "<script>
     alert('Data berhasil dihapus!');
-    document.location.href = '3-catat-transaksi.php';
+    document.location.href = '6-pengguna.php';
     </script>";
 } else {
     echo "<script>
     alert('Data gagal dihapus!');
-    document.location.href = '3-catat-transaksi.php';
+    document.location.href = '6-pengguna.php';
     </script>";
 }

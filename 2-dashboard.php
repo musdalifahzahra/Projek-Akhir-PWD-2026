@@ -2,7 +2,7 @@
 session_start();
 require_once "3-ubah.php";
 require_once "3-functions.php";
-$transaksi_terbaru = transaksi_terbaru(5);
+$transaksi_terbaru = read("SELECT * FROM transaksi ORDER BY No DESC LIMIT 5");
 
 if (!isset($_SESSION["username"])) {
     header("location: 1-login.php");
@@ -85,6 +85,7 @@ function formatRp($angka)
                         <li><a href="3-catat-transaksi.php">Catat Transaksi</a></li>
                         <li><a href="4-laba-rugi.php">Laba Rugi</a></li>
                         <li><a href="5-riwayat-transaksi.php">Riwayat Transaksi</a></li>
+                        <li><a href="6-pengguna.php">Pengguna</a></li>
                         <li class="nav-profil-hidden">
                             <span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
