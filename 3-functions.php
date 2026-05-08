@@ -82,8 +82,27 @@ if (isset($_POST["submit-ubah"])) {
         ";
     }
 }
+// E. DATA PENGGUNA
+// menambah data oengguna (CREATE)
+function tambah_data_pengguna($data_insert)
+{
+    global $conn;
+    $username  = $data_insert["username"];
+    $password = $data_insert["password"];
+    $role = $data_insert["role"];
 
-// E. mengubah data pengguna(UPDATE)
+    $insert = "INSERT INTO users
+              VALUES (null, '$username', '$password', '$role')
+              ";
+
+    mysqli_query($conn, $insert);
+
+    //mengembalikan nilai, cek berhasil apa ngga. kalo (1) = berhasil, (-1)= tidak berhasil;
+    return mysqli_affected_rows($conn);
+}
+
+
+// mengubah data pengguna(UPDATE)
 function ubah_pengguna($data)
 {
     global $conn;
@@ -111,7 +130,7 @@ function ubah_pengguna($data)
 
 // panggil fungsi ubah dan cek data berhasil diubah atau tidak
 if (isset($_POST["submit-ubah"])) {
-    if (ubah($_POST) > 0) {
+    if (ubah_pengguna($_POST) > 0) {
         header("location: 3-catat-transaksi.php");
         exit();
     } else {

@@ -6,6 +6,14 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
     header("location: 1-login.php");
     exit();
 }
+
+if (isset($_POST["submit-pengguna"])) {
+    tambah_data_pengguna($_POST);
+}
+
+if (isset($_POST)) {
+    // modal_ubah_data_pengguna($_POST);
+}
 ?>
 
 <!DOCTYPE html>
@@ -65,7 +73,7 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
     </nav>
 
     <div class="wrap">
-        <!-- form tambah pengguna -->
+        <!-- form tambah kasir -->
         <div class="laporan-laba-rugi card">
             <h5 style="margin-bottom: 20px;">Tambah Akun Pengguna</h5>
             <form class="row g-3 align-items-end" method="POST">
@@ -80,22 +88,13 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
                     <input type="text" class="form-control" id="password" name="password" required>
                 </div>
                 <div class="col-12 col-md-4">
-                    <label for="inputZip" class="form-label">Role</label>
-                    <?php
-                    $role = ["owner", "admin", "kasir"];
-                    ?>
-                    <select class="form-select" id="role" aria-label="Default select example" name="role" required>
-                        <option value="" selected disabled>Pilih Role</option>
-                        <?php
-                        foreach ($role as $row):
-                        ?>
-                            <option value="<?= $row ?>"><?= $row ?></option>
-                        <?php endforeach; ?>
-                    </select>
+                    <label for="role" class="form-label">role</label>
+                    <input type="text" class="form-control" id="role" name="role" value="Kasir" readonly>
                 </div>
+
                 <!-- submit (+catat) -->
                 <div class="col-12 col-md-auto d-flex align-items-end justify-content-end">
-                    <button type="submit" class="catat btn btn-primary" id="catat" name="submit" required> +Catat </button>
+                    <button type="submit" class="catat btn btn-primary" id="catat" name="submit-pengguna" required> +Catat </button>
                 </div>
             </form>
         </div>
@@ -120,8 +119,8 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
                         <td><?= $row["username"] ?></td>
                         <td><?= $row["password"] ?></td>
                         <td><?= $row["role"] ?></td>
-                        <!-- <td><button type="button" class="edit btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-ubah<? //= $row["id"] 
-                                                                                                                                        ?>">
+                        <!-- <td><button type="button" class="edit btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-ubah-pengguna<? //= $row["id"] 
+                                                                                                                                                ?>">
                                 Edit
                             </button>
                         </td> -->
@@ -129,7 +128,7 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
                         <?php
                         //modal_ubah_data_pengguna($data);
                         ?>
-                        <td><a class="hapus" href="6-hapus.php?id=<?= $row["id"] ?>" onclick="return confirm('Apakah anda ingin mengapus data tersebut');"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                        <td <?= (($row["role"] == "owner") || ($row["role"] == "admin")) ? "hidden" : "" ?>><a class="hapus" href="6-hapus.php?id=<?= $row["id"] ?>" onclick="return confirm('Apakah anda ingin mengapus data tersebut');"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
                                     <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
                                 </svg> </a></td>
 

@@ -75,7 +75,7 @@ function modal_ubah_data($data)
                             <div class="col-md-2 d-flex align-items-end justify-content-end">
                                 <button type="submit" class="btn btn-primary" id="catat" name="submit-ubah" required> Ubah </button>
                             </div>
-                            <br>
+                            <br  
                         </form>
                     </div>
                 </div>
