@@ -106,38 +106,34 @@ function tambah_data_pengguna($data_insert)
 function ubah_pengguna($data)
 {
     global $conn;
-    // ambil data 
-    $id = $data["id"];
-    $tanggal = $data["tanggal"];
-    $keterangan = $data["keterangan"];
-    $kategori = $data["kategori"];
-    $jenis = $data["jenis"];
-    $jumlah = $data["jumlah"];
-    $catatan = $data["catatan"];
 
-    $ubah = "UPDATE transaksi SET 
-                    Tanggal = '$tanggal',
-                    Keterangan = '$keterangan',
-                    Kategori = '$kategori',
-                    Jenis = '$jenis',
-                    Jumlah = '$jumlah',
-                    Catatan = '$catatan'
-                    WHERE No = $id";
+    // ambil data
+    $username = $data["username"];
+    $password = $data["password"];
+    $role = $data["role"];
+    $id = $data["id"];
+
+    $ubah = "UPDATE users SET 
+                username = '$username',
+                password = '$password',
+                role = '$role'
+              WHERE id = '$id'
+            ";
 
     mysqli_query($conn, $ubah);
+
     return mysqli_affected_rows($conn);
 }
-
-// panggil fungsi ubah dan cek data berhasil diubah atau tidak
-if (isset($_POST["submit-ubah"])) {
+//panggil fungsi ubah dan cek data berhasil diubah atau tidak
+if (isset($_POST["submit-ubah-pengguna"])) {
     if (ubah_pengguna($_POST) > 0) {
-        header("location: 3-catat-transaksi.php");
+        header("location: 6-pengguna.php");
         exit();
     } else {
         echo "
         <script>
         alert('Data gagal di ubah');
-        document.location.href = '3-catat-transaksi.php';
+        document.location.href = '6-pengguna.php';
         </script>
         ";
     }

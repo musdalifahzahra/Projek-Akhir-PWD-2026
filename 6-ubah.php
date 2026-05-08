@@ -1,6 +1,6 @@
 <?php
 require_once "0-koneksi.php";
-require "3-functions.php";
+require_once "3-functions.php";
 // $data, parameter yang menerima 1 baris data transaksi yg akan diubah
 function modal_ubah_data_pengguna($data)
 {
@@ -19,7 +19,28 @@ function modal_ubah_data_pengguna($data)
 
                         <!-- kirim data -->
                         <form class="row g-3" action="3-functions.php" method="POST">
-                            
+                            <form class="row g-3 align-items-end" method="POST">
+                                <input type="hidden" name="id" value="<?= $data["id"] ?>">
+                                <!-- keterangan -->
+                                <div class="col-12 col-md-3">
+                                    <label for="username" class="form-label">username</label>
+                                    <input type="text" class="form-control" id="username" name="username" value="<?= $data["username"] ?>" required>
+                                </div>
+                                <!-- keterangan -->
+                                <div class="col-12 col-md-3">
+                                    <label for="password" class="form-label">password</label>
+                                    <input type="text" class="form-control" id="password" name="password" value="<?= $data["password"] ?>" required>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <label for="role" class="form-label" style="margin-top: 17px;">role</label>
+                                    <input type="text" class="form-control" id="role" name="role" value="Kasir" readonly>
+                                </div>
+
+                                <!-- submit (+catat) -->
+                                <div class="col-12 col-md-auto d-flex align-items-end justify-content-end">
+                                    <button type="submit" class="catat btn btn-primary" id="catat" name="submit-ubah-pengguna" required> +Catat </button>
+                                </div>
+                            </form>
                         </form>
                     </div>
                 </div>

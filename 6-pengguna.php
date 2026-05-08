@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once "3-functions.php";
+require_once "6-ubah.php";
 
 if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
     header("location: 1-login.php");
@@ -27,6 +28,16 @@ if (isset($_POST)) {
     <link rel="stylesheet" href="template-css.css">
     <link rel="stylesheet" href="3-catat-transaksi-css.css">
     <link rel="stylesheet" href="4-laba-rugi-css.css">
+    <style>
+        tr,
+        th {
+            border: 1px solid black;
+        }
+
+        td {
+            border: 1px solid black;
+        }
+    </style>
 </head>
 
 <body>
@@ -75,7 +86,7 @@ if (isset($_POST)) {
     <div class="wrap">
         <!-- form tambah kasir -->
         <div class="laporan-laba-rugi card">
-            <h5 style="margin-bottom: 20px;">Tambah Akun Pengguna</h5>
+            <h5 style="margin-bottom: 20px;">Tambah Akun Kasir</h5>
             <form class="row g-3 align-items-end" method="POST">
                 <!-- keterangan -->
                 <div class="col-12 col-md-3">
@@ -100,44 +111,48 @@ if (isset($_POST)) {
         </div>
 
         <div class="laporan-laba-rugi card">
-            <h5 style="margin-bottom: 2px;">Data Pengguna</h5>
-            <table>
-                <tr>
-                    <th>No</th>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Role</th>
-                    <th colspan="2">Aksi</th>
-                </tr>
-                <?php
-                $data = read("SELECT * FROM users");
-                $i = 1;
-                foreach ($data as $row):
-                ?>
+            <h5 style="margin-bottom: 20px;">Data Pengguna</h5>
+            <div class="data-pengguna" style="width: 100%;">
+                <table style="width: 100%;">
                     <tr>
-                        <td><?= $i ?></td>
-                        <td><?= $row["username"] ?></td>
-                        <td><?= $row["password"] ?></td>
-                        <td><?= $row["role"] ?></td>
-                        <!-- <td><button type="button" class="edit btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-ubah-pengguna<? //= $row["id"] 
-                                                                                                                                                ?>">
-                                Edit
-                            </button>
-                        </td> -->
-                        <!-- panggil fungsi u/ mengubah data dengan membawa satu data transaksi, modal akan muncul apabila user Pilih ubah -->
-                        <?php
-                        //modal_ubah_data_pengguna($data);
-                        ?>
-                        <td <?= (($row["role"] == "owner") || ($row["role"] == "admin")) ? "hidden" : "" ?>><a class="hapus" href="6-hapus.php?id=<?= $row["id"] ?>" onclick="return confirm('Apakah anda ingin mengapus data tersebut');"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-                                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
-                                </svg> </a></td>
-
+                        <th>NO</th>
+                        <th>USERNAME</th>
+                        <th>PASSWORD</th>
+                        <th>ROLE</th>
+                        <th>AKSI</th>
                     </tr>
-                <?php
-                    $i++;
-                endforeach; ?>
-            </table>
+                    <?php
+                    $data = read("SELECT * FROM users");
+                    $i = 1;
+                    foreach ($data as $row):
+                    ?>
+                        <tr>
+                            <td><?= $i ?></td>
+                            <td><?= $row["username"] ?></td>
+                            <td><?= $row["password"] ?></td>
+                            <td><?= $row["role"] ?></td>
+                            <td>
+                                <!-- ubah -->
+                                <button type="button" class="" data-bs-toggle="modal" data-bs-target="#modal-ubah-pengguna<?= $row['id'] ?>">
+                                    Edit
+                                </button>
 
+                                <!-- panggil fungsi u/ mengubah data dengan membawa satu data transaksi, modal akan muncul apabila user Pilih ubah -->
+                                <?php
+                                modal_ubah_data_pengguna($row);
+                                ?>
+
+                                <!-- hapus -->
+                                <a class="hapus" href="6-hapus.php?id=<?= $row["id"] ?>" onclick="return confirm('Apakah anda ingin mengapus data tersebut');"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                                    </svg>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php $i++;
+                    endforeach; ?>
+                </table>
+            </div>
         </div>
     </div>
 
