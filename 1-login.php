@@ -2,6 +2,7 @@
 require "0-koneksi.php";
 session_start();
 $error = false;
+$users = transaksi_terbaru();
 
 function transaksi_terbaru()
 {
@@ -19,13 +20,13 @@ if (isset($_POST["submit"])) {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    $users = transaksi_terbaru();
+
     foreach ($users  as $user):
         if ($username === $user["username"] and $password === $user["password"]) {
-            $_SESSION["username"] = $_POST["username"];
-            $_SESSION["password"] = $_POST["password"];
+            // $_SESSION["password"] = $_POST["password"];
+            $_SESSION["username"] = $user["username"];
+            $_SESSION["role"] = $user["role"];
             $_SESSION["login"] = true;
-            $_SESSION["username"] = $username;
             header("location: 2-dashboard.php");
             exit();
         } else {

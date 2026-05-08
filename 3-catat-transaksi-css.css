@@ -116,7 +116,8 @@ form .catat {
   padding: 10px 10px 5px 10px;
   text-transform: capitalize;
 }
-.satu-transaksi:hover {
+.satu-transaksi:hover,
+.satu-pengguna:hover {
   background-color: var(--color-bag-web);
 }
 .keterangan {
@@ -130,7 +131,6 @@ form .catat {
 }
 .jenis {
   font-size: x-small;
-  background-color: aqua;
   border-radius: 25px;
   padding: 4px 10px;
 }
@@ -145,8 +145,8 @@ form .catat {
 }
 .edit:hover {
   background-color: var(--color-nav);
+  color: var(--color-card);
 }
-
 .hapus {
   text-decoration: none;
   color: var(--color-belum-dipencet);
@@ -166,7 +166,10 @@ p {
 }
 .jenis-masuk,
 .jenis-keluar,
-.kategori {
+.kategori,
+.Owner,
+.Admin,
+.Kasir {
   border-radius: 15px;
   padding: 3px 8px;
   font-size: x-small;
@@ -186,6 +189,22 @@ p {
   background-color: var(--color-pengeluaran-bg);
   border: 1px solid #ffcdd2;
 }
+.Owner {
+  background-color: #97c1ff;
+  color: #084079;
+  padding: 5px 10px;
+}
+.Kasir {
+  background-color: #d8fef1;
+  color: #085041;
+  padding: 5px 10px;
+}
+.Admin {
+  background-color: #faeeda;
+  color: #633806;
+  padding: 5px 10px;
+}
+
 .jumlah-masuk {
   color: var(--color-pemasukan-angka);
   text-align: right;

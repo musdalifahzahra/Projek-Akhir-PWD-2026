@@ -9,7 +9,7 @@ require "4-data-laba-rugi.php";
 if (isset($_GET["filter_periode"])) {
     $tanggal_awal = $_GET["tanggal_awal"];
     $tanggal_akhir = $_GET["tanggal_akhir"];
-} 
+}
 ?>
 
 <!DOCTYPE html>
@@ -41,12 +41,13 @@ if (isset($_GET["filter_periode"])) {
                         <li><a href="3-catat-transaksi.php">Catat Transaksi</a></li>
                         <li><a href="4-laba-rugi.php" class="nav-active">Laba Rugi</a></li>
                         <li><a href="5-riwayat-transaksi.php">Riwayat Transaksi</a></li>
+                        <li <?= ($_SESSION["role"] == "Kasir") ? "hidden" : "" ?>><a href="6-pengguna.php">Pengguna</a></li>
                         <li class="nav-profil-hidden">
                             <span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
                                     <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
-                                </svg><?= $_SESSION["username"] ?>
-                            </span>
+                                </svg>
+                                <?= $_SESSION["role"] . "|" . $_SESSION["username"] ?> </span>
                         </li>
                     </ul>
                 </div>
@@ -62,7 +63,7 @@ if (isset($_GET["filter_periode"])) {
                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
                     <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
                 </svg>
-                <?= $_SESSION["username"] ?>
+                <?= $_SESSION["role"] . "|" . $_SESSION["username"] ?>
             </span>
         </div>
     </nav>
@@ -112,7 +113,7 @@ if (isset($_GET["filter_periode"])) {
             <div class="laporan-pendapatan">
                 <!-- PENDAPATAN -->
                 <div class="baris-laporan-header" style="margin-top: 13px;">
-                    <span >PEMASUKAN</span>
+                    <span>PEMASUKAN</span>
                 </div>
 
                 <?php if ($pendapatan_pagi > 0) { ?>

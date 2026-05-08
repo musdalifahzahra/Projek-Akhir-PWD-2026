@@ -67,7 +67,6 @@ function formatRp($angka)
 </head>
 
 <body>
-
     <nav>
         <div class="profile">
             <svg style="color: var(--color-card);" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wallet-minimal-icon lucide-wallet-minimal">
@@ -85,12 +84,12 @@ function formatRp($angka)
                         <li><a href="3-catat-transaksi.php">Catat Transaksi</a></li>
                         <li><a href="4-laba-rugi.php">Laba Rugi</a></li>
                         <li><a href="5-riwayat-transaksi.php">Riwayat Transaksi</a></li>
-                        <li><a href="6-pengguna.php">Pengguna</a></li>
+                        <li <?= ($_SESSION["role"] == "Kasir") ? "hidden" : "" ?>><a href="6-pengguna.php">Pengguna</a></li>
                         <li class="nav-profil-hidden">
                             <span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
                                     <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
-                                </svg><?= $_SESSION["username"] ?>
+                                </svg><?= $_SESSION["role"] . "|" . $_SESSION["username"] ?>
                             </span>
                         </li>
                     </ul>
@@ -107,7 +106,7 @@ function formatRp($angka)
                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
                     <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
                 </svg>
-                <?= $_SESSION["username"] ?>
+                <?= $_SESSION["role"] . "|" . $_SESSION["username"] ?>
             </span>
         </div>
     </nav>
@@ -163,11 +162,16 @@ function formatRp($angka)
                 </div>
 
                 <p class="desc"><?= htmlspecialchars($deskripsi_toko) ?></p>
-                <div class="actions">
+                <div class="actions" <?= ($_SESSION["role"] == "Kasir") ? "hidden" : "" ?>>
                     <a href="#" class=" edit-profile"
                         data-bs-toggle="modal" data-bs-target="#modalProfil">
                         Edit Profil
                     </a>
+                    <a href="1-logout.php" class=" edit-profile">
+                        Logout
+                    </a>
+                </div>
+                <div class="actions" <?= ($_SESSION["role"] != "Kasir") ? "hidden" : "" ?> style="display: flex;">
                     <a href="1-logout.php" class=" edit-profile">
                         Logout
                     </a>

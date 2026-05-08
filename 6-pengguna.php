@@ -29,13 +29,23 @@ if (isset($_POST)) {
     <link rel="stylesheet" href="3-catat-transaksi-css.css">
     <link rel="stylesheet" href="4-laba-rugi-css.css">
     <style>
-        tr,
-        th {
-            border: 1px solid black;
+        .table-header {
+            background-color: var(--color-nav);
+            color: var(--color-card);
+            padding: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        table {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
         }
 
         td {
-            border: 1px solid black;
+            padding: 10px;
+            font-size: var(--font-text);
+            border-bottom: 1px solid var(--color-bag-web);
         }
     </style>
 </head>
@@ -55,14 +65,15 @@ if (isset($_POST)) {
                     <ul>
                         <li><a href="2-dashboard.php">Dashboard</a></li>
                         <li><a href="3-catat-transaksi.php">Catat Transaksi</a></li>
-                        <li><a href="4-laba-rugi.php" class="nav-active">Laba Rugi</a></li>
+                        <li><a href="4-laba-rugi.php">Laba Rugi</a></li>
                         <li><a href="5-riwayat-transaksi.php">Riwayat Transaksi</a></li>
+                        <li <?= ($_SESSION["role"] == "Kasir") ? "hidden" : "" ?> class="nav-active"><a href="6-pengguna.php">Pengguna</a></li>
                         <li class="nav-profil-hidden">
                             <span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
                                     <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
-                                </svg><?= $_SESSION["username"] ?>
-                            </span>
+                                </svg>
+                                <?= $_SESSION["role"] . "|" . $_SESSION["username"] ?> </span>
                         </li>
                     </ul>
                 </div>
@@ -78,7 +89,7 @@ if (isset($_POST)) {
                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
                     <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
                 </svg>
-                <?= $_SESSION["username"] ?>
+                <?= $_SESSION["role"] . "|" . $_SESSION["username"] ?> </span>
             </span>
         </div>
     </nav>
@@ -88,12 +99,10 @@ if (isset($_POST)) {
         <div class="laporan-laba-rugi card">
             <h5 style="margin-bottom: 20px;">Tambah Akun Kasir</h5>
             <form class="row g-3 align-items-end" method="POST">
-                <!-- keterangan -->
                 <div class="col-12 col-md-3">
                     <label for="username" class="form-label">username</label>
                     <input type="text" class="form-control" id="username" name="username" required>
                 </div>
-                <!-- keterangan -->
                 <div class="col-12 col-md-3">
                     <label for="password" class="form-label">password</label>
                     <input type="text" class="form-control" id="password" name="password" required>
@@ -103,9 +112,8 @@ if (isset($_POST)) {
                     <input type="text" class="form-control" id="role" name="role" value="Kasir" readonly>
                 </div>
 
-                <!-- submit (+catat) -->
                 <div class="col-12 col-md-auto d-flex align-items-end justify-content-end">
-                    <button type="submit" class="catat btn btn-primary" id="catat" name="submit-pengguna" required> +Catat </button>
+                    <button type="submit" class="catat btn btn-primary" id="catat" name="submit-pengguna" required> Tambah</button>
                 </div>
             </form>
         </div>
@@ -114,46 +122,61 @@ if (isset($_POST)) {
             <h5 style="margin-bottom: 20px;">Data Pengguna</h5>
             <div class="data-pengguna" style="width: 100%;">
                 <table style="width: 100%;">
-                    <tr>
-                        <th>NO</th>
-                        <th>USERNAME</th>
-                        <th>PASSWORD</th>
-                        <th>ROLE</th>
-                        <th>AKSI</th>
+                    <tr class="table-header">
+                        <td style="text-align: center;">NO</td>
+                        <td>USERNAME</td>
+                        <td>PASSWORD</td>
+                        <td style="text-align: center;">ROLE</td>
+                        <td></td>
                     </tr>
                     <?php
                     $data = read("SELECT * FROM users");
                     $i = 1;
                     foreach ($data as $row):
                     ?>
-                        <tr>
-                            <td><?= $i ?></td>
-                            <td><?= $row["username"] ?></td>
-                            <td><?= $row["password"] ?></td>
-                            <td><?= $row["role"] ?></td>
-                            <td>
-                                <!-- ubah -->
-                                <button type="button" class="" data-bs-toggle="modal" data-bs-target="#modal-ubah-pengguna<?= $row['id'] ?>">
-                                    Edit
-                                </button>
+                        <?php
+                        $admin = false;
+                        if ($_SESSION["role"] == "Admin" && $row["role"] == "Kasir") {
+                            $admin = true;
+                        } elseif ($_SESSION["role"] == "Owner") {
+                            $admin = true;
+                        }
+                        if ($admin) :
+                        ?>
+                            <tr class="satu-pengguna">
+                                <td style="text-align: center;"><?= $i . "." ?></td>
+                                <td><?= $row["username"] ?></td>
+                                <td><?= $row["password"] ?></td>
+                                <td style="text-align: center;"><span class="<?= ($row["role"] == "Owner") ? "Owner" : (($row["role"]) == "Admin" ? "Admin" : "Kasir") ?> "><?= $row["role"] ?></span></td>
+                                <td style="max-width: 40px;">
+                                    <!-- ubah -->
+                                    <button type="button" class="edit" data-bs-toggle="modal" data-bs-target="#modal-ubah-pengguna<?= $row['id'] ?>">
+                                        Edit
+                                    </button>
 
-                                <!-- panggil fungsi u/ mengubah data dengan membawa satu data transaksi, modal akan muncul apabila user Pilih ubah -->
-                                <?php
-                                modal_ubah_data_pengguna($row);
-                                ?>
+                                    <!-- panggil fungsi u/ mengubah data dengan membawa satu data transaksi, modal akan muncul apabila user Pilih ubah -->
+                                    <?php
+                                    modal_ubah_data_pengguna($row);
+                                    ?>
 
-                                <!-- hapus -->
-                                <a class="hapus" href="6-hapus.php?id=<?= $row["id"] ?>" onclick="return confirm('Apakah anda ingin mengapus data tersebut');"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-                                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
-                                    </svg>
-                                </a>
-                            </td>
-                        </tr>
+                                    <!-- hapus -->
+                                    <a class="hapus" href="6-hapus.php?id=<?= $row["id"] ?>" onclick="return confirm('Apakah anda ingin mengapus data tersebut');" <?= ($row["role"] != "Kasir") ? "hidden" : "" ?> style="margin-left: 2px;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                                        </svg>
+                                    </a>
+                                </td>
+                            </tr>
+
                     <?php $i++;
-                    endforeach; ?>
+                        endif;
+                    endforeach;
+                    ?>
+
                 </table>
             </div>
         </div>
+
     </div>
 
     <!-- Bootstrap JS -->

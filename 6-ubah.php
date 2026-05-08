@@ -10,7 +10,7 @@ function modal_ubah_data_pengguna($data)
         <div class="modal-dialog card">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title fs-5" id="staticBackdropLabel">Ubah data transaksi</h5>
+                    <h5 class="modal-title fs-5" id="staticBackdropLabel">Ubah Data <?= $data["role"] ?></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -18,8 +18,7 @@ function modal_ubah_data_pengguna($data)
                     <div class="input-transaksi template">
 
                         <!-- kirim data -->
-                        <form class="row g-3" action="3-functions.php" method="POST">
-                            <form class="row g-3 align-items-end" method="POST">
+                        <form class="row g-3 align-items-end" action="3-functions.php" method="POST">
                                 <input type="hidden" name="id" value="<?= $data["id"] ?>">
                                 <!-- keterangan -->
                                 <div class="col-12 col-md-3">
@@ -33,14 +32,13 @@ function modal_ubah_data_pengguna($data)
                                 </div>
                                 <div class="col-12 col-md-4">
                                     <label for="role" class="form-label" style="margin-top: 17px;">role</label>
-                                    <input type="text" class="form-control" id="role" name="role" value="Kasir" readonly>
+                                    <input type="text" class="form-control" id="role" name="role" value="<?= $data["role"] ?>" readonly style="text-transform:capitalize;">
                                 </div>
 
                                 <!-- submit (+catat) -->
                                 <div class="col-12 col-md-auto d-flex align-items-end justify-content-end">
                                     <button type="submit" class="catat btn btn-primary" id="catat" name="submit-ubah-pengguna" required> +Catat </button>
                                 </div>
-                            </form>
                         </form>
                     </div>
                 </div>
