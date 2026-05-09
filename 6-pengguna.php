@@ -97,7 +97,7 @@ if (isset($_POST)) {
     <div class="wrap">
         <!-- form tambah kasir -->
         <div class="laporan-laba-rugi card">
-            <h5 style="margin-bottom: 20px;">Tambah Akun Kasir</h5>
+            <h5 style="margin-bottom: 10px;">Tambah Akun Kasir</h5>
             <form class="row g-3 align-items-end" method="POST">
                 <div class="col-12 col-md-3">
                     <label for="username" class="form-label">username</label>

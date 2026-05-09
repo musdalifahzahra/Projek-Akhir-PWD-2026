@@ -37,7 +37,7 @@ function modal_ubah_data_pengguna($data)
 
                                 <!-- submit (+catat) -->
                                 <div class="col-12 col-md-auto d-flex align-items-end justify-content-end">
-                                    <button type="submit" class="catat btn btn-primary" id="catat" name="submit-ubah-pengguna" required> +Catat </button>
+                                    <button type="submit" class="catat btn btn-primary" id="catat" name="submit-ubah-pengguna" required> Ubah </button>
                                 </div>
                         </form>
                     </div>

@@ -1,7 +1,10 @@
 <?php
 session_start();
-require_once "3-ubah.php";
+// var_dump($_POST);
+// die();
+require "0-koneksi.php";
 require_once "3-functions.php";
+require_once "3-ubah.php";
 $transaksi_terbaru = read("SELECT * FROM transaksi ORDER BY No DESC LIMIT 5");
 
 if (!isset($_SESSION["username"])) {
@@ -16,7 +19,6 @@ if (isset($_POST['simpan_profil'])) {
     exit();
 }
 
-require "0-koneksi.php";
 
 $nama_toko      = $_SESSION["nama_toko"]      ?? "Toko Sembako Makmur";
 $deskripsi_toko = $_SESSION["deskripsi_toko"] ?? "Pusat kendali operasional Toko Sembako Makmur. Kelola transaksi pendapatan, pengeluaran, dan laporan laba rugi secara terpusat dan otomatis.";
@@ -219,7 +221,10 @@ function formatRp($angka)
 
                         <div class="a">
                             <p class="keterangan"><?= $data['Keterangan'] ?></p>
-                            <p class="tanggal-catatan"><?= $data['Tanggal'] . " | " . $data['Catatan'] ?></p>
+                            <p class="tanggal-catatan"><?= $data['Tanggal'] ?>
+                                <?php if ($data['Catatan'] != NULL) {
+                                    echo " | " . $data['Catatan'] ?></p>
+                        <?php } ?>
                         </div>
 
                         <div class="b">

@@ -1,7 +1,5 @@
 <?php
 require_once "0-koneksi.php";
-require "3-functions.php";
-// $data, parameter yang menerima 1 baris data transaksi yg akan diubah
 function modal_ubah_data($data)
 {
 ?>
@@ -75,7 +73,7 @@ function modal_ubah_data($data)
                             <div class="col-md-2 d-flex align-items-end justify-content-end">
                                 <button type="submit" class="btn btn-primary" id="catat" name="submit-ubah" required> Ubah </button>
                             </div>
-                            <br  
+                            <br>
                         </form>
                     </div>
                 </div>

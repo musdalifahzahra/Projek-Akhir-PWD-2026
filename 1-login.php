@@ -1,7 +1,7 @@
 <?php
 require "0-koneksi.php";
 session_start();
-$error = false;
+$_SESSION["login"] = false;
 $users = transaksi_terbaru();
 
 function transaksi_terbaru()
@@ -16,23 +16,23 @@ function transaksi_terbaru()
 }
 
 if (isset($_POST["submit"])) {
-
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-
     foreach ($users  as $user):
         if ($username === $user["username"] and $password === $user["password"]) {
-            // $_SESSION["password"] = $_POST["password"];
             $_SESSION["username"] = $user["username"];
             $_SESSION["role"] = $user["role"];
             $_SESSION["login"] = true;
             header("location: 2-dashboard.php");
             exit();
-        } else {
-            $error = true;
         }
     endforeach;
+    if ($_SESSION["login"] == false) {
+        $_SESSION["error"] = "Ussername atau Password salah";
+        header("location: 1-login.php");
+        exit();
+    }
 }
 ?>
 
@@ -59,9 +59,10 @@ if (isset($_POST["submit"])) {
                 <label for="password">Password</label><br>
                 <input type="password" name="password" id="password" placeholder="password">
                 <div class="pesan_error">
-                    <?php if ($error === true) { ?>
-                        <span>Ussername atau Password salah</span>
-                    <?php } ?>
+                    <?php if (isset($_SESSION["error"])) { ?>
+                        <span><?= $_SESSION["error"] ?></span>
+                    <?php unset($_SESSION["error"]);
+                    } ?>
                 </div>
                 <button type="submit" name="submit">Login</button>
             </form>
