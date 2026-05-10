@@ -1,7 +1,7 @@
 <?php
 require_once "0-koneksi.php";
 require_once "3-functions.php";
-// $data, parameter yang menerima 1 baris data transaksi yg akan diubah
+// $data, parameter yang menerima 1 baris data pengguna yg akan diubah
 function modal_ubah_data_pengguna($data)
 {
 ?>

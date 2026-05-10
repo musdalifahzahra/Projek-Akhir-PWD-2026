@@ -10,7 +10,6 @@ if (!isset($_GET["id"])) {
 $id = $_GET["id"];
 $query = "DELETE FROM users WHERE id = $id";
 
-
 if (hapus($query) > 0) {
     echo "<script>
     alert('Data berhasil dihapus!');

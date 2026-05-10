@@ -197,9 +197,7 @@ if (isset($_GET["filter_periode"])) {
                     <span><?= "Rp" . number_format($total_biaya, 0, ',', '.') ?></span>
                 </div>
 
-
             </div>
-
             <!-- LABA BERSIH -->
             <br>
             <div class="laporan-laba-bersih">

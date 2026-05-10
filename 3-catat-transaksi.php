@@ -46,7 +46,6 @@ if (isset($_POST["submit"])) {
         </div>
 
         <div class="nav-kanan">
-
             <div class="nav-menu">
                 <div class="nav-list hidden" id="nav_list">
                     <ul>
@@ -79,7 +78,6 @@ if (isset($_POST["submit"])) {
                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
                     <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
                 </svg><?= $_SESSION["role"] . "|" . $_SESSION["username"] ?>
-
         </div>
     </nav>
 
@@ -192,16 +190,14 @@ if (isset($_POST["submit"])) {
                             <?php if ($data['Jenis'] == "Masuk") { ?>
                                 <p class="jenis-masuk"><?= $data['Jenis'] ?></p>
                                 <p class="jumlah-masuk"><?= "+Rp" . number_format($data['Jumlah'], 0, ',', '.') ?></p>
-
                             <?php } else { ?>
                                 <p class="jenis-keluar"><?= $data['Jenis'] ?></p>
                                 <p class="jumlah-keluar"><?= "-Rp" . number_format($data['Jumlah'], 0, ',', '.') ?></p><?php } ?>
-
+                            
                             <!-- ubah -->
                             <button type="button" class="edit btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-ubah<?= $data['No'] ?>">
                                 Edit
                             </button>
-
                             <!-- panggil fungsi u/ mengubah data dengan membawa satu data transaksi, modal akan muncul apabila user Pilih ubah -->
                             <?php
                             modal_ubah_data($data);

@@ -19,7 +19,6 @@ if (isset($_POST['simpan_profil'])) {
     exit();
 }
 
-
 $nama_toko      = $_SESSION["nama_toko"]      ?? "Toko Sembako Makmur";
 $deskripsi_toko = $_SESSION["deskripsi_toko"] ?? "Pusat kendali operasional Toko Sembako Makmur. Kelola transaksi pendapatan, pengeluaran, dan laporan laba rugi secara terpusat dan otomatis.";
 
@@ -230,9 +229,9 @@ function formatRp($angka)
                         <div class="b">
                             <!-- jumlah --> <!-- jenis -->
                             <?php if ($data['Jenis'] == "Masuk") { ?>
-                                <p class="jumlah-masuk"><?= "+Rp" . $data['Jumlah'] ?></p>
+                                <p class="jumlah-masuk"><?= "+Rp" . number_format($data['Jumlah'], 0, ',', '.') ?></p>
                                 <p class="jenis-masuk"><?= $data['Jenis'] ?></p> <?php } else { ?>
-                                <p class="jumlah-keluar"><?= "-Rp" . $data['Jumlah'] ?></p>
+                                <p class="jumlah-keluar"><?= "-Rp" . number_format($data['Jumlah'], 0, ',', '.') ?></p>
                                 <p class="jenis-keluar"><?= $data['Jenis'] ?></p><?php } ?>
 
                             <!-- ubah -->

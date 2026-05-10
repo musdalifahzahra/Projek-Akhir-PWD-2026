@@ -5,7 +5,6 @@
   z-index: 2;
   width: 100%;
   min-height: auto;
-  /* background-color: var(--color-bag-web); */
   padding: 35px 20px;
   gap: 20px;
   align-items: center;
@@ -179,6 +178,41 @@ p {
   color: var(--color-nav);
   background-color: var(--color-kategori-bg);
 }
+.kategori.PenjualanPagi{
+  text-align: center;
+  color: #2d5fa0 ;
+  background-color: #c8daf5 ;
+}
+.kategori.PenjualanSiang{
+  text-align: center;
+  color: #1e4f8a ;
+  background-color: #b8d4f0   ;
+}
+.kategori.PenjualanMalam{
+  text-align: center;
+  color: #154070 ;
+  background-color: #a8c8eb ;
+}
+.kategori.BelanjaStok{
+  text-align: center;
+  color: #a04818 ;
+  background-color: #fde0c8 ;
+}
+.kategori.Gaji{
+  text-align: center;
+  color: #6030a0 ;
+  background-color: #e0cef5 ;
+}
+.kategori.Operasional{
+  text-align: center;
+  color: #a0304a ;
+  background-color: #f5d4e0 ;
+}
+.kategori.Lain-lain{
+  text-align: center;
+  color: #3a6648 ;
+  background-color: #dde8e0 ;
+}
 .jenis-masuk {
   color: var(--color-pemasukan);
   background-color: var(--color-pemasukan-bg);
@@ -190,21 +224,20 @@ p {
   border: 1px solid #ffcdd2;
 }
 .Owner {
-  background-color: #97c1ff;
-  color: #084079;
+  background-color: #dce8f8 ;
+  color: #3a6fa8;
   padding: 5px 10px;
 }
 .Kasir {
-  background-color: #d8fef1;
-  color: #085041;
+  background-color: #d4f0e8;
+  color: #1a7a55;
   padding: 5px 10px;
 }
 .Admin {
-  background-color: #faeeda;
-  color: #633806;
+  background-color: #fdefd4 ;
+  color: #a06820;
   padding: 5px 10px;
 }
-
 .jumlah-masuk {
   color: var(--color-pemasukan-angka);
   text-align: right;
@@ -213,6 +246,7 @@ p {
   color: var(--color-pengeluaran);
   text-align: right;
 }
+
 /* responsif */
 @media screen and (max-width: 768px) {
   .wrap {
@@ -229,7 +263,6 @@ p {
   .wrap {
     padding: 20px 20px;
   }
-
   p.jumlah-keluar,
   p.jumlah-masuk {
     font-size: small;

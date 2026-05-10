@@ -57,7 +57,6 @@ function formatRp($a)
     <link rel="stylesheet" href="template-css.css">
     <link rel="stylesheet" href="5-riwayat-transaksi-css.css">
     <link rel="stylesheet" href="3-catat-transaksi-css.css">
-
 </head>
 
 <body>
@@ -165,7 +164,16 @@ function formatRp($a)
                                 <td><?= date('d M Y', strtotime($row['Tanggal'])) ?></td>
                                 <td style="text-transform:capitalize"><?= htmlspecialchars($row['Keterangan']) ?></td>
                                 <td style="color:#64748b;">
-                                    <div class="kategori"><?= htmlspecialchars($row['Kategori']) ?></div>
+                                    <div class="kategori
+                                    <?= match ($row['Kategori']) {
+                                        "Penjualan Pagi"  => "PenjualanPagi",
+                                        "Penjualan Siang" => "PenjualanSiang",
+                                        "Penjualan Malam" => "PenjualanMalam",
+                                        "Belanja Stok" => "BelanjaStok",
+                                        "Operasional" => "Operasional",
+                                        "Gaji" => "Gaji",
+                                        "Lain-lain" => "lainlain"
+                                    } ?>"><?= htmlspecialchars($row['Kategori']) ?></div>
                                 </td>
                                 <td>
                                     <?php if ($row['Jenis'] == "Masuk") { ?>

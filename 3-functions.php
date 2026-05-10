@@ -18,7 +18,7 @@ function tambah_data($data_insert)
 
     mysqli_query($conn, $insert);
 
-    //mengembalikan nilai, cek berhasil apa ngga. kalo (1) = berhasil, (-1)= tidak berhasil;
+    //mengembalikan nilai, cek berhasil atau tidak. (1) = berhasil, (-1)= tidak berhasil;
     return mysqli_affected_rows($conn);
 }
 
@@ -97,16 +97,14 @@ function tambah_data_pengguna($data_insert)
 
     mysqli_query($conn, $insert);
 
-    //mengembalikan nilai, cek berhasil apa ngga. kalo (1) = berhasil, (-1)= tidak berhasil;
+    //mengembalikan nilai, cek berhasil atau tidak. (1) = berhasil, (-1)= tidak berhasil;
     return mysqli_affected_rows($conn);
 }
-
 
 // mengubah data pengguna(UPDATE)
 function ubah_pengguna($data)
 {
     global $conn;
-
     // ambil data
     $username = $data["username"];
     $password = $data["password"];
@@ -124,6 +122,7 @@ function ubah_pengguna($data)
 
     return mysqli_affected_rows($conn);
 }
+
 //panggil fungsi ubah dan cek data berhasil diubah atau tidak
 if (isset($_POST["submit-ubah-pengguna"])) {
     if (ubah_pengguna($_POST) > 0) {

@@ -9,11 +9,15 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
 }
 
 if (isset($_POST["submit-pengguna"])) {
-    tambah_data_pengguna($_POST);
-}
-
-if (isset($_POST)) {
-    // modal_ubah_data_pengguna($_POST);
+    $data = read("SELECT * FROM users");
+    foreach ($data as $row):
+        if ((($_POST["username"]) == $row["username"])) {
+            $_SESSION["error_username"] = " Username Telah Digunakan";
+        }
+    endforeach;
+    if (!isset($_SESSION["error_username"])) {
+        tambah_data_pengguna($_POST);
+    }
 }
 ?>
 
@@ -111,10 +115,15 @@ if (isset($_POST)) {
                     <label for="role" class="form-label">role</label>
                     <input type="text" class="form-control" id="role" name="role" value="Kasir" readonly>
                 </div>
-
                 <div class="col-12 col-md-auto d-flex align-items-end justify-content-end">
                     <button type="submit" class="catat btn btn-primary" id="catat" name="submit-pengguna" required> Tambah</button>
                 </div>
+                <span>
+                    <?php
+                    if (isset($_SESSION["error_username"])) echo $_SESSION["error_username"];
+                    ?>
+                </span>
+                <?php unset($_SESSION["error_username"]); ?>
             </form>
         </div>
 
@@ -123,10 +132,10 @@ if (isset($_POST)) {
             <div class="data-pengguna" style="width: 100%;">
                 <table style="width: 100%;">
                     <tr class="table-header">
-                        <td style="text-align: center;">NO</td>
-                        <td>USERNAME</td>
-                        <td>PASSWORD</td>
-                        <td style="text-align: center;">ROLE</td>
+                        <td style="text-align: center;">No.</td>
+                        <td>Username</td>
+                        <td>Password</td>
+                        <td style="text-align: center;">Role</td>
                         <td></td>
                     </tr>
                     <?php
@@ -167,21 +176,17 @@ if (isset($_POST)) {
                                     </a>
                                 </td>
                             </tr>
-
                     <?php $i++;
                         endif;
                     endforeach;
                     ?>
-
                 </table>
             </div>
         </div>
-
     </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
     <!-- Nav responsif-->
     <script src="0-nav-list.js"></script>
 </body>
