@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Bulan Mei 2026 pada 14.23
+-- Waktu pembuatan: 10 Bulan Mei 2026 pada 10.29
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -141,9 +141,7 @@ INSERT INTO `transaksi` (`No`, `Tanggal`, `Keterangan`, `Kategori`, `Jenis`, `Ju
 (176, '2026-05-02', 'penjualan beras', 'Penjualan Pagi', 'Masuk', 200000, '13 kg'),
 (177, '2026-05-02', 'Beli stok mie ', 'Belanja Stok', 'Keluar', 100000, '2 dus'),
 (178, '2026-05-03', 'gaji karyawan', 'Gaji', 'Keluar', 100000, ''),
-(179, '2026-05-03', 'penjualan telur', 'Penjualan Siang', 'Masuk', 250000, ''),
-(181, '2026-05-04', 'beli stok minyak', 'Belanja Stok', 'Keluar', 250000, '14 liter'),
-(182, '2026-05-05', 'MUSDALIFAH KERENNNN KALII', 'Penjualan Pagi', 'Masuk', 10000000, 'AHHHAAYYYY YHAHAHAHAHA');
+(179, '2026-05-03', 'penjualan telur', 'Penjualan Siang', 'Masuk', 250000, '');
 
 -- --------------------------------------------------------
 
@@ -153,18 +151,21 @@ INSERT INTO `transaksi` (`No`, `Tanggal`, `Keterangan`, `Kategori`, `Jenis`, `Ju
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `username` varchar(20) DEFAULT NULL,
-  `password` varchar(20) DEFAULT NULL
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `role` enum('Owner','Admin','Kasir') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`) VALUES
-(1, 'owner', 'owner123'),
-(2, 'admin', 'admin123'),
-(3, 'kasir', 'kasir123');
+INSERT INTO `users` (`id`, `username`, `password`, `role`) VALUES
+(1, 'musdalifah', 'musdalifah135', 'Owner'),
+(2, 'salsa', 'salsa123', 'Admin'),
+(7, 'zannaafi', 'zannaafi111', 'Kasir'),
+(9, 'aini', 'aini222', 'Kasir'),
+(27, 'nur', 'nur333', 'Kasir');
 
 --
 -- Indexes for dumped tables
@@ -190,13 +191,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=183;
+  MODIFY `No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=192;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
