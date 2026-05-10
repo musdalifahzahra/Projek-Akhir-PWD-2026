@@ -109,7 +109,7 @@ function formatRp($a)
         <div class="card">
             <h5 style="margin-bottom: 10px;">Riwayat Transaksi</h5>
 
-            <form method="GET" class="row 9-3" action="">
+            <form method="GET" class="row g-3" action="">
                 <div class="filter-wrap">
                     <div class="col-md-3">
                         <label class="form-label">Jenis</label>
@@ -132,8 +132,8 @@ function formatRp($a)
                         <label class="form-label">Bulan</label>
                         <input type="month" name="bulan" value="<?= htmlspecialchars($f_bulan) ?>">
                     </div>
-                    <div class="col-md-1"><button type="submit" class="btn btn-sm filter">Filter</button></div>
-                    <div class="col-md-1"><a href="5-riwayat-transaksi.php" class="btn btn-outline-secondary btn-sm">Reset</a></div>
+                    <div class="col-md-1"><button type="submit" class="filter">Filter</button></div>
+                    <div class="col-md-1"><a href="5-riwayat-transaksi.php" class="btn btn-sm reset">Reset</a></div>
                 </div>
             </form>
         </div>

@@ -284,8 +284,8 @@ function formatRp($angka)
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button type="submit" name="simpan_profil" class="btn btn-primary">Simpan</button>
+                        <button type="submit" name="simpan_profil" class=" modal-simpan">Simpan</button>
+                        <button type="button" class=" modal-batal" data-bs-dismiss="modal">Batal</button>
                     </div>
                 </form>
             </div>
