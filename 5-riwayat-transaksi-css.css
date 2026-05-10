@@ -40,7 +40,6 @@
   color: var(--color-card);
   background-color: var(--color-tulisan-utama) !important;
 }
-
 .table-wrap {
   width: 100%;
   overflow-x: auto;
@@ -73,10 +72,6 @@
 .table tbody tr:hover td {
   background-color: var(--color-bag-web)!important;
 }
-
-
-
-
 
 @media (max-width: 768px) {
   .table {

@@ -163,20 +163,24 @@ function formatRp($angka)
                 </div>
 
                 <p class="desc"><?= htmlspecialchars($deskripsi_toko) ?></p>
-                <div class="actions" <?= ($_SESSION["role"] == "Kasir") ? "hidden" : "" ?>>
-                    <a href="#" class=" edit-profile"
-                        data-bs-toggle="modal" data-bs-target="#modalProfil">
-                        Edit Profil
-                    </a>
-                    <a href="1-logout.php" class=" edit-profile">
-                        Logout
-                    </a>
-                </div>
-                <div class="actions" <?= ($_SESSION["role"] != "Kasir") ? "hidden" : "" ?> style="display: flex;">
-                    <a href="1-logout.php" class=" edit-profile">
-                        Logout
-                    </a>
-                </div>
+                <?php if (($_SESSION["role"] != "Kasir")) { ?>
+                    <div class="actions">
+                        <a href="#" class=" edit-profile"
+                            data-bs-toggle="modal" data-bs-target="#modalProfil">
+                            Edit Profil
+                        </a>
+                        <a href="1-logout.php" class=" edit-profile">
+                            Logout
+                        </a>
+                    </div>
+                <?php } ?>
+                <?php if (($_SESSION["role"] == "Kasir")) { ?>
+                    <div class="actionskasir">
+                        <a href="1-logout.php" class=" edit-profile">
+                            Logout
+                        </a>
+                    </div>
+                <?php } ?>
             </div>
         </div>
 

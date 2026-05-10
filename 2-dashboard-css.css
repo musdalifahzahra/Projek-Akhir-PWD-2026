@@ -8,7 +8,6 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
-
   width: 100%;
   padding: 50px 20px;
 }
@@ -79,18 +78,15 @@
   border-radius: 18px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
 }
-
 .card-body {
   padding: 56px 24px 28px;
 }
-
 .informasi-toko {
   display: flex;
   flex-direction: column;
   gap: 6px;
   margin-bottom: 20px;
 }
-
 .satu-info {
   display: flex;
   align-items: center;
@@ -98,13 +94,11 @@
   font-size: 13px;
   color: var(--color-belum-dipencet);
 }
-
 .meta-icon {
   width: 20px;
   font-size: 14px;
   text-align: center;
 }
-
 .desc {
   margin-bottom: 1.5rem;
   padding-bottom: 1.5rem;
@@ -113,13 +107,16 @@
   color: var(--color-tulisan-utama);
   border-bottom: 0.5px solid #f0f0f0;
 }
-
 .actions {
   display: grid;
   grid-template-columns: 6fr 1fr;
   gap: 10px;
 }
-
+.actionskasir {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
 .edit-profile {
   min-width: min-content;
   padding: 10px;
@@ -132,23 +129,19 @@
   border: 1px solid var(--color-belum-dipencet);
   border-radius: 10px;
 }
-
 .edit-profile:hover {
   background-color: var(--color-bag-web);
   color: var(--color-tulisan-utama);
 }
-
 .summary-label {
   font-size: var(--font-judul-card);
   font-weight: bold;
 }
-
 .lihat-semua {
   padding: 5px 10px;
   background-color: var(--color-nav);
   border-radius: 8px;
 }
-
 .lihat-semua:hover {
   background-color: var(--color-tulisan-utama);
 }
