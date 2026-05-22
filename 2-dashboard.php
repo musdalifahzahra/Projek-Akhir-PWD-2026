@@ -74,7 +74,7 @@ function formatRp($angka)
                 <path d="M17 14h.01" />
                 <path d="M7 7h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14" />
             </svg>
-            <span><?= $_SESSION["nama_toko"] ?></span>
+            <span><span>Sembako Makmur</span>
         </div>
 
         <div class="nav-kanan">
@@ -273,8 +273,8 @@ function formatRp($angka)
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label class="form-label">Nama Toko</label>
-                            <input type="text" class="form-control" name="nama_toko"
+                            <!-- <label class="form-label">Nama Toko</label> -->
+                            <input type="hidden" class="form-control" name="nama_toko"
                                 value="<?= htmlspecialchars($nama_toko) ?>" required>
                         </div>
                         <div class="mb-3">

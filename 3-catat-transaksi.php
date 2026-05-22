@@ -42,7 +42,7 @@ if (isset($_POST["submit"])) {
                 <path d="M17 14h.01" />
                 <path d="M7 7h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14" />
             </svg>
-            <span><?= $_SESSION["nama_toko"] ?></span>
+            <span>Sembako Makmur</span>
         </div>
 
         <div class="nav-kanan">
@@ -193,7 +193,7 @@ if (isset($_POST["submit"])) {
                             <?php } else { ?>
                                 <p class="jenis-keluar"><?= $data['Jenis'] ?></p>
                                 <p class="jumlah-keluar"><?= "-Rp" . number_format($data['Jumlah'], 0, ',', '.') ?></p><?php } ?>
-                            
+
                             <!-- ubah -->
                             <button type="button" class="edit btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-ubah<?= $data['No'] ?>">
                                 Edit
